@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import useLocalStorage from 'use-local-storage';
+
+import Navigation from './components/navigation/Navigation';
+import Home from './pages/home/Home';
+import AboutMe from './pages/about-me/AboutMe';
+import MyProjects from './pages/my-projects/MyProjects';
+
+import { Container, Wrapper } from './App.styles';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [pageRender, setPageRender] = useLocalStorage('page', 'home');
+
+	return (
+		<Container>
+			<Navigation pageRender={pageRender} setPageRender={setPageRender} />
+			<Wrapper>
+				{pageRender === 'home' && <Home />}
+				{pageRender === 'about-me' && <AboutMe />}
+				{pageRender === 'my-project' && <MyProjects />}
+			</Wrapper>
+		</Container>
+	);
 }
 
 export default App;
