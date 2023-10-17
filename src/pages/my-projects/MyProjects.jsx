@@ -1,22 +1,9 @@
 import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 
-import {
-	Wrapper,
-	Box,
-	Container,
-	Image,
-	Title,
-	Year,
-	TextContainer,
-	Overlay,
-	ImageContainer,
-	SelectedProjectContainer,
-	SelectedProjectContent,
-	CloseButton,
-} from './MyProjects.styles';
+import { Wrapper, Box, Container, Image, Title, Text, TextContainer, Overlay, ImageContainer } from './MyProjects.styles';
 import { Heading, Paragraph } from '../../App.styles';
 import { MainProjects, SideProjects } from '../../Datas';
+import Modal from '../../components/modal/Modal';
 
 const MyProjects = () => {
 	const [selectedId, setSelectedId] = useState(null);
@@ -36,7 +23,7 @@ const MyProjects = () => {
 						</ImageContainer>
 						<TextContainer>
 							<Title>{item.title}</Title>
-							<Year>{item.year}</Year>
+							<Text>{item.year}</Text>
 						</TextContainer>
 					</Container>
 				))}
@@ -51,23 +38,12 @@ const MyProjects = () => {
 						</ImageContainer>
 						<TextContainer>
 							<Title>{item.title}</Title>
-							<Year>{item.year}</Year>
+							<Text>{item.year}</Text>
 						</TextContainer>
 					</Container>
 				))}
 			</Box>
-			<AnimatePresence>
-				{selectedProject && (
-					<SelectedProjectContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-						<SelectedProjectContent initial={{ scale: 0.8 }} animate={{ scale: 1 }} exit={{ scale: 0.8 }}>
-							<Title>{selectedProject.title}</Title>
-							<Year>{selectedProject.subtitle}</Year>
-							<Image src={selectedProject.image} alt="" />
-							<CloseButton onClick={() => setSelectedId(null)}>X</CloseButton>
-						</SelectedProjectContent>
-					</SelectedProjectContainer>
-				)}
-			</AnimatePresence>
+			<Modal selectedProject={selectedProject} setSelectedId={setSelectedId} />
 		</Wrapper>
 	);
 };
