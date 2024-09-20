@@ -1,27 +1,67 @@
-# Halo, Saya Fachran Sandi
+# Halo, Saya Fachran Sandi 👋
 
-Saya adalah seorang fresh graduate dari jurusan Informatika di Universitas UPNVJ dengan minat di bidang Front-End Development. Saya menguasai React.js, Redux, dan Sass, dan saya senang berkolaborasi dalam proyek-proyek yang berkaitan dengan pengembangan web modern.
+Saya adalah seorang Web Developer dan lulusan Teknik Informatika dari Universitas Pembangunan Nasional Veteran Jakarta (UPNVJ). Saya memiliki minat utama dalam Front-End Development menggunakan teknologi modern seperti React.js, Redux, dan Sass, serta selalu bersemangat untuk terus belajar dan berkolaborasi dalam proyek-proyek pengembangan web yang menantang.
 
-## Pendidikan
+## 🎓 Pendidikan
 
-- Sarjana Teknik Informatika dari UPNVJ 2023
+- **Sarjana Teknik Informatika** - Universitas Pembangunan Nasional Veteran Jakarta (UPNVJ), lulus tahun 2023.
 
-## Kemampuan
+## 💡 Kemampuan
 
 - **Bahasa Pemrograman**: JavaScript, HTML, CSS
-- **Framework**: React.js
+- **Front-End Framework**: React.js
 - **State Management**: Redux
-- **Pengembangan Tampilan**: Sass
+- **CSS Preprocessor**: Sass
 - **Pengujian**: Jest
-- **Manajemen Versi**: Git, GitHub
+- **Version Control**: Git, GitHub
+- **Alat Pengembangan Lainnya**: Figma (untuk desain UI), VSCode
 
-## Hubungi Saya
+## 🔗 Hubungi Saya
 
-Anda bisa menghubungi saya melalui email di [Fachran Sandi](mailto:fachransandi@gmail.com) atau melalui [LinkedIn](https://www.linkedin.com/in/fachransandi/).
+Saya selalu terbuka untuk peluang baru dalam pengembangan web, baik kolaborasi proyek maupun pekerjaan penuh waktu. Anda dapat menghubungi saya melalui:
 
-Terima kasih sudah mengunjungi profil saya. Saya selalu terbuka untuk peluang baru dan proyek kolaborasi yang menarik!
+- 📧 Email: [fachransandi@gmail.com](mailto:fachransandi@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/fachransandi](https://www.linkedin.com/in/fachransandi/)
 
-## Statistik Github
+## 📊 Statistik GitHub
 
-![](https://raw.githubusercontent.com/tiedsandi/tiedsandi/master/generated/overview.svg#gh-dark-mode-only)
-![](https://raw.githubusercontent.com/tiedsandi/tiedsandi/master/generated/languages.svg#gh-dark-mode-only)
+![Overview](https://raw.githubusercontent.com/tiedsandi/tiedsandi/master/generated/overview.svg#gh-dark-mode-only)
+![Languages](https://raw.githubusercontent.com/tiedsandi/tiedsandi/master/generated/languages.svg#gh-dark-mode-only)
+
+---
+
+Terima kasih telah mengunjungi profil saya! Saya antusias untuk terlibat dalam proyek-proyek yang menarik dan selalu terbuka untuk tantangan baru di dunia teknologi.
+
+# Halo, Saya Fachran Sandi 👋
+
+Saya adalah seorang **Fresh Graduate** dengan gelar Sarjana Teknik Informatika dari **Universitas Pembangunan Nasional Veteran Jakarta (UPNVJ)**. Minat utama saya adalah dalam pengembangan **Front-End Development** menggunakan teknologi modern seperti **React.js**, **Redux**, dan **Sass**. Saya antusias untuk terus belajar dan berkolaborasi dalam proyek-proyek yang menantang di dunia pengembangan web.
+
+## 🎓 Pendidikan
+
+- **Sarjana Teknik Informatika** - Universitas Pembangunan Nasional Veteran Jakarta (UPNVJ), lulus tahun 2023.
+
+## 💡 Kemampuan
+
+- **Bahasa Pemrograman**: JavaScript, HTML, CSS
+- **Front-End Framework**: React.js
+- **State Management**: Redux
+- **CSS Preprocessor**: Sass
+- **Pengujian**: Jest
+- **Version Control**: Git, GitHub
+- **Alat Pengembangan Lainnya**: Figma (untuk desain UI), VSCode
+
+## 🔗 Hubungi Saya
+
+Saya selalu terbuka untuk peluang baru dalam pengembangan web, baik kolaborasi proyek maupun pekerjaan penuh waktu. Anda dapat menghubungi saya melalui:
+
+- 📧 Email: [fachransandi@gmail.com](mailto:fachransandi@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/fachransandi](https://www.linkedin.com/in/fachransandi/)
+
+## 📊 Statistik GitHub
+
+![Overview](https://raw.githubusercontent.com/tiedsandi/tiedsandi/master/generated/overview.svg#gh-dark-mode-only)
+![Languages](https://raw.githubusercontent.com/tiedsandi/tiedsandi/master/generated/languages.svg#gh-dark-mode-only)
+
+---
+
+Terima kasih telah mengunjungi profil saya! Saya antusias untuk terlibat dalam proyek-proyek yang menarik dan selalu terbuka untuk tantangan baru di dunia teknologi.

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* color */
+  --primary-color: #333;
+  --secondary-color: #201e1f;
+  --background-color: #f8f7f9;
+  --background-color-secondary: #ffbf76;
+
+  --text-color: #333;
+  --border-color: #201e1f1e;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  color: var(--text-color);
+  background: var(--background-color);
+  font-family: var(--font-body);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
