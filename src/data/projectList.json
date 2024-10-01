@@ -39,6 +39,36 @@
       "description": "Secondhand adalah aplikasi marketplace untuk jual beli barang bekas dalam kondisi baik.",
       "tags": ["React.Js", "Redux", "SASS", "MUI", "RestAPI"],
       "selected": false
+    },
+    {
+      "name": "Summary Component",
+      "company": "Frontend Mentor",
+      "imgName": "summary-card.png",
+      "date": "Juli 2024",
+      "linkGithub": "https://github.com/tiedsandi/summary-card-Fe_challange",
+      "description": "Frontend Mentor challenges - Summary Component",
+      "tags": ["React.Js", "Tailwind"],
+      "selected": false
+    },
+    {
+      "name": "QR Component",
+      "company": "Frontend Mentor",
+      "imgName": "qr-code.png",
+      "date": "Juli 2024",
+      "linkGithub": "https://github.com/tiedsandi/QR-code-component-Fe_challange",
+      "description": "Frontend Mentor challenges - QR Component",
+      "tags": ["Next.js"],
+      "selected": false
+    },
+    {
+      "name": "Blog Card",
+      "company": "Frontend Mentor",
+      "imgName": "blog-preview.png",
+      "date": "Juli 2024",
+      "linkGithub": "https://github.com/tiedsandi/Blog-preview-card-Fe_challange",
+      "description": "Frontend Mentor challenges - Blog Card",
+      "tags": ["Next.js"],
+      "selected": false
     }
   ]
 }

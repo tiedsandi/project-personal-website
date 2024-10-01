@@ -16,14 +16,15 @@ const Card = (props) => {
   const {name, company, imgName, date, linkGithub, description, tags} = props.data;
   return (
     <Dialog>
-      <DialogTrigger className='relative w-full xl:w-[calc(33.333333%-1rem)] sm:w-[calc(50%-1rem)] h-80 after:content-[""] after:absolute after:bg-black after:w-full after:h-full after:bottom-0 after:right-0 after:opacity-30 after:rounded-xl hover:after:opacity-60'>
+      <DialogTrigger className='relative w-full xl:w-[calc(33.333333%-1rem)] sm:w-[calc(50%-1rem)] sm:h-52 md:h-64 h-full after:content-[""] after:absolute after:bg-black after:w-full after:h-full after:bottom-0 after:right-0 after:opacity-30 after:rounded-xl hover:after:opacity-60'>
         <Image
           priority
           src={`/images/demo/${imgName}`}
           alt='my-image'
-          fill
+          width={30}
+          height={30}
           sizes='100%'
-          className='object-cover rounded-xl '
+          className='object-contain sm:object-cover rounded-xl w-full h-full '
         />
       </DialogTrigger>
       <DialogContent>

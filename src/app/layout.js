@@ -35,7 +35,7 @@ export default function RootLayout({children}) {
         />
       </head>
       <body className={`${RubikMonoOne.variable} ${splineSansMono.variable} antialiased`}>
-        <div className='flex flex-col max-w-screen-2xl m-auto xl:my-4 lg:gap-4 shadow-lg border-[#e9e9e9] border-2'>
+        <div className='flex flex-col max-w-screen-2xl m-auto xl:my-4 lg:gap-4 2xl:shadow-lg 2xl:border-[#e9e9e9] 2xl:border-2'>
           <Header />
           {children}
           <footer className='text-center py-8  lg:my-2'>
