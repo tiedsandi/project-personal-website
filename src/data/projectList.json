@@ -20,7 +20,7 @@
       "linkGithub": "https://github.com/tiedsandi/landing-page-bromo.git",
       "description": "Landing page tentang Gunung Bromo dirancang khusus untuk memperkenalkan keindahan dan daya tarik Gunung Bromo di Indonesia.",
       "tags": ["React.Js", "SASS"],
-      "selected": true
+      "selected": false
     },
     {
       "id": 3,
@@ -86,7 +86,7 @@
       "linkGithub": "https://github.com/tiedsandi/project_next_movie_db",
       "description": "Web berbasis Next.JS, API fetching data dari MovieDB ",
       "tags": ["Next.js", "Tailwind", "RestAPI"],
-      "selected": false
+      "selected": true
     }
   ]
 }
