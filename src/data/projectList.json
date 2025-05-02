@@ -9,7 +9,7 @@
       "linkGithub": "https://github.com/tiedsandi/foodie-app",
       "description": "NextLevel Food adalah platform digital yang menyediakan berbagai resep yang mudah diakses.Nikmati pengalaman memasak dan berbagi resep di NetLevel Food!",
       "tags": ["Next.js"],
-      "selected": true
+      "selected": false
     },
     {
       "id": 2,
@@ -86,6 +86,17 @@
       "linkGithub": "https://github.com/tiedsandi/project_next_movie_db",
       "description": "Web berbasis Next.JS, API fetching data dari MovieDB ",
       "tags": ["Next.js", "Tailwind", "RestAPI"],
+      "selected": true
+    },
+    {
+      "id": 9,
+      "name": "Point Of Sales",
+      "company": "PPKD BNSP",
+      "imgName": "pos.png",
+      "date": "Mei 2025",
+      "linkGithub": "https://github.com/tiedsandi/project_point-of-sales",
+      "description": "aplikasi transaksi yang dirancang khusus untuk memenuhi kebutuhan warung makan.",
+      "tags": ["Laravel", "Tailwind", "Mysql"],
       "selected": true
     }
   ]
