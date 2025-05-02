@@ -98,6 +98,17 @@
       "description": "aplikasi transaksi yang dirancang khusus untuk memenuhi kebutuhan warung makan.",
       "tags": ["Laravel", "Tailwind", "Mysql"],
       "selected": true
+    },
+    {
+      "id": 10,
+      "name": "POS API",
+      "company": "",
+      "imgName": "pos-api.png",
+      "date": "Mei 2025",
+      "linkGithub": "https://github.com/tiedsandi/project_pos-api",
+      "description": "Backend API untuk aplikasi Point of Sales (POS), termasuk AUTH, user, category, product.",
+      "tags": ["Laravel", "JWT", "MySQL", "Swagger"],
+      "selected": false
     }
   ]
 }
