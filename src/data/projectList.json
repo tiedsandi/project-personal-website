@@ -31,7 +31,7 @@
       "linkGithub": "https://github.com/tiedsandi/simple-todo",
       "description": "Dengan desain sederhana dan intuitif, aplikasi ini membantu pengguna tetap terorganisir tanpa gangguan.",
       "tags": ["React.Js", "Redux"],
-      "selected": true
+      "selected": false
     },
     {
       "id": 4,
@@ -90,6 +90,17 @@
     },
     {
       "id": 9,
+      "name": "POS API",
+      "company": "",
+      "imgName": "pos-api.png",
+      "date": "Mei 2025",
+      "linkGithub": "https://github.com/tiedsandi/project_pos-api",
+      "description": "Backend API untuk aplikasi Point of Sales (POS), termasuk AUTH, user, category, product.",
+      "tags": ["Laravel", "JWT", "MySQL", "Swagger"],
+      "selected": false
+    },
+    {
+      "id": 10,
       "name": "Point Of Sales",
       "company": "PPKD BNSP",
       "imgName": "pos.png",
@@ -100,15 +111,26 @@
       "selected": true
     },
     {
-      "id": 10,
-      "name": "POS API",
+      "id": 11,
+      "name": "Ement Backend",
       "company": "",
-      "imgName": "pos-api.png",
+      "imgName": "Ement-be.png",
       "date": "Mei 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_pos-api",
-      "description": "Backend API untuk aplikasi Point of Sales (POS), termasuk AUTH, user, category, product.",
-      "tags": ["Laravel", "JWT", "MySQL", "Swagger"],
+      "linkGithub": "https://github.com/tiedsandi/project_event-management-backend",
+      "description": "Backend API untuk aplikasi Event Management (EMENT), User Authentication (JWT), Role-Based Event Management, Event Registration, Cloudinary Uploads.",
+      "tags": ["Node.Js", "JWT", "MongoDB ", "Swagger", "Cloudinary"],
       "selected": false
+    },
+    {
+      "id": 12,
+      "name": "Event Mangement (EMENT)",
+      "company": "",
+      "imgName": "Ement-fe.png",
+      "date": "Mei 2025",
+      "linkGithub": "https://github.com/tiedsandi/project_event-management-frontend",
+      "description": "Ement adalah aplikasi manajemen event berbasis web yang memungkinkan pengguna untuk membuat, melihat, dan mendaftar ke berbagai event. Aplikasi ini dirancang untuk digunakan oleh publik secara umum.",
+      "tags": ["React.Js", "Tailwind", "Restful API"],
+      "selected": true
     }
   ]
 }
