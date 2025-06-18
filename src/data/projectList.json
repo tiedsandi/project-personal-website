@@ -5,132 +5,157 @@
       "name": "NextLevel Food",
       "company": "",
       "imgName": "foodie-app.png",
-      "date": "",
+      "date": "03 April 2024",
       "linkGithub": "https://github.com/tiedsandi/foodie-app",
-      "description": "NextLevel Food adalah platform digital yang menyediakan berbagai resep yang mudah diakses.Nikmati pengalaman memasak dan berbagi resep di NetLevel Food!",
+      "description": "NextLevel Food adalah platform digital yang menyediakan berbagai resep yang mudah diakses. Nikmati pengalaman memasak dan berbagi resep di NetLevel Food!",
       "tags": ["Next.js"],
-      "selected": false
+      "type": "frontend",
+      "fitur": ["List resep", "Detail resep", "Search", "Routing"]
     },
     {
       "id": 2,
       "name": "Landing Page Bromo",
       "company": "",
       "imgName": "bromo.png",
-      "date": "",
+      "date": "18 Maret 2024",
       "linkGithub": "https://github.com/tiedsandi/landing-page-bromo.git",
       "description": "Landing page tentang Gunung Bromo dirancang khusus untuk memperkenalkan keindahan dan daya tarik Gunung Bromo di Indonesia.",
       "tags": ["React.Js", "SASS"],
-      "selected": false
+      "type": "frontend",
+      "fitur": ["Responsive UI", "Scroll section", "Gallery"]
     },
     {
       "id": 3,
       "name": "Simple Todo",
       "company": "",
       "imgName": "todo.png",
-      "date": "Juli 2024",
+      "date": "10 Juli 2024",
       "linkGithub": "https://github.com/tiedsandi/simple-todo",
       "description": "Dengan desain sederhana dan intuitif, aplikasi ini membantu pengguna tetap terorganisir tanpa gangguan.",
       "tags": ["React.Js", "Redux"],
-      "selected": false
+      "type": "frontend",
+      "fitur": ["CRUD Todo", "Filter", "Persist state"]
     },
     {
       "id": 4,
       "name": "Second Hand",
       "company": "Final Project Binar",
       "imgName": "secondhand.png",
-      "date": "Juli 2024",
+      "date": "20 Juli 2024",
       "linkGithub": "https://github.com/tiedsandi/project-secondhandBinar",
       "description": "Secondhand adalah aplikasi marketplace untuk jual beli barang bekas dalam kondisi baik.",
       "tags": ["React.Js", "Redux", "SASS", "MUI", "RestAPI"],
-      "selected": false
+      "type": "fullstack",
+      "fitur": ["Login/Register", "CRUD Product", "Bid", "API Integration"]
     },
     {
       "id": 5,
       "name": "Summary Component",
       "company": "Frontend Mentor",
       "imgName": "summary-card.png",
-      "date": "Juli 2024",
+      "date": "10 Mei 2024",
       "linkGithub": "https://github.com/tiedsandi/summary-card-Fe_challange",
       "description": "Frontend Mentor challenges - Summary Component",
       "tags": ["React.Js", "Tailwind"],
-      "selected": false
+      "type": "frontend",
+      "fitur": ["Responsive Card", "Component Styling"]
     },
     {
       "id": 6,
       "name": "QR Component",
       "company": "Frontend Mentor",
       "imgName": "qr-code.png",
-      "date": "Juli 2024",
+      "date": "15 Mei 2024",
       "linkGithub": "https://github.com/tiedsandi/QR-code-component-Fe_challange",
       "description": "Frontend Mentor challenges - QR Component",
       "tags": ["Next.js"],
-      "selected": false
+      "type": "frontend",
+      "fitur": ["Minimal design", "Static content"]
     },
     {
       "id": 7,
       "name": "Blog Card",
       "company": "Frontend Mentor",
       "imgName": "blog-preview.png",
-      "date": "Juli 2024",
+      "date": "23 Mei 2024",
       "linkGithub": "https://github.com/tiedsandi/Blog-preview-card-Fe_challange",
       "description": "Frontend Mentor challenges - Blog Card",
       "tags": ["Next.js"],
-      "selected": false
+      "type": "frontend",
+      "fitur": ["Card Layout", "Blog Preview"]
     },
     {
       "id": 8,
       "name": "MovieDb",
       "company": "",
       "imgName": "movie-db.png",
-      "date": "November 2024",
+      "date": "15 November 2024",
       "linkGithub": "https://github.com/tiedsandi/project_next_movie_db",
-      "description": "Web berbasis Next.JS, API fetching data dari MovieDB ",
+      "description": "Web berbasis Next.JS, API fetching data dari MovieDB",
       "tags": ["Next.js", "Tailwind", "RestAPI"],
-      "selected": true
+      "type": "frontend",
+      "fitur": ["Movie List", "Search", "Detail Page", "Fetch API"]
     },
     {
       "id": 9,
       "name": "POS API",
       "company": "",
       "imgName": "pos-api.png",
-      "date": "Mei 2025",
+      "date": "10 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_pos-api",
       "description": "Backend API untuk aplikasi Point of Sales (POS), termasuk AUTH, user, category, product.",
       "tags": ["Laravel", "JWT", "MySQL", "Swagger"],
-      "selected": false
+      "type": "backend",
+      "fitur": ["JWT Auth", "CRUD", "Swagger Docs"]
     },
     {
       "id": 10,
+      "selected": true,
       "name": "Point Of Sales",
       "company": "PPKD BNSP",
       "imgName": "pos.png",
-      "date": "Mei 2025",
+      "date": "15 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_point-of-sales",
-      "description": "aplikasi transaksi yang dirancang khusus untuk memenuhi kebutuhan warung makan.",
+      "description": "Aplikasi transaksi yang dirancang khusus untuk memenuhi kebutuhan warung makan.",
       "tags": ["Laravel", "Tailwind", "Mysql"],
-      "selected": true
+      "type": "fullstack",
+      "fitur": ["Transaksi", "Laporan", "Kategori & Produk"]
     },
     {
       "id": 11,
+      "selected": true,
       "name": "Ement Backend",
       "company": "",
       "imgName": "Ement-be.png",
-      "date": "Mei 2025",
+      "date": "18 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_event-management-backend",
       "description": "Backend API untuk aplikasi Event Management (EMENT), User Authentication (JWT), Role-Based Event Management, Event Registration, Cloudinary Uploads.",
-      "tags": ["Node.Js", "JWT", "MongoDB ", "Swagger", "Cloudinary"],
-      "selected": false
+      "tags": ["Node.Js", "JWT", "MongoDB", "Swagger", "Cloudinary"],
+      "type": "backend",
+      "fitur": [
+        "Auth JWT",
+        "Event Register",
+        "Cloudinary Upload",
+        "Role-Based Access"
+      ]
     },
     {
       "id": 12,
+      "selected": true,
       "name": "Event Mangement (EMENT)",
       "company": "",
       "imgName": "Ement-fe.png",
-      "date": "Mei 2025",
+      "date": "20 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_event-management-frontend",
       "description": "Ement adalah aplikasi manajemen event berbasis web yang memungkinkan pengguna untuk membuat, melihat, dan mendaftar ke berbagai event. Aplikasi ini dirancang untuk digunakan oleh publik secara umum.",
       "tags": ["React.Js", "Tailwind", "Restful API"],
-      "selected": true
+      "type": "frontend",
+      "fitur": [
+        "Event List",
+        "Daftar Event",
+        "Login/Register",
+        "API Integration"
+      ]
     }
   ]
 }

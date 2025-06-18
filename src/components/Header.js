@@ -1,15 +1,15 @@
-import React from 'react';
-import Button from './Button';
-import Link from 'next/link';
+"use client";
+
+import React from "react";
+import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className='flex justify-between p-6'>
-      <Link href={'/'} className='font-logo text-2xl font-bold hover:underline'>
+    <header className="flex items-center justify-between px-6 py-4 shadow-sm bg-background text-primary">
+      <Link href="/" className="text-2xl font-bold font-logo hover:underline">
         Sandi
       </Link>
-      <Button />
-    </div>
+    </header>
   );
 };
 

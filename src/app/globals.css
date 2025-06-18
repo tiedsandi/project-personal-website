@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Root Color Variables */
 :root {
-  /* color */
   --primary-color: #333;
   --secondary-color: #201e1f;
   --background-color: #f8f7f9;
@@ -11,12 +11,20 @@
 
   --text-color: #333;
   --border-color: #201e1f1e;
+
+  --font-body: "Spline Sans Mono", sans-serif;
+  --radius: 0.5rem;
 }
 
+/* Dark Mode Support */
 /* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary-color: #e5e5e5;
+    --secondary-color: #121212;
+    --background-color: #0a0a0a;
+    --background-color-secondary: #222;
+    --text-color: #ededed;
+    --border-color: #ffffff1e;
   }
 } */
 
@@ -26,14 +34,37 @@ body {
   font-family: var(--font-body);
 }
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-base antialiased;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
 
-@layer base {
-  :root {
-    --radius: 0.5rem;
+  .fade-in-up {
+    @apply translate-y-4 opacity-0 animate-fadeInUp;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
   }
 }

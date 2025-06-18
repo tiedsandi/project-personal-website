@@ -1,12 +1,22 @@
-import Link from 'next/link';
-import React from 'react';
+"use client";
 
-const Button = () => {
+import Link from "next/link";
+import React from "react";
+import clsx from "clsx";
+
+const Button = ({ href, children, variant = "base", download = false }) => {
+  const styles = clsx(
+    "px-5 py-2 rounded-xl transition duration-150 text-sm font-medium",
+    {
+      base: "text-white bg-black hover:bg-gray-800",
+      inverted: "text-gray-800 border border-gray-700 hover:bg-gray-100",
+      ghost: "text-secondary bg-transparent hover:underline",
+    }[variant]
+  );
+
   return (
-    <Link
-      className='text-md px-2 py-1 bg-secondary hover:bg-background hover:text-secondary hover:shadow-md text-background rounded-lg transition ease-in-out delay-100'
-      href={'/project'}>
-      Proyek Saya
+    <Link href={href} download={download} className={styles}>
+      {children}
     </Link>
   );
 };
