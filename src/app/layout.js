@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${RubikMonoOne.variable} ${splineSansMono.variable} antialiased bg-background text-foreground dark:bg-[#111827] dark:text-white`}
       >
-        <div className="flex flex-col min-h-screen max-w-screen-2xl m-auto xl:my-4 lg:gap-4 2xl:shadow-lg 2xl:border-[#e9e9e9] 2xl:border-2">
+        <div className="flex flex-col min-h-screen max-w-[1380px] m-auto xl:my-4 lg:gap-4 2xl:shadow-lg 2xl:border-[#e9e9e9] 2xl:border-2">
           <Header />
           <main className="flex-grow">{children}</main>
           <footer className="py-8 text-center lg:my-2">

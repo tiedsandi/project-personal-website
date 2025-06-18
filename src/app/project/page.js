@@ -19,7 +19,7 @@ const Page = () => {
   const types = ["all", "frontend", "backend", "fullstack"];
 
   return (
-    <div className="flex flex-col p-3">
+    <div className="flex flex-col px-6">
       <h3 className="mb-6 text-2xl font-bold text-center underline">
         Proyek Saya
       </h3>
