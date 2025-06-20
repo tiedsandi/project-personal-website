@@ -26,8 +26,14 @@ const Hero = () => {
 
         {/* Tombol */}
         <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-          <Button href="/cv.pdf" download variant="base">
-            Download CV
+          <Button
+            href="/cv.pdf"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="base"
+          >
+            Download CV (PDF)
           </Button>
 
           <Button href="#projects" variant="inverted">
