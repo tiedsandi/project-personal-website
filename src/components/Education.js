@@ -15,7 +15,7 @@ const educationList = [
     title: "S1 - Informatika, UPNVJ",
     date: "Agustus 2018 - Januari 2023",
     description:
-      "Lulus Cum Laude dengan mata kuliah utama Struktur Data, Rekayasa Perangkat Lunak, dan Pemrograman Web. Aktif sebagai anggota komite berbagai acara di fakultas, serta menjadi asisten dosen Pengantar Basis Data tahun 2020.",
+      "Aktif sebagai anggota komite di berbagai kegiatan fakultas dan universitas, seperti acara, kompetisi, dan webinar, yang mengasah kemampuan organisasi, kerja tim, dan komunikasi. Pernah menjadi asisten dosen Pengantar Basis Data (2020), bertugas membimbing praktikum, membantu pemahaman materi, serta mendukung penyusunan soal dan penilaian.",
     image: UpnvjImage,
     alt: "Logo UPN Veteran Jakarta",
   },

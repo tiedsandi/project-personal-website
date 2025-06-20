@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import ProfileImage from "@/assets/foto-fachran.jpg";
 import Link from "next/link";
@@ -5,6 +6,13 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Button from "./Button";
 
 const Hero = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/cv.pdf";
+    link.setAttribute("download", "cv.pdf");
+    link.click();
+  };
+
   return (
     <section
       className="grid items-center grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2"
@@ -26,15 +34,12 @@ const Hero = () => {
 
         {/* Tombol */}
         <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-          <Button
-            href="/cv.pdf"
-            download
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="base"
+          <button
+            onClick={handleDownloadCV}
+            className="px-5 py-2 text-white transition bg-black rounded-xl hover:bg-gray-800"
           >
             Download CV (PDF)
-          </Button>
+          </button>
 
           <Button href="#projects" variant="inverted">
             Lihat Proyek
