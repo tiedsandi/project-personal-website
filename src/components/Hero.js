@@ -1,9 +1,11 @@
 "use client";
-import Image from "next/image";
-import ProfileImage from "@/assets/foto-fachran.jpg";
-import Link from "next/link";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+
 import Button from "./Button";
+import Image from "next/image";
+import Link from "next/link";
+import ProfileImage from "@/assets/foto-fachran.jpg";
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -70,7 +72,7 @@ const Hero = () => {
             <FaEnvelope />
           </Link>
           <Link
-            href="https://github.com/fachransandi"
+            href="https://github.com/tiedsandi"
             target="_blank"
             aria-label="GitHub"
             className="transition hover:text-black"
