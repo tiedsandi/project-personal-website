@@ -123,7 +123,7 @@
     },
     {
       "id": 11,
-      "selected": true,
+      "selected": false,
       "name": "Ement Backend",
       "company": "",
       "imgName": "Ement-be.png",
@@ -155,6 +155,25 @@
         "Daftar Event",
         "Login/Register",
         "API Integration"
+      ]
+    },
+    {
+      "id": 13,
+      "selected": true,
+      "name": "Crwn Shop",
+      "company": "",
+      "imgName": "crwn-shop.png",
+      "date": "20 Juni 2025",
+      "linkGithub": "https://github.com/tiedsandi/project_crwn-store/",
+      "description": "CRWN SHOP adalah aplikasi online shop pakaian yang dibangun untuk showcase portofolio dan pembelajaran fullstack menggunakan Firebase.",
+      "tags": ["React.Js", "Firebase", "Redux"],
+      "type": "fullstack",
+      "fitur": [
+        "Login / Authentication",
+        "Product CRUD",
+        "Shopping Cart & Checkout",
+        "Dashboard Chart",
+        "Export Excel"
       ]
     }
   ]
