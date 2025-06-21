@@ -7,16 +7,16 @@ import projectList from "@/data/projectList.json";
 
 const Page = () => {
   const projects = projectList.projects;
-  const [filterType, setFilterType] = useState("all");
+  const [filterType, setFilterType] = useState("semua");
 
   const sortProject = [...projects].sort((a, b) => b.id - a.id);
 
   const filteredProjects =
-    filterType === "all"
+    filterType === "semua"
       ? sortProject
       : sortProject.filter((project) => project.type === filterType);
 
-  const types = ["all", "frontend", "backend", "fullstack"];
+  const types = ["semua", "frontend", "backend", "fullstack"];
 
   return (
     <div className="flex flex-col px-6">
