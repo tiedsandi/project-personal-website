@@ -175,6 +175,27 @@
         "Dashboard Chart",
         "Export Excel"
       ]
+    },
+    {
+      "id": 14,
+      "selected": false,
+      "name": "Contact Management API",
+      "company": "",
+      "imgName": "go-lang.png",
+      "date": "28 Juni 2025",
+      "linkGithub": "https://github.com/tiedsandi/contact-management-api",
+      "description": "Contact Management API adalah backend service untuk mengelola data Users, Contacts, dan Addresses. Dibangun dengan arsitektur clean-layered menggunakan Golang dan Gin Framework, serta PostgreSQL sebagai database. Cocok untuk pembelajaran REST API dan JWT Authentication.",
+      "tags": ["Golang", "Gin", "PostgreSQL", "GORM", "JWT"],
+      "type": "backend",
+      "fitur": [
+        "User Authentication (JWT)",
+        "CRUD Users",
+        "CRUD Contacts dengan Pagination dan Filtering",
+        "CRUD Address per Contact",
+        "Layered Architecture (Controller, Service, Repository)",
+        "Password Hashing & Validation",
+        "Custom Middleware (Auth)"
+      ]
     }
   ]
 }
