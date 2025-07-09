@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 
 import Card from "@/components/Card";
@@ -41,17 +42,26 @@ const Page = () => {
         ))}
       </div>
 
-      <div className="flex flex-wrap justify-center gap-6">
-        {filteredProjects.length > 0 ? (
-          filteredProjects.map((data, index) => (
-            <Card key={index} data={data} />
-          ))
-        ) : (
-          <p className="w-full text-center text-gray-500">
-            Tidak ada proyek yang cocok.
-          </p>
-        )}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={filterType} // KEY PENTING! agar Framer Motion tahu kapan ganti filter
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="flex flex-wrap justify-center gap-6"
+        >
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((data, index) => (
+              <Card key={data.id} data={data} />
+            ))
+          ) : (
+            <p className="w-full text-center text-gray-500">
+              Tidak ada proyek yang cocok.
+            </p>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

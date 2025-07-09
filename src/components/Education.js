@@ -8,8 +8,18 @@ import Image from "next/image";
 
 import UpnvjImage from "@/assets/upnvj.png";
 import BinarImage from "@/assets/binar.png";
+import PPKDImage from "@/assets/ppkd.jpg";
 
 const educationList = [
+  {
+    id: "PPKD",
+    title: "Web Programming",
+    date: "Febuari 2025 - April 2025",
+    description:
+      "Mengikuti pelatihan Web Programming di PPKD Jakarta Pusat, mempelajari HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, dan jQuery. Fokus pada praktik langsung dan pengembangan proyek. Lulus dengan sertifikasi kompetensi BNSP sebagai pengembang web.",
+    image: PPKDImage,
+    alt: "Logo PPKD Jakarta Pusat",
+  },
   {
     id: "upnvj",
     title: "S1 - Informatika, UPNVJ",

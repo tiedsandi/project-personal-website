@@ -1,7 +1,7 @@
-import React from "react";
 import Card from "./Card";
 import DataList from "@/data/projectList.json";
 import Link from "next/link";
+import React from "react";
 
 const FeaturedProject = () => {
   const selectedProjects = DataList.projects.filter(
