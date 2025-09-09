@@ -4,10 +4,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Image from "next/image";
 
+import Image from "next/image";
+import MalatoursImage from "@/assets/mala-tours.jpeg";
 import SinarmasLandImage from "@/assets/sinarmas-land.jpeg";
-// import MalatoursImage from "@/assets/mala-tours.jpeg";
 
 const Experience = () => {
   return (
@@ -43,7 +43,6 @@ const Experience = () => {
           </AccordionContent>
         </AccordionItem>
 
-        {/* 
         <AccordionItem value="item-2">
           <AccordionTrigger>
             <div className="flex items-center gap-4 text-left">
@@ -64,13 +63,13 @@ const Experience = () => {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            Saya mengembangkan strategi konten untuk promosi dan optimisasi mesin pencari (SEO), 
-            yang berhasil meningkatkan peringkat pencarian organik hingga 80%. Selain itu, saya 
-            melakukan penelitian kata kunci dan optimisasi SEO untuk memastikan konten dioptimalkan 
-            agar mencapai peringkat lebih tinggi di mesin pencari.
+            Saya mengembangkan strategi konten untuk promosi dan optimisasi
+            mesin pencari (SEO), yang berhasil meningkatkan peringkat pencarian
+            organik hingga 80%. Selain itu, saya melakukan penelitian kata kunci
+            dan optimisasi SEO untuk memastikan konten dioptimalkan agar
+            mencapai peringkat lebih tinggi di mesin pencari.
           </AccordionContent>
         </AccordionItem>
-        */}
       </Accordion>
     </section>
   );

@@ -110,7 +110,7 @@
     },
     {
       "id": 10,
-      "selected": true,
+      "selected": false,
       "name": "Point Of Sales",
       "company": "PPKD BNSP",
       "imgName": "pos.png",
@@ -141,7 +141,7 @@
     },
     {
       "id": 12,
-      "selected": true,
+      "selected": false,
       "name": "Event Mangement (EMENT)",
       "company": "",
       "imgName": "Ement-fe.png",
@@ -195,6 +195,49 @@
         "Layered Architecture (Controller, Service, Repository)",
         "Password Hashing & Validation",
         "Custom Middleware (Auth)"
+      ]
+    },
+    {
+      "id": 15,
+      "selected": true,
+      "name": "Contact Management APP",
+      "company": "",
+      "imgName": "contact-management.png",
+      "date": "28 Juni 2025",
+      "linkGithub": "https://github.com/tiedsandi/project_typescript-contact-management",
+      "description": "Inspirasi project ini datang dari tutorial Programmer Zaman Now, namun seluruh implementasi backend dan integrasi dibuat dari nol.",
+      "tags": ["React", "Typescript", "RestAPI", "Tailwind"],
+      "type": "frontend",
+      "fitur": [
+        "Form Validation Real-time dengan Hook Form + Zod",
+        "Tambah, edit, hapus, dan lihat daftar kontak",
+        "Tambah, edit, hapus, dan lihat daftar address per kontak",
+        "Validasi password kuat (uppercase, lowercase, simbol, minimal 6 karakter)",
+        "Backend API dengan Golang untuk manajemen kontak"
+      ]
+    },
+    {
+      "id": 16,
+      "selected": true,
+      "name": "Roadmind AI",
+      "company": "",
+      "imgName": "roadmind-ai.png",
+      "date": "8 September 2025",
+      "linkGithub": "https://github.com/tiedsandi/project_roadmind-ai",
+      "description": "Roadmind adalah aplikasi AI Blog Planner yang membantu menyusun konten atau roadmap harian sesuai kebutuhan. Cukup masukkan topik dan durasi (jumlah hari), lalu AI akan menghasilkan rencana harian lengkap",
+      "tags": [
+        "Next.js",
+        "Typescript",
+        "Firebase",
+        "Tailwind",
+        "AI-Integration"
+      ],
+      "type": "fullstack",
+      "fitur": [
+        "Login dengan Google via Firebase Authentication",
+        "AI Content Planner: user input topik + durasi → AI generate roadmap harian.",
+        "Format Blog: hasil tersimpan dan ditampilkan seperti artikel/blog",
+        "Realtime Storage: data disimpan dengan Firebase"
       ]
     }
   ]
