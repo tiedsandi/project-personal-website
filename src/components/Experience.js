@@ -36,10 +36,12 @@ const Experience = () => {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            Saya mengembangkan aplikasi dengan platform low-code OutSystems
-            berbasis workflow React, fokus pada responsivitas web dan mobile.
-            Terlibat dalam seluruh proses pengembangan, dari perencanaan hingga
-            peluncuran, serta pemeliharaan dan perbaikan bug aplikasi.
+            Saya mengembangkan aplikasi web dan mobile menggunakan platform
+            low-code OutSystems pada berbagai proyek internal perusahaan. Dalam
+            pekerjaan saya, saya mengimplementasikan fitur berdasarkan kebutuhan
+            user dan spesifikasi yang telah ditentukan. Selain itu, saya juga
+            terlibat dalam pemeliharaan aplikasi, termasuk penyelidikan serta
+            perbaikan bug pada beberapa proyek yang sudah berjalan.
           </AccordionContent>
         </AccordionItem>
 
