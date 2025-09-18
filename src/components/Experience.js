@@ -43,7 +43,7 @@ const Experience = () => {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="item-2">
+        {/* <AccordionItem value="item-2">
           <AccordionTrigger>
             <div className="flex items-center gap-4 text-left">
               <Image
@@ -69,7 +69,7 @@ const Experience = () => {
             dan optimisasi SEO untuk memastikan konten dioptimalkan agar
             mencapai peringkat lebih tinggi di mesin pencari.
           </AccordionContent>
-        </AccordionItem>
+        </AccordionItem> */}
       </Accordion>
     </section>
   );

@@ -36,12 +36,12 @@ const Hero = () => {
 
         {/* Tombol */}
         <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-          <button
+          {/* <button
             onClick={handleDownloadCV}
             className="px-5 py-2 text-white transition bg-black rounded-xl hover:bg-gray-800"
           >
             Download CV (PDF)
-          </button>
+          </button> */}
 
           <Button href="#projects" variant="inverted">
             Lihat Proyek
