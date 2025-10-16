@@ -1,0 +1,109 @@
+{
+  "header": {
+    "logo": "Sandi"
+  },
+  "hero": {
+    "greeting": "Hello! I'm Fachran Sandi 👋",
+    "tagline": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "description": "I am a developer who is enthusiastic about solving problems with modern technology.",
+    "viewProjects": "View Projects"
+  },
+  "experience": {
+    "title": "Experience",
+    "sinarmas": {
+      "position": "Outsystems Developer - Sinarmas Land",
+      "date": "November 2023 - August 2024",
+      "description": "I developed web and mobile applications using the OutSystems low-code platform across various internal company projects. In my role, I implemented features based on user requirements and defined specifications. Additionally, I was involved in application maintenance, including investigating and fixing bugs in several ongoing projects."
+    }
+  },
+  "education": {
+    "title": "Education",
+    "ppkd": {
+      "title": "Web Programming",
+      "date": "February 2025 - April 2025",
+      "description": "Attended Web Programming training at PPKD Jakarta Pusat, learning HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, and jQuery. Focus on hands-on practice and project development. Graduated with BNSP competency certification as a web developer."
+    },
+    "upnvj": {
+      "title": "S1 - Informatics, UPNVJ",
+      "date": "August 2018 - January 2023",
+      "description": "Active as a committee member in various faculty and university events, such as programs, competitions, and webinars, which honed organizational, teamwork, and communication skills. Previously served as teaching assistant for Introduction to Database (2020), tasked with guiding practicum, assisting material comprehension, and supporting question preparation and assessment."
+    },
+    "binar": {
+      "title": "Front End JavaScript - Binar Academy",
+      "date": "February 2022 - July 2022",
+      "description": "I focused on developing competencies in technology and digital through project-based learning methods, with emphasis on non-technical skills. I was also involved in real-world projects and learned to create dynamic websites using React.js."
+    }
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "featured": {
+    "title": "Featured Projects",
+    "viewAll": "View All Projects →"
+  },
+  "projectPage": {
+    "title": "My Projects",
+    "noProjects": "No matching projects.",
+    "filters": {
+      "all": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Fullstack"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Fachran Sandi.",
+    "linkedin": "FachranSandi",
+    "github": "TiedSandi"
+  },
+  "projects": {
+    "1": {
+      "description": "NextLevel Food is a digital platform that provides various easily accessible recipes. Enjoy cooking and sharing recipes at NetLevel Food!"
+    },
+    "2": {
+      "description": "Landing page about Mount Bromo specially designed to introduce the beauty and attractions of Mount Bromo in Indonesia."
+    },
+    "3": {
+      "description": "With a simple and intuitive design, this application helps users stay organized without distractions."
+    },
+    "4": {
+      "description": "Secondhand is a marketplace application for buying and selling used goods in good condition."
+    },
+    "5": {
+      "description": "Frontend Mentor challenges - Summary Component"
+    },
+    "6": {
+      "description": "Frontend Mentor challenges - QR Component"
+    },
+    "7": {
+      "description": "Frontend Mentor challenges - Blog Card"
+    },
+    "8": {
+      "description": "Web based on Next.JS, API fetching data from MovieDB"
+    },
+    "9": {
+      "description": "Backend API for Point of Sales (POS) application, including AUTH, user, category, product."
+    },
+    "10": {
+      "description": "Transaction application specially designed to meet the needs of food stalls."
+    },
+    "11": {
+      "description": "Backend API for Event Management application (EMENT), User Authentication (JWT), Role-Based Event Management, Event Registration, Cloudinary Uploads."
+    },
+    "12": {
+      "description": "Ement is a web-based event management application that allows users to create, view, and register for various events. This application is designed for general public use."
+    },
+    "13": {
+      "description": "CRWN SHOP is a clothing online shop application built for portfolio showcase and fullstack learning using Firebase."
+    },
+    "14": {
+      "description": "Contact Management API is a backend service for managing Users, Contacts, and Addresses data. Built with clean-layered architecture using Golang and Gin Framework, along with PostgreSQL as database. Suitable for REST API and JWT Authentication learning."
+    },
+    "15": {
+      "description": "The inspiration for this project came from Programmer Zaman Now tutorial, but the entire backend implementation and integration was built from scratch."
+    },
+    "16": {
+      "description": "Roadmind is an AI Blog Planner application that helps organize daily content or roadmap according to needs. Just enter the topic and duration (number of days), then AI will generate a complete daily plan"
+    }
+  }
+}

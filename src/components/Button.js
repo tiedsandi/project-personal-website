@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
 import clsx from "clsx";
 
@@ -21,9 +20,9 @@ const Button = ({
   );
 
   return (
-    <Link href={href} download={download} {...otherProps} className={styles}>
+    <a href={href} download={download} {...otherProps} className={styles}>
       {children}
-    </Link>
+    </a>
   );
 };
 

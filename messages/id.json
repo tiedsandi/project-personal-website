@@ -1,0 +1,109 @@
+{
+  "header": {
+    "logo": "Sandi"
+  },
+  "hero": {
+    "greeting": "Halo! Saya Fachran Sandi 👋",
+    "tagline": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "description": "Saya seorang developer yang antusias memecahkan masalah dengan teknologi modern.",
+    "viewProjects": "Lihat Proyek"
+  },
+  "experience": {
+    "title": "Pengalaman",
+    "sinarmas": {
+      "position": "Outsystems Developer - Sinarmas Land",
+      "date": "November 2023 - Agustus 2024",
+      "description": "Saya mengembangkan aplikasi web dan mobile menggunakan platform low-code OutSystems pada berbagai proyek internal perusahaan. Dalam pekerjaan saya, saya mengimplementasikan fitur berdasarkan kebutuhan user dan spesifikasi yang telah ditentukan. Selain itu, saya juga terlibat dalam pemeliharaan aplikasi, termasuk penyelidikan serta perbaikan bug pada beberapa proyek yang sudah berjalan."
+    }
+  },
+  "education": {
+    "title": "Pendidikan",
+    "ppkd": {
+      "title": "Web Programming",
+      "date": "Febuari 2025 - April 2025",
+      "description": "Mengikuti pelatihan Web Programming di PPKD Jakarta Pusat, mempelajari HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, dan jQuery. Fokus pada praktik langsung dan pengembangan proyek. Lulus dengan sertifikasi kompetensi BNSP sebagai pengembang web."
+    },
+    "upnvj": {
+      "title": "S1 - Informatika, UPNVJ",
+      "date": "Agustus 2018 - Januari 2023",
+      "description": "Aktif sebagai anggota komite di berbagai kegiatan fakultas dan universitas, seperti acara, kompetisi, dan webinar, yang mengasah kemampuan organisasi, kerja tim, dan komunikasi. Pernah menjadi asisten dosen Pengantar Basis Data (2020), bertugas membimbing praktikum, membantu pemahaman materi, serta mendukung penyusunan soal dan penilaian."
+    },
+    "binar": {
+      "title": "Front End JavaScript - Binar Academy",
+      "date": "Februari 2022 - Juli 2022",
+      "description": "Saya fokus mengembangkan kompetensi di bidang teknologi dan digital melalui metode pembelajaran berbasis proyek, dengan penekanan pada keterampilan non-teknis. Saya juga terlibat dalam proyek-proyek nyata dan mempelajari pembuatan situs web dinamis menggunakan React.js."
+    }
+  },
+  "skills": {
+    "title": "Keterampilan"
+  },
+  "featured": {
+    "title": "Proyek Terpilih",
+    "viewAll": "Lihat Semua Proyek →"
+  },
+  "projectPage": {
+    "title": "Proyek Saya",
+    "noProjects": "Tidak ada proyek yang cocok.",
+    "filters": {
+      "all": "Semua",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Fullstack"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Fachran Sandi.",
+    "linkedin": "FachranSandi",
+    "github": "TiedSandi"
+  },
+  "projects": {
+    "1": {
+      "description": "NextLevel Food adalah platform digital yang menyediakan berbagai resep yang mudah diakses. Nikmati pengalaman memasak dan berbagi resep di NetLevel Food!"
+    },
+    "2": {
+      "description": "Landing page tentang Gunung Bromo dirancang khusus untuk memperkenalkan keindahan dan daya tarik Gunung Bromo di Indonesia."
+    },
+    "3": {
+      "description": "Dengan desain sederhana dan intuitif, aplikasi ini membantu pengguna tetap terorganisir tanpa gangguan."
+    },
+    "4": {
+      "description": "Secondhand adalah aplikasi marketplace untuk jual beli barang bekas dalam kondisi baik."
+    },
+    "5": {
+      "description": "Frontend Mentor challenges - Summary Component"
+    },
+    "6": {
+      "description": "Frontend Mentor challenges - QR Component"
+    },
+    "7": {
+      "description": "Frontend Mentor challenges - Blog Card"
+    },
+    "8": {
+      "description": "Web berbasis Next.JS, API fetching data dari MovieDB"
+    },
+    "9": {
+      "description": "Backend API untuk aplikasi Point of Sales (POS), termasuk AUTH, user, category, product."
+    },
+    "10": {
+      "description": "Aplikasi transaksi yang dirancang khusus untuk memenuhi kebutuhan warung makan."
+    },
+    "11": {
+      "description": "Backend API untuk aplikasi Event Management (EMENT), User Authentication (JWT), Role-Based Event Management, Event Registration, Cloudinary Uploads."
+    },
+    "12": {
+      "description": "Ement adalah aplikasi manajemen event berbasis web yang memungkinkan pengguna untuk membuat, melihat, dan mendaftar ke berbagai event. Aplikasi ini dirancang untuk digunakan oleh publik secara umum."
+    },
+    "13": {
+      "description": "CRWN SHOP adalah aplikasi online shop pakaian yang dibangun untuk showcase portofolio dan pembelajaran fullstack menggunakan Firebase."
+    },
+    "14": {
+      "description": "Contact Management API adalah backend service untuk mengelola data Users, Contacts, dan Addresses. Dibangun dengan arsitektur clean-layered menggunakan Golang dan Gin Framework, serta PostgreSQL sebagai database. Cocok untuk pembelajaran REST API dan JWT Authentication."
+    },
+    "15": {
+      "description": "Inspirasi project ini datang dari tutorial Programmer Zaman Now, namun seluruh implementasi backend dan integrasi dibuat dari nol."
+    },
+    "16": {
+      "description": "Roadmind adalah aplikasi AI Blog Planner yang membantu menyusun konten atau roadmap harian sesuai kebutuhan. Cukup masukkan topik dan durasi (jumlah hari), lalu AI akan menghasilkan rencana harian lengkap"
+    }
+  }
+}

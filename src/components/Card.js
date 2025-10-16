@@ -13,10 +13,12 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const Card = ({ data }) => {
-  const { name, company, imgName, date, linkGithub, description, tags, fitur } =
+  const { id, name, company, imgName, date, linkGithub, description, tags, fitur } =
     data;
+  const t = useTranslations("projects");
 
   return (
     <Dialog>
@@ -55,7 +57,7 @@ const Card = ({ data }) => {
               <div className="text-sm text-gray-500">{date}</div>
 
               <DialogDescription className="text-sm leading-relaxed">
-                {description}
+                {t(`${id}.description`)}
               </DialogDescription>
 
               {/* Tags */}

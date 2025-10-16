@@ -5,24 +5,26 @@ import React, { useState } from "react";
 
 import Card from "@/components/Card";
 import projectList from "@/data/projectList.json";
+import { useTranslations } from "next-intl";
 
 const Page = () => {
+  const t = useTranslations("projectPage");
   const projects = projectList.projects;
-  const [filterType, setFilterType] = useState("semua");
+  const [filterType, setFilterType] = useState("all");
 
   const sortProject = [...projects].sort((a, b) => b.id - a.id);
 
   const filteredProjects =
-    filterType === "semua"
+    filterType === "all"
       ? sortProject
       : sortProject.filter((project) => project.type === filterType);
 
-  const types = ["semua", "frontend", "backend", "fullstack"];
+  const types = ["all", "frontend", "backend", "fullstack"];
 
   return (
     <div className="flex flex-col px-6">
       <h3 className="mb-6 text-2xl font-bold text-center underline">
-        Proyek Saya
+        {t("title")}
       </h3>
 
       <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -37,14 +39,14 @@ const Page = () => {
                   : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
               }`}
           >
-            {type.charAt(0).toUpperCase() + type.slice(1)}
+            {t(`filters.${type}`)}
           </button>
         ))}
       </div>
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={filterType} // KEY PENTING! agar Framer Motion tahu kapan ganti filter
+          key={filterType}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
@@ -57,7 +59,7 @@ const Page = () => {
             ))
           ) : (
             <p className="w-full text-center text-gray-500">
-              Tidak ada proyek yang cocok.
+              {t("noProjects")}
             </p>
           )}
         </motion.div>
