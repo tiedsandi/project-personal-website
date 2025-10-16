@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "@/firebase/authFirebase";
 
-export default function AdminPage() {
+export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
@@ -18,6 +18,7 @@ export default function AdminPage() {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       setUser(res.user);
+      window.location.href = "/admin/";
     } catch (err) {
       setError("Login gagal. Pastikan email & password benar.");
     } finally {
@@ -31,7 +32,7 @@ export default function AdminPage() {
   };
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm p-6 bg-white rounded shadow">
         {user ? (
           <>
@@ -42,7 +43,6 @@ export default function AdminPage() {
             >
               Logout
             </button>
-            {/* TODO: Tambahkan form CRUD data di sini */}
           </>
         ) : (
           <form onSubmit={handleLogin}>
@@ -74,6 +74,6 @@ export default function AdminPage() {
           </form>
         )}
       </div>
-    </>
+    </div>
   );
 }
