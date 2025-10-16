@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -5,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { useI18n } from "@/i18n/I18nProvider";
 
 import UpnvjImage from "@/assets/upnvj.png";
 import BinarImage from "@/assets/binar.png";
@@ -41,10 +44,11 @@ const educationList = [
 ];
 
 const Education = () => {
+  const { t } = useI18n();
   return (
     <section aria-labelledby="pendidikan-heading">
       <h3 id="pendidikan-heading" className="mb-4 text-2xl font-bold underline">
-        Pendidikan
+        {t("sections.education", "Pendidikan")}
       </h3>
       <Accordion
         type="single"

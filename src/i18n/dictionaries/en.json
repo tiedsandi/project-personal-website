@@ -1,0 +1,30 @@
+{
+  "header": {
+    "brand": "Sandi",
+    "projects": "Projects",
+    "allProjects": "View All Projects →"
+  },
+  "home": {
+    "greeting": "Hello! I'm Fachran Sandi 👋",
+    "subtitle": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "intro": "I'm a developer who loves solving problems with modern technology.",
+    "viewProjects": "View Projects"
+  },
+  "sections": {
+    "experienceEducation": "Experience and Education",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "featured": "Featured Projects"
+  },
+  "project": {
+    "title": "My Projects",
+    "filters": {
+      "all": "all",
+      "frontend": "frontend",
+      "backend": "backend",
+      "fullstack": "fullstack"
+    },
+    "empty": "No matching projects."
+  }
+}

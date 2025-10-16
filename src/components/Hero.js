@@ -6,6 +6,7 @@ import Button from "./Button";
 import Image from "next/image";
 import Link from "next/link";
 import ProfileImage from "@/assets/foto-fachran.jpg";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -15,6 +16,8 @@ const Hero = () => {
     link.click();
   };
 
+  const { t } = useI18n();
+
   return (
     <section
       className="grid items-center grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2"
@@ -23,15 +26,19 @@ const Hero = () => {
       {/* Konten Teks */}
       <div className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl text-primary">
-          Halo! Saya Fachran Sandi 👋
+          {t("home.greeting", "Halo! Saya Fachran Sandi 👋")}
         </h1>
         <p className="text-lg text-gray-700">
-          Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST
-          API
+          {t(
+            "home.subtitle",
+            "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API"
+          )}
         </p>
         <p className="max-w-xl mx-auto text-base text-gray-600 md:mx-0">
-          Saya seorang developer yang antusias memecahkan masalah dengan
-          teknologi modern.
+          {t(
+            "home.intro",
+            "Saya seorang developer yang antusias memecahkan masalah dengan teknologi modern."
+          )}
         </p>
 
         {/* Tombol */}
@@ -44,7 +51,7 @@ const Hero = () => {
           </button> */}
 
           <Button href="#projects" variant="inverted">
-            Lihat Proyek
+            {t("home.viewProjects", "Lihat Proyek")}
           </Button>
         </div>
       </div>

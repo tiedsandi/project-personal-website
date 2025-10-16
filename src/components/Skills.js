@@ -7,12 +7,14 @@ import MotionTabContent from "@/components/MotionTabContent";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { skillCategories } from "@/data/skills";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export default function SkillsTabs() {
+  const { t } = useI18n();
   return (
     <section className="px-6 py-10 lg:my-16">
       <h3 className="mb-8 text-3xl font-bold text-center underline underline-offset-4 decoration-accent text-foreground">
-        Keterampilan
+        {t("sections.skills", "Keterampilan")}
       </h3>
 
       <Tabs.Root defaultValue="Frontend" className="flex flex-col gap-6">

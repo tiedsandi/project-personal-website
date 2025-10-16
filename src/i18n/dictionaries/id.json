@@ -1,0 +1,30 @@
+{
+  "header": {
+    "brand": "Sandi",
+    "projects": "Proyek",
+    "allProjects": "Lihat Semua Proyek →"
+  },
+  "home": {
+    "greeting": "Halo! Saya Fachran Sandi 👋",
+    "subtitle": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "intro": "Saya seorang developer yang antusias memecahkan masalah dengan teknologi modern.",
+    "viewProjects": "Lihat Proyek"
+  },
+  "sections": {
+    "experienceEducation": "Pengalaman dan Pendidikan",
+    "experience": "Pengalaman",
+    "education": "Pendidikan",
+    "skills": "Keterampilan",
+    "featured": "Proyek Terpilih"
+  },
+  "project": {
+    "title": "Proyek Saya",
+    "filters": {
+      "all": "semua",
+      "frontend": "frontend",
+      "backend": "backend",
+      "fullstack": "fullstack"
+    },
+    "empty": "Tidak ada proyek yang cocok."
+  }
+}

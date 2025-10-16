@@ -1,9 +1,13 @@
+"use client";
+
 import Card from "./Card";
 import DataList from "@/data/projectList.json";
 import Link from "next/link";
 import React from "react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const FeaturedProject = () => {
+  const { t, locale } = useI18n();
   const selectedProjects = DataList.projects.filter(
     (project) => project.selected
   );
@@ -15,13 +19,13 @@ const FeaturedProject = () => {
     >
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-2xl font-bold underline underline-offset-4">
-          Proyek Terpilih
+          {t("sections.featured", "Proyek Terpilih")}
         </h3>
         <Link
-          href="/project"
+          href={`/${locale}/project`}
           className="text-sm text-background lg:text-primary hover:underline"
         >
-          Lihat Semua Proyek →
+          {t("header.allProjects", "Lihat Semua Proyek →")}
         </Link>
       </div>
 
