@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "greeting": "Halo! Saya Fachran Sandi 👋",
+    "title": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "description": "Saya seorang developer yang antusias memecahkan masalah dengan teknologi modern.",
+    "viewProjects": "Lihat Proyek"
+  },
+  "header": {
+    "brand": "Sandi"
+  },
+  "experience": {
+    "title": "Pengalaman",
+    "sinarmas": {
+      "position": "Outsystems Developer - Sinarmas Land",
+      "period": "November 2023 - Agustus 2024",
+      "description": "Saya mengembangkan aplikasi web dan mobile menggunakan platform low-code OutSystems pada berbagai proyek internal perusahaan. Dalam pekerjaan saya, saya mengimplementasikan fitur berdasarkan kebutuhan user dan spesifikasi yang telah ditentukan. Selain itu, saya juga terlibat dalam pemeliharaan aplikasi, termasuk penyelidikan serta perbaikan bug pada beberapa proyek yang sudah berjalan."
+    }
+  },
+  "education": {
+    "title": "Pendidikan",
+    "ppkd": {
+      "title": "Web Programming",
+      "date": "Febuari 2025 - April 2025",
+      "description": "Mengikuti pelatihan Web Programming di PPKD Jakarta Pusat, mempelajari HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, dan jQuery. Fokus pada praktik langsung dan pengembangan proyek. Lulus dengan sertifikasi kompetensi BNSP sebagai pengembang web."
+    },
+    "upnvj": {
+      "title": "S1 - Informatika, UPNVJ",
+      "date": "Agustus 2018 - Januari 2023",
+      "description": "Aktif sebagai anggota komite di berbagai kegiatan fakultas dan universitas, seperti acara, kompetisi, dan webinar, yang mengasah kemampuan organisasi, kerja tim, dan komunikasi. Pernah menjadi asisten dosen Pengantar Basis Data (2020), bertugas membimbing praktikum, membantu pemahaman materi, serta mendukung penyusunan soal dan penilaian."
+    },
+    "binar": {
+      "title": "Front End JavaScript - Binar Academy",
+      "date": "Februari 2022 - Juli 2022",
+      "description": "Saya fokus mengembangkan kompetensi di bidang teknologi dan digital melalui metode pembelajaran berbasis proyek, dengan penekanan pada keterampilan non-teknis. Saya juga terlibat dalam proyek-proyek nyata dan mempelajari pembuatan situs web dinamis menggunakan React.js."
+    }
+  },
+  "skills": {
+    "title": "Keahlian"
+  },
+  "projects": {
+    "title": "Proyek Unggulan",
+    "viewAll": "Lihat Semua Proyek"
+  },
+  "footer": {
+    "copyright": "© {year} Fachran Sandi.",
+    "linkedin": "FachranSandi",
+    "github": "TiedSandi"
+  },
+  "common": {
+    "language": "Bahasa",
+    "english": "English",
+    "indonesian": "Indonesia"
+  }
+}

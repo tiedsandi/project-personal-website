@@ -6,8 +6,11 @@ import Button from "./Button";
 import Image from "next/image";
 import Link from "next/link";
 import ProfileImage from "@/assets/foto-fachran.jpg";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const Hero = () => {
+  const { t } = useTranslations();
+  
   const handleDownloadCV = () => {
     const link = document.createElement("a");
     link.href = "/cv.pdf";
@@ -23,15 +26,13 @@ const Hero = () => {
       {/* Konten Teks */}
       <div className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl text-primary">
-          Halo! Saya Fachran Sandi 👋
+          {t('hero.greeting')}
         </h1>
         <p className="text-lg text-gray-700">
-          Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST
-          API
+          {t('hero.title')}
         </p>
         <p className="max-w-xl mx-auto text-base text-gray-600 md:mx-0">
-          Saya seorang developer yang antusias memecahkan masalah dengan
-          teknologi modern.
+          {t('hero.description')}
         </p>
 
         {/* Tombol */}
@@ -44,7 +45,7 @@ const Hero = () => {
           </button> */}
 
           <Button href="#projects" variant="inverted">
-            Lihat Proyek
+            {t('hero.viewProjects')}
           </Button>
         </div>
       </div>

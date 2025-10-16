@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -9,42 +11,43 @@ import Image from "next/image";
 import UpnvjImage from "@/assets/upnvj.png";
 import BinarImage from "@/assets/binar.png";
 import PPKDImage from "@/assets/ppkd.jpg";
+import { useTranslations } from "@/hooks/useTranslations";
 
-const educationList = [
+const getEducationList = (t) => [
   {
     id: "PPKD",
-    title: "Web Programming",
-    date: "Febuari 2025 - April 2025",
-    description:
-      "Mengikuti pelatihan Web Programming di PPKD Jakarta Pusat, mempelajari HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, dan jQuery. Fokus pada praktik langsung dan pengembangan proyek. Lulus dengan sertifikasi kompetensi BNSP sebagai pengembang web.",
+    title: t('education.ppkd.title'),
+    date: t('education.ppkd.date'),
+    description: t('education.ppkd.description'),
     image: PPKDImage,
     alt: "Logo PPKD Jakarta Pusat",
   },
   {
     id: "upnvj",
-    title: "S1 - Informatika, UPNVJ",
-    date: "Agustus 2018 - Januari 2023",
-    description:
-      "Aktif sebagai anggota komite di berbagai kegiatan fakultas dan universitas, seperti acara, kompetisi, dan webinar, yang mengasah kemampuan organisasi, kerja tim, dan komunikasi. Pernah menjadi asisten dosen Pengantar Basis Data (2020), bertugas membimbing praktikum, membantu pemahaman materi, serta mendukung penyusunan soal dan penilaian.",
+    title: t('education.upnvj.title'),
+    date: t('education.upnvj.date'),
+    description: t('education.upnvj.description'),
     image: UpnvjImage,
     alt: "Logo UPN Veteran Jakarta",
   },
   {
     id: "binar",
-    title: "Front End JavaScript - Binar Academy",
-    date: "Februari 2022 - Juli 2022",
-    description:
-      "Saya fokus mengembangkan kompetensi di bidang teknologi dan digital melalui metode pembelajaran berbasis proyek, dengan penekanan pada keterampilan non-teknis. Saya juga terlibat dalam proyek-proyek nyata dan mempelajari pembuatan situs web dinamis menggunakan React.js.",
+    title: t('education.binar.title'),
+    date: t('education.binar.date'),
+    description: t('education.binar.description'),
     image: BinarImage,
     alt: "Logo Binar Academy",
   },
 ];
 
 const Education = () => {
+  const { t } = useTranslations();
+  const educationList = getEducationList(t);
+  
   return (
     <section aria-labelledby="pendidikan-heading">
       <h3 id="pendidikan-heading" className="mb-4 text-2xl font-bold underline">
-        Pendidikan
+        {t('education.title')}
       </h3>
       <Accordion
         type="single"

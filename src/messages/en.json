@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "greeting": "Hello! I'm Fachran Sandi 👋",
+    "title": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "description": "I'm a developer who's passionate about solving problems with modern technology.",
+    "viewProjects": "View Projects"
+  },
+  "header": {
+    "brand": "Sandi"
+  },
+  "experience": {
+    "title": "Experience",
+    "sinarmas": {
+      "position": "Outsystems Developer - Sinarmas Land",
+      "period": "November 2023 - August 2024",
+      "description": "I developed web and mobile applications using the low-code OutSystems platform for various internal company projects. In my work, I implemented features based on user needs and specified requirements. Additionally, I was also involved in application maintenance, including investigation and bug fixes on several running projects."
+    }
+  },
+  "education": {
+    "title": "Education",
+    "ppkd": {
+      "title": "Web Programming",
+      "date": "February 2025 - April 2025",
+      "description": "Attended Web Programming training at PPKD Jakarta Pusat, learning HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, and jQuery. Focus on hands-on practice and project development. Graduated with BNSP competency certification as a web developer."
+    },
+    "upnvj": {
+      "title": "S1 - Informatics, UPNVJ",
+      "date": "August 2018 - January 2023",
+      "description": "Active as a committee member in various faculty and university activities, such as events, competitions, and webinars, which honed organizational, teamwork, and communication skills. Served as a teaching assistant for Introduction to Database (2020), responsible for guiding practicum, helping with material understanding, and supporting question preparation and assessment."
+    },
+    "binar": {
+      "title": "Front End JavaScript - Binar Academy",
+      "date": "February 2022 - July 2022",
+      "description": "I focused on developing competencies in technology and digital fields through project-based learning methods, with emphasis on non-technical skills. I was also involved in real projects and learned to create dynamic websites using React.js."
+    }
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "viewAll": "View All Projects"
+  },
+  "footer": {
+    "copyright": "© {year} Fachran Sandi.",
+    "linkedin": "FachranSandi",
+    "github": "TiedSandi"
+  },
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "indonesian": "Indonesian"
+  }
+}

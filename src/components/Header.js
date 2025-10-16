@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
   return (
@@ -9,6 +10,7 @@ const Header = () => {
       <Link href="/" className="text-2xl font-bold font-logo hover:underline">
         Sandi
       </Link>
+      <LanguageSwitcher />
     </header>
   );
 };
