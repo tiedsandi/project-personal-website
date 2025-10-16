@@ -8,7 +8,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-
       <section
         aria-label="Experience and Education"
         className="grid grid-cols-1 gap-10 px-6 py-12 lg:grid-cols-2"
@@ -20,9 +19,7 @@ export default function HomePage() {
           <Education />
         </div>
       </section>
-
       <Skills />
-
       <FeaturedProject />
     </>
   );
