@@ -4,16 +4,20 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useTranslations } from 'next-intl';
 
 import Image from "next/image";
 import MalatoursImage from "@/assets/mala-tours.jpeg";
 import SinarmasLandImage from "@/assets/sinarmas-land.jpeg";
 
 const Experience = () => {
+  const t = useTranslations('sections');
+  const tExp = useTranslations('experience');
+
   return (
     <section aria-labelledby="pengalaman-heading">
       <h3 id="pengalaman-heading" className="mb-4 text-2xl font-bold underline">
-        Pengalaman
+        {t('experience')}
       </h3>
       <Accordion type="single" collapsible className="w-full text-foreground">
         <AccordionItem value="item-1">
@@ -27,21 +31,16 @@ const Experience = () => {
               />
               <div>
                 <p className="text-sm font-bold md:text-base">
-                  Outsystems Developer - Sinarmas Land
+                  {tExp('sinarmasLand.title')}
                 </p>
                 <p className="font-light md:text-sm text-[12px]">
-                  November 2023 - Agustus 2024
+                  {tExp('sinarmasLand.period')}
                 </p>
               </div>
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            Saya mengembangkan aplikasi web dan mobile menggunakan platform
-            low-code OutSystems pada berbagai proyek internal perusahaan. Dalam
-            pekerjaan saya, saya mengimplementasikan fitur berdasarkan kebutuhan
-            user dan spesifikasi yang telah ditentukan. Selain itu, saya juga
-            terlibat dalam pemeliharaan aplikasi, termasuk penyelidikan serta
-            perbaikan bug pada beberapa proyek yang sudah berjalan.
+            {tExp('sinarmasLand.description')}
           </AccordionContent>
         </AccordionItem>
 

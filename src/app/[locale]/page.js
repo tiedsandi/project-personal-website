@@ -3,6 +3,7 @@ import Experience from "@/components/Experience";
 import FeaturedProject from "@/components/Featured";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
+import { useTranslations } from 'next-intl';
 
 export default function HomePage() {
   return (

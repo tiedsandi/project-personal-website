@@ -1,6 +1,7 @@
 "use client";
 
 import * as Tabs from "@radix-ui/react-tabs";
+import { useTranslations } from 'next-intl';
 
 import Image from "next/image";
 import MotionTabContent from "@/components/MotionTabContent";
@@ -9,10 +10,13 @@ import { motion } from "framer-motion";
 import { skillCategories } from "@/data/skills";
 
 export default function SkillsTabs() {
+  const t = useTranslations('sections');
+  const tSkills = useTranslations('skills');
+
   return (
     <section className="px-6 py-10 lg:my-16">
       <h3 className="mb-8 text-3xl font-bold text-center underline underline-offset-4 decoration-accent text-foreground">
-        Keterampilan
+        {t('skills')}
       </h3>
 
       <Tabs.Root defaultValue="Frontend" className="flex flex-col gap-6">
@@ -26,9 +30,9 @@ export default function SkillsTabs() {
                 "text-muted-foreground hover:text-foreground",
                 "data-[state=active]:text-accent data-[state=active]:border-b-2 data-[state=active]:border-accent"
               )}
-            >
-              {category}
-            </Tabs.Trigger>
+              >
+                {tSkills(`categories.${category}`)}
+              </Tabs.Trigger>
           ))}
         </Tabs.List>
 
@@ -62,7 +66,7 @@ export default function SkillsTabs() {
                       {skill.name}
                     </span>
                     <span className="mt-1 text-xs text-center text-muted-foreground">
-                      {skill.experience}
+                      {tSkills(`experience.${skill.experienceKey}`)}
                     </span>
                   </motion.div>
                 ))}

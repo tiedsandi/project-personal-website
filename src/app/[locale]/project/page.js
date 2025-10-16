@@ -2,11 +2,13 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import { useTranslations } from 'next-intl';
 
 import Card from "@/components/Card";
 import projectList from "@/data/projectList.json";
 
 const Page = () => {
+  const t = useTranslations('projects');
   const projects = projectList.projects;
   const [filterType, setFilterType] = useState("semua");
 
@@ -22,7 +24,7 @@ const Page = () => {
   return (
     <div className="flex flex-col px-6">
       <h3 className="mb-6 text-2xl font-bold text-center underline">
-        Proyek Saya
+        {t('title')}
       </h3>
 
       <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -36,8 +38,8 @@ const Page = () => {
                   ? "bg-blue-600 text-white border-blue-600"
                   : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
               }`}
-          >
-            {type.charAt(0).toUpperCase() + type.slice(1)}
+            >
+            {t(`filters.${type}`)}
           </button>
         ))}
       </div>
@@ -57,7 +59,7 @@ const Page = () => {
             ))
           ) : (
             <p className="w-full text-center text-gray-500">
-              Tidak ada proyek yang cocok.
+              {t('noProjects')}
             </p>
           )}
         </motion.div>

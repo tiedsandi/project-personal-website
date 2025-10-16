@@ -1,0 +1,96 @@
+{
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "allProjects": "View All Projects"
+  },
+  "hero": {
+    "greeting": "Hello! I'm Fachran Sandi 👋",
+    "role": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "description": "I'm an enthusiastic developer who loves solving problems with modern technology.",
+    "viewProjects": "View Projects",
+    "downloadCV": "Download CV (PDF)"
+  },
+  "sections": {
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "featuredProjects": "Featured Projects"
+  },
+  "experience": {
+    "sinarmasLand": {
+      "title": "Outsystems Developer - Sinarmas Land",
+      "period": "November 2023 - August 2024",
+      "description": "I developed web and mobile applications using the OutSystems low-code platform for various internal company projects. In my work, I implemented features based on user requirements and predetermined specifications. Additionally, I was involved in application maintenance, including investigating and fixing bugs in several ongoing projects."
+    },
+    "malaTours": {
+      "title": "Search Engine Optimization - Mala Tours",
+      "period": "February 2021 - July 2021",
+      "description": "I developed content strategies for promotion and search engine optimization (SEO), successfully increasing organic search rankings by up to 80%. Additionally, I conducted keyword research and SEO optimization to ensure content was optimized to achieve higher search engine rankings."
+    }
+  },
+  "education": {
+    "ppkd": {
+      "title": "Web Programming",
+      "period": "February 2025 - April 2025",
+      "description": "Attended Web Programming training at PPKD Jakarta Pusat, learning HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, and jQuery. Focused on hands-on practice and project development. Graduated with BNSP competency certification as a web developer."
+    },
+    "upnvj": {
+      "title": "Bachelor's - Computer Science, UPNVJ",
+      "period": "August 2018 - January 2023",
+      "description": "Active as a committee member in various faculty and university activities, such as events, competitions, and webinars, which honed organizational, teamwork, and communication skills. Served as a teaching assistant for Introduction to Databases (2020), responsible for guiding practicum sessions, helping with material understanding, and supporting exam preparation and assessment."
+    },
+    "binar": {
+      "title": "Front End JavaScript - Binar Academy",
+      "period": "February 2022 - July 2022",
+      "description": "I focused on developing competencies in technology and digital through project-based learning methods, with emphasis on non-technical skills. I was also involved in real projects and learned to create dynamic websites using React.js."
+    }
+  },
+  "skills": {
+    "categories": {
+      "Bahasa": "Languages",
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Database": "Database",
+      "Tools & Testing": "Tools & Testing",
+      "Workflow": "Workflow"
+    },
+    "experience": {
+      "3years": "3+ years",
+      "learning": "Still learning",
+      "exploration": "Exploration & development",
+      "laravel": "Laravel & CMS projects",
+      "webProjects": "Various web projects",
+      "ssr": "SSR/SSG applications",
+      "stateManagement": "State management",
+      "5projects": "5+ projects",
+      "styling": "Interface styling",
+      "fullstackApi": "Fullstack API + Blade",
+      "serverBackend": "Server backend",
+      "nodeProjects": "Node.js projects",
+      "laravelPhp": "Laravel & PHP",
+      "largScale": "Large scale",
+      "prototyping": "Prototyping",
+      "firebaseAuth": "Google & Email login (React)",
+      "versionControl": "Version control",
+      "enterprise": "Enterprise projects",
+      "unitTesting": "React unit testing",
+      "apiTesting": "Node.js API testing",
+      "restApi": "Various service integration",
+      "agileExp": "Sprints using Jira & Trello"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Fachran Sandi."
+  },
+  "projects": {
+    "title": "My Projects",
+    "filters": {
+      "semua": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Fullstack"
+    },
+    "noProjects": "No matching projects found."
+  }
+}

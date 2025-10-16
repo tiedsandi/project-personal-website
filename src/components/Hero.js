@@ -1,6 +1,7 @@
 "use client";
 
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useTranslations } from 'next-intl';
 
 import Button from "./Button";
 import Image from "next/image";
@@ -8,6 +9,8 @@ import Link from "next/link";
 import ProfileImage from "@/assets/foto-fachran.jpg";
 
 const Hero = () => {
+  const t = useTranslations('hero');
+
   const handleDownloadCV = () => {
     const link = document.createElement("a");
     link.href = "/cv.pdf";
@@ -23,15 +26,13 @@ const Hero = () => {
       {/* Konten Teks */}
       <div className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl text-primary">
-          Halo! Saya Fachran Sandi 👋
+          {t('greeting')}
         </h1>
         <p className="text-lg text-gray-700">
-          Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST
-          API
+          {t('role')}
         </p>
         <p className="max-w-xl mx-auto text-base text-gray-600 md:mx-0">
-          Saya seorang developer yang antusias memecahkan masalah dengan
-          teknologi modern.
+          {t('description')}
         </p>
 
         {/* Tombol */}
@@ -40,11 +41,11 @@ const Hero = () => {
             onClick={handleDownloadCV}
             className="px-5 py-2 text-white transition bg-black rounded-xl hover:bg-gray-800"
           >
-            Download CV (PDF)
+            {t('downloadCV')}
           </button> */}
 
           <Button href="#projects" variant="inverted">
-            Lihat Proyek
+            {t('viewProjects')}
           </Button>
         </div>
       </div>

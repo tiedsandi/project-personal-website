@@ -1,0 +1,96 @@
+{
+  "navigation": {
+    "home": "Beranda",
+    "projects": "Proyek",
+    "allProjects": "Lihat Semua Proyek"
+  },
+  "hero": {
+    "greeting": "Halo! Saya Fachran Sandi 👋",
+    "role": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "description": "Saya seorang developer yang antusias memecahkan masalah dengan teknologi modern.",
+    "viewProjects": "Lihat Proyek",
+    "downloadCV": "Download CV (PDF)"
+  },
+  "sections": {
+    "experience": "Pengalaman",
+    "education": "Pendidikan",
+    "skills": "Keterampilan",
+    "featuredProjects": "Proyek Terpilih"
+  },
+  "experience": {
+    "sinarmasLand": {
+      "title": "Outsystems Developer - Sinarmas Land",
+      "period": "November 2023 - Agustus 2024",
+      "description": "Saya mengembangkan aplikasi web dan mobile menggunakan platform low-code OutSystems pada berbagai proyek internal perusahaan. Dalam pekerjaan saya, saya mengimplementasikan fitur berdasarkan kebutuhan user dan spesifikasi yang telah ditentukan. Selain itu, saya juga terlibat dalam pemeliharaan aplikasi, termasuk penyelidikan serta perbaikan bug pada beberapa proyek yang sudah berjalan."
+    },
+    "malaTours": {
+      "title": "Search Engine Optimization - Mala Tours",
+      "period": "Februari 2021 - Juli 2021",
+      "description": "Saya mengembangkan strategi konten untuk promosi dan optimisasi mesin pencari (SEO), yang berhasil meningkatkan peringkat pencarian organik hingga 80%. Selain itu, saya melakukan penelitian kata kunci dan optimisasi SEO untuk memastikan konten dioptimalkan agar mencapai peringkat lebih tinggi di mesin pencari."
+    }
+  },
+  "education": {
+    "ppkd": {
+      "title": "Web Programming",
+      "period": "Febuari 2025 - April 2025",
+      "description": "Mengikuti pelatihan Web Programming di PPKD Jakarta Pusat, mempelajari HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, dan jQuery. Fokus pada praktik langsung dan pengembangan proyek. Lulus dengan sertifikasi kompetensi BNSP sebagai pengembang web."
+    },
+    "upnvj": {
+      "title": "S1 - Informatika, UPNVJ",
+      "period": "Agustus 2018 - Januari 2023",
+      "description": "Aktif sebagai anggota komite di berbagai kegiatan fakultas dan universitas, seperti acara, kompetisi, dan webinar, yang mengasah kemampuan organisasi, kerja tim, dan komunikasi. Pernah menjadi asisten dosen Pengantar Basis Data (2020), bertugas membimbing praktikum, membantu pemahaman materi, serta mendukung penyusunan soal dan penilaian."
+    },
+    "binar": {
+      "title": "Front End JavaScript - Binar Academy",
+      "period": "Februari 2022 - Juli 2022",
+      "description": "Saya fokus mengembangkan kompetensi di bidang teknologi dan digital melalui metode pembelajaran berbasis proyek, dengan penekanan pada keterampilan non-teknis. Saya juga terlibat dalam proyek-proyek nyata dan mempelajari pembuatan situs web dinamis menggunakan React.js."
+    }
+  },
+  "skills": {
+    "categories": {
+      "Bahasa": "Bahasa",
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Database": "Database",
+      "Tools & Testing": "Tools & Testing",
+      "Workflow": "Workflow"
+    },
+    "experience": {
+      "3years": "3+ tahun",
+      "learning": "Masih belajar",
+      "exploration": "Explorasi & pengembangan",
+      "laravel": "Laravel & proyek CMS",
+      "webProjects": "Berbagai proyek web",
+      "ssr": "Aplikasi SSR/SSG",
+      "stateManagement": "State management",
+      "5projects": "5+ proyek",
+      "styling": "Styling antarmuka",
+      "fullstackApi": "Fullstack API + Blade",
+      "serverBackend": "Server backend",
+      "nodeProjects": "Project Node.js",
+      "laravelPhp": "Laravel & PHP",
+      "largScale": "Skala besar",
+      "prototyping": "Prototyping",
+      "firebaseAuth": "Login Google & Email (React)",
+      "versionControl": "Version control",
+      "enterprise": "Project enterprise",
+      "unitTesting": "Unit testing React",
+      "apiTesting": "API testing Node.js",
+      "restApi": "Integrasi berbagai layanan",
+      "agileExp": "Sprint menggunakan Jira & Trello"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Fachran Sandi."
+  },
+  "projects": {
+    "title": "Proyek Saya",
+    "filters": {
+      "semua": "Semua",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Fullstack"
+    },
+    "noProjects": "Tidak ada proyek yang cocok."
+  }
+}
