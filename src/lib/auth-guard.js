@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "@/firebase/authFirebase";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export function useLogout() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function AuthGuard({ children }) {
     return () => unsubscribe();
   }, [router]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <LoadingSpinner label="" />;
   if (!isAuthenticated) return null;
   return <>{children}</>;
 }
