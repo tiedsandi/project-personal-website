@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +11,7 @@ import Image from "next/image";
 import UpnvjImage from "@/assets/upnvj.png";
 import BinarImage from "@/assets/binar.png";
 import PPKDImage from "@/assets/ppkd.jpg";
+import { useTranslations } from "next-intl";
 
 const educationList = [
   {
@@ -41,10 +44,11 @@ const educationList = [
 ];
 
 const Education = () => {
+  const t = useTranslations("Education");
   return (
     <section aria-labelledby="pendidikan-heading">
       <h3 id="pendidikan-heading" className="mb-4 text-2xl font-bold underline">
-        Pendidikan
+        {t("title")}
       </h3>
       <Accordion
         type="single"

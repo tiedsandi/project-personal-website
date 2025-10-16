@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -8,12 +10,14 @@ import {
 import Image from "next/image";
 import MalatoursImage from "@/assets/mala-tours.jpeg";
 import SinarmasLandImage from "@/assets/sinarmas-land.jpeg";
+import { useTranslations } from "next-intl";
 
 const Experience = () => {
+  const t = useTranslations("Experience");
   return (
     <section aria-labelledby="pengalaman-heading">
       <h3 id="pengalaman-heading" className="mb-4 text-2xl font-bold underline">
-        Pengalaman
+        {t("title")}
       </h3>
       <Accordion type="single" collapsible className="w-full text-foreground">
         <AccordionItem value="item-1">

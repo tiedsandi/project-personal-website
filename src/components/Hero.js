@@ -4,8 +4,9 @@ import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import Button from "./Button";
 import Image from "next/image";
-import Link from "next/link";
+// Use native anchors for external links to avoid locale handling
 import ProfileImage from "@/assets/foto-fachran.jpg";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -15,6 +16,8 @@ const Hero = () => {
     link.click();
   };
 
+  const t = useTranslations("Hero");
+
   return (
     <section
       className="grid items-center grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2"
@@ -23,15 +26,11 @@ const Hero = () => {
       {/* Konten Teks */}
       <div className="space-y-6 text-center md:text-left">
         <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl text-primary">
-          Halo! Saya Fachran Sandi 👋
+          {t("title")}
         </h1>
-        <p className="text-lg text-gray-700">
-          Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST
-          API
-        </p>
+        <p className="text-lg text-gray-700">{t("subtitle")}</p>
         <p className="max-w-xl mx-auto text-base text-gray-600 md:mx-0">
-          Saya seorang developer yang antusias memecahkan masalah dengan
-          teknologi modern.
+          {t("intro")}
         </p>
 
         {/* Tombol */}
@@ -44,7 +43,7 @@ const Hero = () => {
           </button> */}
 
           <Button href="#projects" variant="inverted">
-            Lihat Proyek
+            {t("viewProjects")}
           </Button>
         </div>
       </div>
@@ -64,29 +63,31 @@ const Hero = () => {
 
         {/* Icon Sosmed */}
         <div className="flex gap-4 text-2xl text-gray-700">
-          <Link
+          <a
             href="mailto:fachran.sandi@example.com"
             aria-label="Email"
             className="transition hover:text-black"
           >
             <FaEnvelope />
-          </Link>
-          <Link
+          </a>
+          <a
             href="https://github.com/tiedsandi"
             target="_blank"
             aria-label="GitHub"
             className="transition hover:text-black"
+            rel="noopener noreferrer"
           >
             <FaGithub />
-          </Link>
-          <Link
+          </a>
+          <a
             href="https://linkedin.com/in/fachransandi"
             target="_blank"
             aria-label="LinkedIn"
             className="transition hover:text-black"
+            rel="noopener noreferrer"
           >
             <FaLinkedin />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

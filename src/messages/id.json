@@ -1,0 +1,43 @@
+{
+  "Brand": {
+    "name": "Sandi"
+  },
+  "Nav": {
+    "projects": "Proyek",
+    "seeAll": "Lihat Semua Proyek"
+  },
+  "Hero": {
+    "title": "Halo! Saya Fachran Sandi 👋",
+    "subtitle": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "intro": "Saya seorang developer yang antusias memecahkan masalah dengan teknologi modern.",
+    "viewProjects": "Lihat Proyek"
+  },
+  "Experience": {
+    "title": "Pengalaman",
+    "role1": "Outsystems Developer - Sinarmas Land",
+    "date1": "November 2023 - Agustus 2024",
+    "desc1": "Saya mengembangkan aplikasi web dan mobile menggunakan platform low-code OutSystems pada berbagai proyek internal perusahaan."
+  },
+  "Education": {
+    "title": "Pendidikan"
+  },
+  "Skills": {
+    "title": "Keterampilan"
+  },
+  "Featured": {
+    "title": "Proyek Terpilih",
+    "seeAll": "Lihat Semua Proyek"
+  },
+  "Project": {
+    "title": "Proyek Saya",
+    "all": "semua",
+    "frontend": "frontend",
+    "backend": "backend",
+    "fullstack": "fullstack",
+    "empty": "Tidak ada proyek yang cocok."
+  },
+  "Card": {
+    "features": "Fitur:",
+    "source": "Source Code"
+  }
+}

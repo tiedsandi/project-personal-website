@@ -1,0 +1,43 @@
+{
+  "Brand": {
+    "name": "Sandi"
+  },
+  "Nav": {
+    "projects": "Projects",
+    "seeAll": "See All Projects"
+  },
+  "Hero": {
+    "title": "Hello! I'm Fachran Sandi 👋",
+    "subtitle": "Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST API",
+    "intro": "I'm a developer passionate about solving problems with modern technology.",
+    "viewProjects": "View Projects"
+  },
+  "Experience": {
+    "title": "Experience",
+    "role1": "Outsystems Developer - Sinarmas Land",
+    "date1": "November 2023 - August 2024",
+    "desc1": "I developed web and mobile apps using the low-code OutSystems platform for various internal company projects..."
+  },
+  "Education": {
+    "title": "Education"
+  },
+  "Skills": {
+    "title": "Skills"
+  },
+  "Featured": {
+    "title": "Featured Projects",
+    "seeAll": "See All Projects"
+  },
+  "Project": {
+    "title": "My Projects",
+    "all": "all",
+    "frontend": "frontend",
+    "backend": "backend",
+    "fullstack": "fullstack",
+    "empty": "No matching projects."
+  },
+  "Card": {
+    "features": "Features:",
+    "source": "Source Code"
+  }
+}

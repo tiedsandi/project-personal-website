@@ -1,12 +1,17 @@
+"use client";
+
 import Card from "./Card";
 import DataList from "@/data/projectList.json";
-import Link from "next/link";
+import {Link} from "@/i18n/navigation";
 import React from "react";
+import {useTranslations} from "next-intl";
 
 const FeaturedProject = () => {
   const selectedProjects = DataList.projects.filter(
     (project) => project.selected
   );
+
+  const t = useTranslations("Featured");
 
   return (
     <section
@@ -15,13 +20,13 @@ const FeaturedProject = () => {
     >
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-2xl font-bold underline underline-offset-4">
-          Proyek Terpilih
+          {t("title")}
         </h3>
         <Link
           href="/project"
           className="text-sm text-background lg:text-primary hover:underline"
         >
-          Lihat Semua Proyek →
+          {t("seeAll")} →
         </Link>
       </div>
 

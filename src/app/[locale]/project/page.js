@@ -2,27 +2,29 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-
 import Card from "@/components/Card";
 import projectList from "@/data/projectList.json";
+import { useTranslations } from "next-intl";
+// generateStaticParams not allowed in client component
 
 const Page = () => {
+  const t = useTranslations("Project");
   const projects = projectList.projects;
-  const [filterType, setFilterType] = useState("semua");
+  const [filterType, setFilterType] = useState(t("all"));
 
   const sortProject = [...projects].sort((a, b) => b.id - a.id);
 
   const filteredProjects =
-    filterType === "semua"
+    filterType === t("all")
       ? sortProject
       : sortProject.filter((project) => project.type === filterType);
 
-  const types = ["semua", "frontend", "backend", "fullstack"];
+  const types = [t("all"), t("frontend"), t("backend"), t("fullstack")];
 
   return (
     <div className="flex flex-col px-6">
       <h3 className="mb-6 text-2xl font-bold text-center underline">
-        Proyek Saya
+        {t("title")}
       </h3>
 
       <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -44,7 +46,7 @@ const Page = () => {
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={filterType} // KEY PENTING! agar Framer Motion tahu kapan ganti filter
+          key={filterType}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
@@ -52,13 +54,9 @@ const Page = () => {
           className="flex flex-wrap justify-center gap-6"
         >
           {filteredProjects.length > 0 ? (
-            filteredProjects.map((data, index) => (
-              <Card key={data.id} data={data} />
-            ))
+            filteredProjects.map((data) => <Card key={data.id} data={data} />)
           ) : (
-            <p className="w-full text-center text-gray-500">
-              Tidak ada proyek yang cocok.
-            </p>
+            <p className="w-full text-center text-gray-500">{t("empty")}</p>
           )}
         </motion.div>
       </AnimatePresence>

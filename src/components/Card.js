@@ -11,12 +11,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
+import {Link} from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const Card = ({ data }) => {
   const { name, company, imgName, date, linkGithub, description, tags, fitur } =
     data;
+  const t = useTranslations("Card");
 
   return (
     <Dialog>
@@ -68,7 +70,7 @@ const Card = ({ data }) => {
               {/* Fitur */}
               {fitur && (
                 <div className="mt-4">
-                  <h4 className="mb-1 text-sm font-semibold">Fitur:</h4>
+                  <h4 className="mb-1 text-sm font-semibold">{t("features")}</h4>
                   <ul className="space-y-1 text-sm list-disc list-inside">
                     {fitur.map((item, idx) => (
                       <li key={idx}>{item}</li>
@@ -85,7 +87,7 @@ const Card = ({ data }) => {
                   rel="noopener noreferrer"
                   className="self-end mt-4 text-sm font-medium text-blue-600 hover:underline"
                 >
-                  Source Code{" "}
+                  {t("source")} {" "}
                   <i className="ml-1 fa-solid fa-arrow-up-right-from-square" />
                 </Link>
               )}
