@@ -1,9 +1,13 @@
-
-
 "use client";
 import { useEffect, useState } from "react";
-import { getCollection, addToCollection, updateDocument, deleteDocument } from "@/services/firebaseService";
+import {
+  getCollection,
+  addToCollection,
+  updateDocument,
+  deleteDocument,
+} from "@/services/firebaseService";
 import ProjectForm from "./components/ProjectForm";
+import Modal from "@/components/ui/Modal";
 import { getCloudinaryPublicId } from "@/lib/cloudinary-util";
 
 export default function AdminProjectsPage() {
@@ -44,7 +48,6 @@ export default function AdminProjectsPage() {
     fetchProjects();
   };
 
-
   const handleDelete = async (id) => {
     const project = projects.find((p) => p.id === id);
     if (confirm("Hapus project ini?")) {
@@ -77,12 +80,20 @@ export default function AdminProjectsPage() {
           {showForm && !editData ? "Batal" : "Tambah Project"}
         </button>
       </div>
-      {showForm && (
+      <Modal
+        open={showForm}
+        onOpenChange={(open) => {
+          setShowForm(open);
+          if (!open) setEditData(null);
+        }}
+        title={editData ? "Edit Project" : "Tambah Project"}
+        className="max-w-2xl"
+      >
         <ProjectForm
           onSubmit={editData ? handleEditProject : handleAddProject}
           initialData={editData}
         />
-      )}
+      </Modal>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -91,9 +102,16 @@ export default function AdminProjectsPage() {
         <div className="grid gap-4 mt-6">
           {projects.length === 0 && <div>Tidak ada project.</div>}
           {projects.map((p) => (
-            <div key={p.id} className="flex items-center p-4 bg-white shadow rounded-2xl">
+            <div
+              key={p.id}
+              className="flex items-center p-4 bg-white shadow rounded-2xl"
+            >
               {p.imageUrl && (
-                <img src={p.imageUrl} alt={p.name} className="object-cover w-24 h-16 mr-4 rounded" />
+                <img
+                  src={p.imageUrl}
+                  alt={p.name}
+                  className="object-cover w-24 h-16 mr-4 rounded"
+                />
               )}
               <div className="flex-1">
                 <div className="font-semibold">{p.name}</div>
