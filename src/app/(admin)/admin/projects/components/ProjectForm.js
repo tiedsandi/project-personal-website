@@ -4,12 +4,7 @@ import { useState } from "react";
 import { uploadImageToCloudinary } from "@/lib/cloudinary";
 import { getCloudinaryPublicId } from "@/lib/cloudinary-util";
 
-export default function ProjectForm({
-  onSubmit,
-  initialData,
-  title = "Tambah Project",
-  onClose,
-}) {
+export default function ProjectForm({ onSubmit, initialData }) {
   const [data, setData] = useState({
     name: initialData?.name || "",
     company: initialData?.company || "",
@@ -120,7 +115,6 @@ export default function ProjectForm({
     }
   };
 
-  // 🔹 Render Form
   return (
     <div className="w-full max-w-4xl mx-auto bg-white shadow rounded-2xl">
       {/* Body */}
