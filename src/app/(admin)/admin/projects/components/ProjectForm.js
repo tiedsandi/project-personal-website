@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { uploadImageToCloudinary } from "@/lib/cloudinary";
 import { getCloudinaryPublicId } from "@/lib/cloudinary-util";
@@ -22,37 +23,39 @@ export default function ProjectForm({
     imageUrl: initialData?.imageUrl || "",
     gif: null,
     gifUrl: initialData?.gifUrl || "",
+    isHighlighted: initialData?.isHighlighted || false,
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // 🔹 Handle Input Change
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setData((prev) => ({
       ...prev,
-      [name]: value,
-    }));
-  };
-  const handleImageChange = (e) => {
-    setData((prev) => ({
-      ...prev,
-      image: e.target.files[0],
-    }));
-  };
-  const handleGifChange = (e) => {
-    setData((prev) => ({
-      ...prev,
-      gif: e.target.files[0],
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
+  const handleImageChange = (e) => {
+    setData((prev) => ({ ...prev, image: e.target.files[0] }));
+  };
+
+  const handleGifChange = (e) => {
+    setData((prev) => ({ ...prev, gif: e.target.files[0] }));
+  };
+
+  // 🔹 Handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+
     try {
       let url = data.imageUrl;
       let gifUrl = data.gifUrl;
+
       // Hapus gambar lama jika upload baru
       if (data.image && data.imageUrl) {
         const publicId = getCloudinaryPublicId(data.imageUrl);
@@ -64,6 +67,7 @@ export default function ProjectForm({
           });
         }
       }
+
       if (data.gif && data.gifUrl) {
         const publicId = getCloudinaryPublicId(data.gifUrl);
         if (publicId) {
@@ -74,12 +78,11 @@ export default function ProjectForm({
           });
         }
       }
-      if (data.image) {
-        url = await uploadImageToCloudinary(data.image);
-      }
-      if (data.gif) {
-        gifUrl = await uploadImageToCloudinary(data.gif);
-      }
+
+      // Upload baru
+      if (data.image) url = await uploadImageToCloudinary(data.image);
+      if (data.gif) gifUrl = await uploadImageToCloudinary(data.gif);
+
       await onSubmit({
         name: data.name,
         company: data.company,
@@ -91,7 +94,10 @@ export default function ProjectForm({
         fitur: data.fitur.split("\n").map((f) => f.trim()),
         imageUrl: url,
         gifUrl,
+        isHighlighted: data.isHighlighted,
       });
+
+      // Reset form
       setData({
         name: "",
         company: "",
@@ -105,6 +111,7 @@ export default function ProjectForm({
         imageUrl: "",
         gif: null,
         gifUrl: "",
+        isHighlighted: false,
       });
     } catch (err) {
       setError("Gagal upload project");
@@ -113,25 +120,28 @@ export default function ProjectForm({
     }
   };
 
+  // 🔹 Render Form
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white shadow rounded-2xl">
-      {/* Modal Header Sticky */}
-      <div className="sticky top-0 z-10 flex items-center justify-between px-4 pt-4 pb-2 bg-white border-b">
-        <h2 className="text-lg font-bold">{title}</h2>
-        {onClose && (
-          <button
-            type="button"
-            onClick={onClose}
-            className="text-xl font-bold text-gray-500 hover:text-gray-700"
-          >
-            ×
-          </button>
-        )}
-      </div>
-      {/* Modal Body Scrollable */}
+    <div className="w-full max-w-4xl mx-auto bg-white shadow rounded-2xl">
+      {/* Body */}
       <div className="max-h-[70vh] overflow-y-auto px-4 pb-4">
-        <form onSubmit={handleSubmit} className="">
+        <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {/* Highlight */}
+            <div className="md:col-span-2">
+              <label className="flex items-center gap-2 mb-1 font-medium">
+                <input
+                  type="checkbox"
+                  name="isHighlighted"
+                  checked={data.isHighlighted}
+                  onChange={handleChange}
+                  className="accent-blue-600"
+                />
+                Project Highlighted
+              </label>
+            </div>
+
+            {/* Nama Project */}
             <div>
               <label className="block mb-1 font-medium">
                 Nama Project <span className="text-red-500">*</span>
@@ -145,6 +155,8 @@ export default function ProjectForm({
                 required
               />
             </div>
+
+            {/* Company */}
             <div>
               <label className="block mb-1 font-medium">Company</label>
               <input
@@ -155,6 +167,8 @@ export default function ProjectForm({
                 onChange={handleChange}
               />
             </div>
+
+            {/* Tanggal */}
             <div>
               <label className="block mb-1 font-medium">
                 Tanggal <span className="text-red-500">*</span>
@@ -168,6 +182,8 @@ export default function ProjectForm({
                 required
               />
             </div>
+
+            {/* Github */}
             <div>
               <label className="block mb-1 font-medium">
                 Link Github <span className="text-red-500">*</span>
@@ -181,6 +197,8 @@ export default function ProjectForm({
                 required
               />
             </div>
+
+            {/* Deskripsi */}
             <div className="md:col-span-2">
               <label className="block mb-1 font-medium">
                 Deskripsi <span className="text-red-500">*</span>
@@ -193,6 +211,8 @@ export default function ProjectForm({
                 required
               />
             </div>
+
+            {/* Tags */}
             <div>
               <label className="block mb-1 font-medium">
                 Tags (pisahkan dengan koma){" "}
@@ -207,6 +227,8 @@ export default function ProjectForm({
                 required
               />
             </div>
+
+            {/* Type */}
             <div>
               <label className="block mb-1 font-medium">
                 Type <span className="text-red-500">*</span>
@@ -223,6 +245,8 @@ export default function ProjectForm({
                 <option value="fullstack">Fullstack</option>
               </select>
             </div>
+
+            {/* Fitur */}
             <div className="md:col-span-2">
               <label className="block mb-1 font-medium">
                 Fitur (pisahkan dengan enter){" "}
@@ -236,6 +260,8 @@ export default function ProjectForm({
                 required
               />
             </div>
+
+            {/* Gambar */}
             <div>
               <label className="block mb-1 font-medium">
                 Gambar Project <span className="text-red-500">*</span>
@@ -253,6 +279,8 @@ export default function ProjectForm({
                 />
               )}
             </div>
+
+            {/* GIF */}
             <div>
               <label className="block mb-1 font-medium">Demo GIF</label>
               <input
@@ -269,11 +297,15 @@ export default function ProjectForm({
               )}
             </div>
           </div>
+
+          {/* Error */}
           {error && <div className="mt-2 text-sm text-red-500">{error}</div>}
+
+          {/* Submit */}
           <div className="mt-4">
             <button
               type="submit"
-              className="w-full px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700 md:w-auto"
+              className="w-full px-4 py-2 text-white bg-blue-600 rounded md:w-auto hover:bg-blue-700"
               disabled={loading}
             >
               {loading ? "Menyimpan..." : "Simpan Project"}

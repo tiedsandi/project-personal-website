@@ -62,6 +62,53 @@
 - Ikuti style dan utility class di atas agar konsisten
 - Gunakan prop `className` untuk custom style jika perlu
 
+## Cloudinary Integration
+
+### Upload Gambar/GIF
+- Gunakan helper `uploadImageToCloudinary(file)` untuk upload gambar/gif dari client.
+- Untuk hapus gambar/gif, panggil API `/api/cloudinary/delete` dengan publicId (gunakan helper `getCloudinaryPublicId(url)`).
+- Contoh upload:
+
+```js
+const url = await uploadImageToCloudinary(file);
+```
+
+### Struktur ProjectForm
+- Field gambar dan gif menggunakan input type `file`.
+- Preview gambar/gif setelah upload.
+- Hapus gambar lama sebelum upload baru (opsional).
+
+## Modal Component
+
+### Struktur Modal
+- Header sticky di atas (judul & tombol close)
+- Body scrollable (overflow-y-auto, max-h-[70vh])
+- Footer (opsional, bisa sticky juga)
+
+### Contoh Implementasi
+
+```jsx
+<div className="bg-white shadow rounded-2xl w-full max-w-2xl mx-auto">
+  <div className="sticky top-0 z-10 bg-white px-4 pt-4 pb-2 flex items-center justify-between border-b">
+    <h2 className="text-lg font-bold">Tambah Project</h2>
+    <button type="button" onClick={onClose}>×</button>
+  </div>
+  <div className="max-h-[70vh] overflow-y-auto px-4 pb-4">
+    {/* Form isi project */}
+  </div>
+</div>
+```
+
+### Best Practice
+- Pastikan header modal selalu terlihat saat scroll.
+- Scroll hanya pada isi form/modal body.
+- Gunakan grid untuk responsivitas (1 kolom mobile, 2 kolom desktop).
+
+## Referensi File
+- `src/app/(admin)/admin/projects/components/ProjectForm.js`
+- `src/lib/cloudinary.js`, `src/lib/cloudinary-util.js`
+- `src/components/ui/Modal.js`
+
 ---
 
 > **Tips:**
