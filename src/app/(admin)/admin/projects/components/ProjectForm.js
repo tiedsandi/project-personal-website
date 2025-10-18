@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { uploadImageToCloudinary } from "@/lib/cloudinary";
 import { getCloudinaryPublicId } from "@/lib/cloudinary-util";
+import { getCollection } from "@/services/firebaseService";
 
 export default function ProjectForm({ onSubmit, initialData }) {
   const [data, setData] = useState({
@@ -11,7 +12,7 @@ export default function ProjectForm({ onSubmit, initialData }) {
     date: initialData?.date || "",
     linkGithub: initialData?.linkGithub || "",
     description: initialData?.description || "",
-    tags: initialData?.tags?.join(", ") || "",
+    tags: Array.isArray(initialData?.tags) ? initialData.tags : [],
     type: initialData?.type || "frontend",
     fitur: initialData?.fitur?.join("\n") || "",
     image: null,
@@ -19,17 +20,36 @@ export default function ProjectForm({ onSubmit, initialData }) {
     gif: null,
     gifUrl: initialData?.gifUrl || "",
     isHighlighted: initialData?.isHighlighted || false,
+    isActive: initialData?.isActive ?? true,
   });
-
+  const [tagList, setTagList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function fetchTags() {
+      const tags = await getCollection("tags");
+      setTagList(tags);
+    }
+    fetchTags();
+  }, []);
 
   // 🔹 Handle Input Change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+    if (name === "isHighlighted" || name === "isActive") {
+      setData((prev) => ({ ...prev, [name]: checked }));
+    } else if (name !== "tags") {
+      setData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleTagChange = (id, checked) => {
     setData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      tags: checked
+        ? [...prev.tags, id]
+        : prev.tags.filter((tid) => tid !== id),
     }));
   };
 
@@ -84,12 +104,13 @@ export default function ProjectForm({ onSubmit, initialData }) {
         date: data.date,
         linkGithub: data.linkGithub,
         description: data.description,
-        tags: data.tags.split(",").map((t) => t.trim()),
+        tags: data.tags, // array of id
         type: data.type,
         fitur: data.fitur.split("\n").map((f) => f.trim()),
         imageUrl: url,
         gifUrl,
         isHighlighted: data.isHighlighted,
+        isActive: data.isActive,
       });
 
       // Reset form
@@ -99,7 +120,7 @@ export default function ProjectForm({ onSubmit, initialData }) {
         date: "",
         linkGithub: "",
         description: "",
-        tags: "",
+        tags: [],
         type: "frontend",
         fitur: "",
         image: null,
@@ -107,6 +128,7 @@ export default function ProjectForm({ onSubmit, initialData }) {
         gif: null,
         gifUrl: "",
         isHighlighted: false,
+        isActive: true,
       });
     } catch (err) {
       setError("Gagal upload project");
@@ -132,6 +154,20 @@ export default function ProjectForm({ onSubmit, initialData }) {
                   className="accent-blue-600"
                 />
                 Project Highlighted
+              </label>
+            </div>
+
+            {/* Active */}
+            <div className="md:col-span-2">
+              <label className="flex items-center gap-2 mb-1 font-medium">
+                <input
+                  type="checkbox"
+                  name="isActive"
+                  checked={data.isActive}
+                  onChange={handleChange}
+                  className="accent-green-600"
+                />
+                Project Aktif
               </label>
             </div>
 
@@ -212,14 +248,26 @@ export default function ProjectForm({ onSubmit, initialData }) {
                 Tags (pisahkan dengan koma){" "}
                 <span className="text-red-500">*</span>
               </label>
-              <input
-                type="text"
-                name="tags"
-                className="w-full px-3 py-2 border rounded"
-                value={data.tags}
-                onChange={handleChange}
-                required
-              />
+              <div className="flex flex-wrap gap-2">
+                {tagList.map((tag) => (
+                  <div
+                    key={tag.id}
+                    className={`cursor-pointer px-3 py-1 rounded-full border text-sm font-medium flex items-center gap-2 ${
+                      data.tags.includes(tag.id)
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-100"
+                    }`}
+                    onClick={() =>
+                      handleTagChange(tag.id, !data.tags.includes(tag.id))
+                    }
+                  >
+                    {tag.name}
+                    {data.tags.includes(tag.id) && (
+                      <span className="text-lg">&times;</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Type */}
