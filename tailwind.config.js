@@ -17,8 +17,8 @@ module.exports = {
         border: "var(--border-color)",
       },
       fontFamily: {
-        logo: ["RubikMonoOne", "sans-serif"],
-        body: ["Spline Sans Mono", "sans-serif"],
+        body: ["var(--font-body)"],
+        logo: ["var(--font-logo)"],
       },
       borderRadius: {
         lg: "var(--radius)",

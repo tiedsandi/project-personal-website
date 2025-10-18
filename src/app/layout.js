@@ -1,8 +1,6 @@
 import localFont from "next/font/local";
 import { Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Link from "next/link";
 
 const RubikMonoOne = localFont({
   src: "./fonts/RubikMonoOne-Regular.ttf",
@@ -22,8 +20,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${RubikMonoOne.variable} ${splineSansMono.variable}`}
+    >
+      <body className="font-body">{children}</body>
     </html>
   );
 }
