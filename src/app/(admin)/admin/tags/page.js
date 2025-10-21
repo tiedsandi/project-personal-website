@@ -1,11 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
+
 import {
   getCollection,
   addToCollection,
   updateDocument,
   deleteDocument,
 } from "@/services/firebaseService";
+import Skeleton from "@/components/ui/Skeleton";
+import { toast } from "react-hot-toast";
 
 export default function AdminTagsPage() {
   const [tags, setTags] = useState([]);
@@ -16,11 +19,13 @@ export default function AdminTagsPage() {
 
   const fetchTags = async () => {
     setLoading(true);
+    setError("");
     try {
       const data = await getCollection("tags");
       setTags(data);
     } catch (err) {
       setError("Gagal mengambil data tag");
+      toast.error("Gagal mengambil data tag");
     } finally {
       setLoading(false);
     }
@@ -33,14 +38,20 @@ export default function AdminTagsPage() {
   const handleAddOrEdit = async (e) => {
     e.preventDefault();
     if (!name.trim()) return;
-    if (editId) {
-      await updateDocument("tags", editId, { name });
-    } else {
-      await addToCollection("tags", { name });
+    try {
+      if (editId) {
+        await updateDocument("tags", editId, { name });
+        toast.success("Berhasil mengedit tag");
+      } else {
+        await addToCollection("tags", { name });
+        toast.success("Berhasil menambah tag");
+      }
+      setName("");
+      setEditId(null);
+      fetchTags();
+    } catch (err) {
+      toast.error(editId ? "Gagal mengedit tag" : "Gagal menambah tag");
     }
-    setName("");
-    setEditId(null);
-    fetchTags();
   };
 
   const handleEdit = (tag) => {
@@ -50,8 +61,13 @@ export default function AdminTagsPage() {
 
   const handleDelete = async (id) => {
     if (confirm("Hapus tag ini?")) {
-      await deleteDocument("tags", id);
-      fetchTags();
+      try {
+        await deleteDocument("tags", id);
+        toast.success("Berhasil menghapus tag");
+        fetchTags();
+      } catch (err) {
+        toast.error("Gagal menghapus tag");
+      }
     }
   };
 
@@ -86,7 +102,17 @@ export default function AdminTagsPage() {
         )}
       </form>
       {loading ? (
-        <div>Loading...</div>
+        <div className="grid gap-2">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex items-center justify-between p-3 bg-white rounded shadow">
+              <Skeleton className="w-32 h-4" />
+              <div className="flex gap-2">
+                <Skeleton className="w-16 h-4" />
+                <Skeleton className="w-20 h-6 rounded" />
+              </div>
+            </div>
+          ))}
+        </div>
       ) : error ? (
         <div className="text-red-500">{error}</div>
       ) : (

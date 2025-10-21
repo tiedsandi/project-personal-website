@@ -1,3 +1,14 @@
+// TODO: Improve UX (Admin)
+// [ ] Modal konfirmasi custom untuk delete (bukan confirm bawaan JS)
+// [ ] Toast/info untuk aksi non-error (misal: fitur coming soon, dsb)
+// [ ] Validasi form lebih jelas (inline error, highlight input, disable submit jika error)
+// [ ] Loading spinner di tombol aksi (submit/delete), disable tombol saat loading
+// [ ] Pagination & search lebih UX friendly (info jumlah data, tombol prev/next)
+// [ ] Empty state dengan ilustrasi/icon dan pesan
+// [ ] Aksesibilitas: keyboard navigation, aria-label
+// [ ] Feedback visual: animasi transisi data, hover effect
+// [ ] Profile dropdown/sidebar admin (nama/email admin, menu logout)
+// [ ] Responsive & mobile friendly di semua komponen admin
 import localFont from "next/font/local";
 import { Spline_Sans_Mono } from "next/font/google";
 

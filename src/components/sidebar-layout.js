@@ -15,6 +15,7 @@ export default function SidebarLayout({ children }) {
     { href: "/admin/skills", label: "Skills" },
     { href: "/admin/projects", label: "Projects" },
     { href: "/admin/tags", label: "Tags" },
+    { href: "/admin/categories", label: "Categories" },
   ];
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
