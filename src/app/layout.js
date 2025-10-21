@@ -50,3 +50,22 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+
+        // TODO: Fitur Admin
+        // [x] CRUD Project
+        // [x] CRUD Education
+        // [x] CRUD Experience
+        // [x] CRUD Tag
+        // [x] Toast Notification (react-hot-toast)
+        // [x] Skeleton Loading
+        // [x] Toggle isActive
+        // [x] Table/Card Layout Admin
+        // [x] Login Auth (Firebase)
+        // [~]  Form Validation (improve UX)
+        // [~]  Error Handling (UX)
+        // [ ]  CRUD Skills
+        // [ ]  Implementation Skill (public & admin)
+        // [ ]  Admin Profile/Settings
+        // [ ]  Dashboard Admin
+        // [ ]  Implementation Project (deployment, CI/CD, dsb)
