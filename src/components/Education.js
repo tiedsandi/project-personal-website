@@ -1,46 +1,69 @@
+"use client"
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Image from "next/image";
 
-import UpnvjImage from "@/assets/upnvj.png";
-import BinarImage from "@/assets/binar.png";
-import PPKDImage from "@/assets/ppkd.jpg";
 
-const educationList = [
-  {
-    id: "PPKD",
-    title: "Web Programming",
-    date: "Febuari 2025 - April 2025",
-    description:
-      "Mengikuti pelatihan Web Programming di PPKD Jakarta Pusat, mempelajari HTML, CSS, JavaScript, PHP, Laravel (MVC), RESTful API, MySQL, React.js, Tailwind, dan jQuery. Fokus pada praktik langsung dan pengembangan proyek. Lulus dengan sertifikasi kompetensi BNSP sebagai pengembang web.",
-    image: PPKDImage,
-    alt: "Logo PPKD Jakarta Pusat",
-  },
-  {
-    id: "upnvj",
-    title: "S1 - Informatika, UPNVJ",
-    date: "Agustus 2018 - Januari 2023",
-    description:
-      "Aktif sebagai anggota komite di berbagai kegiatan fakultas dan universitas, seperti acara, kompetisi, dan webinar, yang mengasah kemampuan organisasi, kerja tim, dan komunikasi. Pernah menjadi asisten dosen Pengantar Basis Data (2020), bertugas membimbing praktikum, membantu pemahaman materi, serta mendukung penyusunan soal dan penilaian.",
-    image: UpnvjImage,
-    alt: "Logo UPN Veteran Jakarta",
-  },
-  {
-    id: "binar",
-    title: "Front End JavaScript - Binar Academy",
-    date: "Februari 2022 - Juli 2022",
-    description:
-      "Saya fokus mengembangkan kompetensi di bidang teknologi dan digital melalui metode pembelajaran berbasis proyek, dengan penekanan pada keterampilan non-teknis. Saya juga terlibat dalam proyek-proyek nyata dan mempelajari pembuatan situs web dinamis menggunakan React.js.",
-    image: BinarImage,
-    alt: "Logo Binar Academy",
-  },
-];
+import { useEffect, useState } from "react";
+
+import Skeleton from "@/components/ui/Skeleton";
+import { getCollection } from "@/services/firebaseService";
 
 const Education = () => {
+  const [educationList, setEducationList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const data = await getCollection("educations");
+        setEducationList(
+          data.filter((edu) => edu.isActive).sort((a, b) => new Date(b.date) - new Date(a.date))
+        );
+      } catch (err) {
+        setError("Gagal mengambil data education");
+        console.log("Education fetch error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return (
+      <section aria-labelledby="pendidikan-heading">
+        <h3 id="pendidikan-heading" className="mb-4 text-2xl font-bold underline">
+          Pendidikan
+        </h3>
+        <div className="flex flex-col gap-4">
+          {[...Array(2)].map((_, idx) => (
+            <div key={idx} className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow">
+              <Skeleton className="w-16 h-16 rounded-full" />
+              <div className="flex-1">
+                <Skeleton className="w-32 h-5 mb-2" />
+                <Skeleton className="w-24 h-4 mb-1" />
+                <Skeleton className="w-40 h-4" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
+  if (educationList.length === 0) {
+    return <div>Tidak ada data pendidikan.</div>;
+  }
   return (
     <section aria-labelledby="pendidikan-heading">
       <h3 id="pendidikan-heading" className="mb-4 text-2xl font-bold underline">
@@ -55,17 +78,16 @@ const Education = () => {
           <AccordionItem key={edu.id} value={`item-${index}`}>
             <AccordionTrigger>
               <div className="flex items-center gap-4 text-left">
-                <Image
-                  priority
-                  src={edu.image}
-                  alt={edu.alt}
+                {/* Pakai tag img biasa agar support url eksternal */}
+                <img
+                  src={edu.imageUrl}
+                  alt={edu.title}
                   className="object-cover w-16 h-16 rounded-full bg-background"
+                  onError={e => { e.target.onerror = null; e.target.src = "https://placehold.co/64x64?text=No+Image"; }}
                 />
                 <div>
                   <p className="text-sm font-bold md:text-base">{edu.title}</p>
-                  <p className="font-light md:text-sm text-[12px]">
-                    {edu.date}
-                  </p>
+                  <p className="font-light md:text-sm text-[12px]">{edu.date}</p>
                 </div>
               </div>
             </AccordionTrigger>

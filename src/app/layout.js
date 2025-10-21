@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import { Spline_Sans_Mono } from "next/font/google";
+
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const RubikMonoOne = localFont({
@@ -25,7 +27,26 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${RubikMonoOne.variable} ${splineSansMono.variable}`}
     >
-      <body className="font-body">{children}</body>
+      <body className="font-body">
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            className: 'rounded-lg shadow-lg font-medium text-base',
+            style: { padding: '14px 24px', minWidth: 280 },
+            success: {
+              style: { background: '#e6f9ec', color: '#166534', border: '1px solid #bbf7d0' },
+              icon: '✔️',
+              iconTheme: { primary: '#16a34a', secondary: '#e6f9ec' },
+            },
+            error: {
+              style: { background: '#fef2f2', color: '#991b1b', border: '1px solid #fecaca' },
+              icon: '✖️',
+              iconTheme: { primary: '#dc2626', secondary: '#fef2f2' },
+            },
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

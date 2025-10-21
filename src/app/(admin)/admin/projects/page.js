@@ -9,6 +9,7 @@ import {
 import ProjectForm from "./components/ProjectForm";
 import Modal from "@/components/ui/Modal";
 import { getCloudinaryPublicId } from "@/lib/cloudinary-util";
+import { Toaster, toast } from "react-hot-toast";
 
 export default function AdminProjectsPage() {
   const [projects, setProjects] = useState([]);
@@ -58,6 +59,7 @@ export default function AdminProjectsPage() {
       setProjects(sorted);
     } catch (err) {
       setError("Gagal mengambil data project");
+      toast.error("Gagal mengambil data project");
     } finally {
       setLoading(false);
     }
@@ -80,35 +82,50 @@ export default function AdminProjectsPage() {
   }, []);
 
   const handleAddProject = async (data) => {
-    await addToCollection("projects", data);
-    setShowForm(false);
-    setEditData(null);
-    fetchProjects();
+    try {
+      await addToCollection("projects", data);
+      toast.success("Berhasil menambah project");
+      setShowForm(false);
+      setEditData(null);
+      fetchProjects();
+    } catch (err) {
+      toast.error("Gagal menambah project");
+    }
   };
 
   const handleEditProject = async (data) => {
     if (!editData) return;
-    await updateDocument("projects", editData.id, data);
-    setShowForm(false);
-    setEditData(null);
-    fetchProjects();
+    try {
+      await updateDocument("projects", editData.id, data);
+      toast.success("Berhasil mengedit project");
+      setShowForm(false);
+      setEditData(null);
+      fetchProjects();
+    } catch (err) {
+      toast.error("Gagal mengedit project");
+    }
   };
 
   const handleDelete = async (id) => {
     const project = projects.find((p) => p.id === id);
     if (confirm("Hapus project ini?")) {
-      if (project?.imageUrl) {
-        const publicId = getCloudinaryPublicId(project.imageUrl);
-        if (publicId) {
-          await fetch("/api/cloudinary/delete", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ publicId }),
-          });
+      try {
+        if (project?.imageUrl) {
+          const publicId = getCloudinaryPublicId(project.imageUrl);
+          if (publicId) {
+            await fetch("/api/cloudinary/delete", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ publicId }),
+            });
+          }
         }
+        await deleteDocument("projects", id);
+        toast.success("Berhasil menghapus project");
+        fetchProjects();
+      } catch (err) {
+        toast.error("Gagal menghapus project");
       }
-      await deleteDocument("projects", id);
-      fetchProjects();
     }
   };
 
