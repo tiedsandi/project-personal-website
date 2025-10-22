@@ -1,8 +1,8 @@
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
-import FeaturedProject from "@/components/Featured";
+import FeaturedProject from "@/components/FeaturedProject";
 import Hero from "@/components/Hero";
-import Skills from "@/components/Skills";
+import SkillsDynamic from "@/components/SkillsDynamic";
 
 export default function HomePage() {
   return (
@@ -19,7 +19,7 @@ export default function HomePage() {
           <Education />
         </div>
       </section>
-      <Skills />
+      <SkillsDynamic />
       <FeaturedProject />
     </>
   );

@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
 const Card = ({ data }) => {
-  const { name, company, imgName, date, linkGithub, description, tags, fitur } =
+  const { name, company, imageUrl, date, linkGithub, description, tags, fitur } =
     data;
 
   return (
@@ -17,7 +17,7 @@ const Card = ({ data }) => {
           <div className="relative w-full h-[200px] overflow-hidden shadow-md rounded-xl">
             <Image
               priority
-              src={`/images/demo/${imgName}`}
+              src={imageUrl?.startsWith("http") ? imageUrl : `/images/demo/${imgName}`}
               alt={name}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

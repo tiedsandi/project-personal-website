@@ -60,6 +60,7 @@ export default function AdminSkillsPage() {
     }
   };
 
+
   const handleEditSkill = async (data) => {
     if (!editData) return;
     try {
@@ -70,6 +71,16 @@ export default function AdminSkillsPage() {
       fetchSkills();
     } catch (err) {
       toast.error("Gagal mengedit skill");
+    }
+  };
+
+  const handleToggleActive = async (skill) => {
+    try {
+      await updateDocument("skills", skill.id, { ...skill, isActive: !skill.isActive });
+      toast.success("Status aktif berhasil diubah");
+      fetchSkills();
+    } catch (err) {
+      toast.error("Gagal mengubah status aktif");
     }
   };
 
@@ -167,7 +178,7 @@ export default function AdminSkillsPage() {
                   <td className="p-2"><img src={s.iconUrl} alt={s.name} className="h-8" /></td>
                   <td className="p-2">{s.experience}</td>
                   <td className="p-2">
-                    <Switch checked={s.isActive} onChange={() => handleEditSkill({ ...s, isActive: !s.isActive })} />
+                    <Switch checked={s.isActive} onChange={() => handleToggleActive(s)} />
                   </td>
                   <td className="flex gap-2 p-2">
                     <button
