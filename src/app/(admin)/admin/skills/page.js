@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import {
   getCollection,
@@ -9,8 +9,8 @@ import {
 import Modal from "@/components/ui/Modal";
 import Switch from "@/components/ui/Switch";
 import SkillForm from "./SkillForm";
-import Skeleton from "@/components/ui/Skeleton";
 import { toast } from "react-hot-toast";
+import TableWithSkeleton from "@/components/ui/TableWithSkeleton";
 
 export default function AdminSkillsPage() {
   const [skills, setSkills] = useState([]);
@@ -19,6 +19,13 @@ export default function AdminSkillsPage() {
   const [editData, setEditData] = useState(null);
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState("");
+
+  // pagination states
+  const [page, setPage] = useState(1);
+  const limit = 8;
+
+  // search state
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchSkills = async () => {
     setLoading(true);
@@ -60,7 +67,6 @@ export default function AdminSkillsPage() {
     }
   };
 
-
   const handleEditSkill = async (data) => {
     if (!editData) return;
     try {
@@ -76,7 +82,10 @@ export default function AdminSkillsPage() {
 
   const handleToggleActive = async (skill) => {
     try {
-      await updateDocument("skills", skill.id, { ...skill, isActive: !skill.isActive });
+      await updateDocument("skills", skill.id, {
+        ...skill,
+        isActive: !skill.isActive,
+      });
       toast.success("Status aktif berhasil diubah");
       fetchSkills();
     } catch (err) {
@@ -96,20 +105,91 @@ export default function AdminSkillsPage() {
     }
   };
 
-  return (
-    <div className="w-full py-8 mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold">Manajemen Skills</h1>
+  // ======== FILTER DATA BERDASARKAN PENCARIAN ========
+  const filteredSkills = skills.filter((s) => {
+    const term = searchTerm.toLowerCase();
+    return (
+      s.name?.toLowerCase().includes(term) ||
+      s.category?.toLowerCase().includes(term) ||
+      s.experience?.toLowerCase().includes(term)
+    );
+  });
+
+  // ======== PAGINATION SESUDAH FILTER =========
+  const totalPages = Math.ceil(filteredSkills.length / limit);
+  const paginatedData = filteredSkills.slice((page - 1) * limit, page * limit);
+
+  const columns = [
+    { key: "category", label: "Kategori" },
+    { key: "name", label: "Nama" },
+    { key: "icon", label: "Icon" },
+    { key: "experience", label: "Experience" },
+    { key: "active", label: "Aktif" },
+    { key: "actions", label: "Aksi" },
+  ];
+
+  const renderRow = (s, i) => (
+    <tr key={s.id || i} className="border-b last:border-b-0">
+      <td className="p-2">{s.category}</td>
+      <td className="p-2 font-semibold">{s.name}</td>
+      <td className="p-2">
+        <img src={s.iconUrl} alt={s.name} className="h-8" />
+      </td>
+      <td className="p-2">{s.experience}</td>
+      <td className="p-2">
+        <Switch checked={s.isActive} onChange={() => handleToggleActive(s)} />
+      </td>
+      <td className="flex gap-2 p-2">
         <button
-          className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+          className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
           onClick={() => {
-            setShowForm((v) => !v);
-            setEditData(null);
+            setEditData(s);
+            setShowForm(true);
           }}
         >
-          {showForm && !editData ? "Batal" : "Tambah Skill"}
+          Edit
         </button>
+        <button
+          className="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-600"
+          onClick={() => handleDelete(s.id)}
+        >
+          Hapus
+        </button>
+      </td>
+    </tr>
+  );
+
+  return (
+    <div className="w-full py-8 mx-auto">
+      {/* Header */}
+      <div className="flex flex-col gap-4 mb-6 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl font-bold">Manajemen Skills</h1>
+        <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
+          {/* 🔍 Input Search */}
+          <input
+            type="text"
+            placeholder="Cari skill..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setPage(1); // reset ke halaman 1 setiap kali cari
+            }}
+            className="px-3 py-2 text-sm border rounded-md w-52 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+
+          <button
+            className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+            onClick={() => {
+              setShowForm((v) => !v);
+              setEditData(null);
+            }}
+          >
+            {showForm && !editData ? "Batal" : "Tambah Skill"}
+          </button>
+        </div>
       </div>
+
+      {/* Modal Form */}
       <Modal
         open={showForm}
         onOpenChange={(open) => {
@@ -125,83 +205,24 @@ export default function AdminSkillsPage() {
           categories={categories.map((cat) => cat.name)}
         />
       </Modal>
-      {loading ? (
-        <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full bg-white border rounded-xl">
-            <thead>
-              <tr className="bg-zinc-100">
-                <th className="p-2 text-left">Kategori</th>
-                <th className="p-2 text-left">Nama</th>
-                <th className="p-2 text-left">Icon</th>
-                <th className="p-2 text-left">Experience</th>
-                <th className="p-2 text-left">Aktif</th>
-                <th className="p-2 text-left">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[...Array(3)].map((_, i) => (
-                <tr key={i}>
-                  <td className="p-2"><Skeleton className="w-24 h-4" /></td>
-                  <td className="p-2"><Skeleton className="w-32 h-4" /></td>
-                  <td className="p-2"><Skeleton className="w-10 h-8 rounded" /></td>
-                  <td className="p-2"><Skeleton className="w-20 h-4" /></td>
-                  <td className="p-2"><Skeleton className="w-10 h-6 rounded-full" /></td>
-                  <td className="p-2"><Skeleton className="w-20 h-6 rounded" /></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : error ? (
+
+      {/* Table Section */}
+      {error ? (
         <div className="text-red-500">{error}</div>
       ) : (
-        <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full bg-white border rounded-xl">
-            <thead>
-              <tr className="bg-zinc-100">
-                <th className="p-2 text-left">Kategori</th>
-                <th className="p-2 text-left">Nama</th>
-                <th className="p-2 text-left">Icon</th>
-                <th className="p-2 text-left">Experience</th>
-                <th className="p-2 text-left">Aktif</th>
-                <th className="p-2 text-left">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {skills.length === 0 && (
-                <tr><td colSpan={6} className="p-4 text-center">Tidak ada skill.</td></tr>
-              )}
-              {skills.map((s) => (
-                <tr key={s.id} className="border-b last:border-b-0">
-                  <td className="p-2">{s.category}</td>
-                  <td className="p-2 font-semibold">{s.name}</td>
-                  <td className="p-2"><img src={s.iconUrl} alt={s.name} className="h-8" /></td>
-                  <td className="p-2">{s.experience}</td>
-                  <td className="p-2">
-                    <Switch checked={s.isActive} onChange={() => handleToggleActive(s)} />
-                  </td>
-                  <td className="flex gap-2 p-2">
-                    <button
-                      className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
-                      onClick={() => {
-                        setEditData(s);
-                        setShowForm(true);
-                      }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-600"
-                      onClick={() => handleDelete(s.id)}
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <TableWithSkeleton
+          columns={columns}
+          data={paginatedData}
+          loading={loading}
+          skeletonRows={3}
+          renderRow={renderRow}
+          page={page}
+          totalPages={totalPages}
+          onPageChange={(p) => {
+            setPage(p);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        />
       )}
     </div>
   );

@@ -121,7 +121,7 @@ export default function AdminSkillCategoriesPage() {
           <table className="min-w-full bg-white border rounded-xl">
             <thead>
               <tr className="bg-zinc-100">
-                <th className="p-2 text-left">No Urut</th>
+                <th className="p-2 text-left">No</th>
                 <th className="p-2 text-left">Nama</th>
                 <th className="p-2 text-left">Aktif</th>
                 <th className="p-2 text-left">Aksi</th>
@@ -145,6 +145,7 @@ export default function AdminSkillCategoriesPage() {
           <table className="min-w-full bg-white border rounded-xl">
             <thead>
               <tr className="bg-zinc-100">
+                <th className="p-2 text-left">No</th>
                 <th className="p-2 text-left">Nama</th>
                 <th className="p-2 text-left">Aktif</th>
                 <th className="p-2 text-left">Aksi</th>
@@ -156,7 +157,7 @@ export default function AdminSkillCategoriesPage() {
               )}
               {categories.map((c) => (
                 <tr key={c.id} className="border-b last:border-b-0">
-                  <td className="p-2 font-semibold text-center">{c.order ?? '-'}</td>
+                  <td className="p-2 font-semibold">{c.order ?? '-'}</td>
                   <td className="p-2 font-semibold">{c.name}</td>
                   <td className="p-2">
                     <Switch checked={c.isActive} onChange={() => handleToggleActive(c)} />

@@ -1,27 +1,35 @@
 "use client";
 import { useEffect, useState } from "react";
-
 import {
   getCollection,
   addToCollection,
   updateDocument,
   deleteDocument,
 } from "@/services/firebaseService";
-import Skeleton from "@/components/ui/Skeleton";
+import TableWithSkeleton from "@/components/ui/TableWithSkeleton";
+import Modal from "@/components/ui/Modal";
 import { toast } from "react-hot-toast";
 
 export default function AdminTagsPage() {
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [name, setName] = useState("");
-  const [editId, setEditId] = useState(null);
   const [error, setError] = useState("");
 
+  const [showForm, setShowForm] = useState(false);
+  const [editData, setEditData] = useState(null);
+  const [tagName, setTagName] = useState("");
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
+  const limit = 8;
+
+  // === FETCH TAGS ===
   const fetchTags = async () => {
     setLoading(true);
     setError("");
     try {
       const data = await getCollection("tags");
+      data.sort((a, b) => a.name.localeCompare(b.name));
       setTags(data);
     } catch (err) {
       setError("Gagal mengambil data tag");
@@ -35,28 +43,35 @@ export default function AdminTagsPage() {
     fetchTags();
   }, []);
 
-  const handleAddOrEdit = async (e) => {
+  // === ADD / EDIT ===
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!tagName.trim()) {
+      toast.error("Nama tag tidak boleh kosong");
+      return;
+    }
+
     try {
-      if (editId) {
-        await updateDocument("tags", editId, { name });
+      if (editData) {
+        await updateDocument("tags", editData.id, { name: tagName });
         toast.success("Berhasil mengedit tag");
       } else {
-        await addToCollection("tags", { name });
+        await addToCollection("tags", { name: tagName });
         toast.success("Berhasil menambah tag");
       }
-      setName("");
-      setEditId(null);
+      setShowForm(false);
+      setEditData(null);
+      setTagName("");
       fetchTags();
     } catch (err) {
-      toast.error(editId ? "Gagal mengedit tag" : "Gagal menambah tag");
+      toast.error(editData ? "Gagal mengedit tag" : "Gagal menambah tag");
     }
   };
 
   const handleEdit = (tag) => {
-    setName(tag.name);
-    setEditId(tag.id);
+    setEditData(tag);
+    setTagName(tag.name);
+    setShowForm(true);
   };
 
   const handleDelete = async (id) => {
@@ -71,76 +86,138 @@ export default function AdminTagsPage() {
     }
   };
 
-  return (
-    <div className="w-full max-w-xl py-8 mx-auto">
-      <h1 className="mb-6 text-2xl font-bold">Manajemen Tags</h1>
-      <form onSubmit={handleAddOrEdit} className="flex gap-2 mb-6">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Nama tag"
-          className="flex-1 px-3 py-2 border rounded"
-        />
+  // === FILTER + PAGINATION ===
+  const filteredTags = tags.filter((t) =>
+    t.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(filteredTags.length / limit);
+  const paginatedData = filteredTags.slice((page - 1) * limit, page * limit);
+
+  // === TABLE CONFIG ===
+  const columns = [
+    { key: "name", label: "Nama Tag" },
+    { key: "actions", label: "Aksi" },
+  ];
+
+  const renderRow = (tag, i) => (
+    <tr key={tag.id || i} className="border-b last:border-b-0">
+      <td className="p-2">{tag.name}</td>
+      <td className="flex gap-2 p-2">
         <button
-          type="submit"
-          className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+          className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
+          onClick={() => handleEdit(tag)}
         >
-          {editId ? "Update" : "Tambah"}
+          Edit
         </button>
-        {editId && (
+        <button
+          className="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-600"
+          onClick={() => handleDelete(tag.id)}
+        >
+          Hapus
+        </button>
+      </td>
+    </tr>
+  );
+
+  return (
+    <div className="w-full py-8 mx-auto">
+      {/* HEADER */}
+      <div className="flex flex-col gap-4 mb-6 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl font-bold">Manajemen Tags</h1>
+
+        <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
+          {/* 🔍 SEARCH BAR */}
+          <input
+            type="text"
+            placeholder="Cari tag..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setPage(1);
+            }}
+            className="px-3 py-2 text-sm border rounded-md w-52 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+
+          {/* ADD BUTTON */}
           <button
-            type="button"
-            className="px-4 py-2 rounded bg-zinc-200"
+            className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
             onClick={() => {
-              setName("");
-              setEditId(null);
+              setShowForm(true);
+              setEditData(null);
+              setTagName("");
             }}
           >
-            Batal
+            Tambah Tag
           </button>
-        )}
-      </form>
-      {loading ? (
-        <div className="grid gap-2">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="flex items-center justify-between p-3 bg-white rounded shadow">
-              <Skeleton className="w-32 h-4" />
-              <div className="flex gap-2">
-                <Skeleton className="w-16 h-4" />
-                <Skeleton className="w-20 h-6 rounded" />
-              </div>
-            </div>
-          ))}
         </div>
-      ) : error ? (
+      </div>
+
+      {/* MODAL FORM */}
+      <Modal
+        open={showForm}
+        onOpenChange={(open) => {
+          setShowForm(open);
+          if (!open) {
+            setEditData(null);
+            setTagName("");
+          }
+        }}
+        title={editData ? "Edit Tag" : "Tambah Tag"}
+        className="max-w-md"
+      >
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block mb-1 text-sm font-medium text-zinc-700">
+              Nama Tag
+            </label>
+            <input
+              type="text"
+              value={tagName}
+              onChange={(e) => setTagName(e.target.value)}
+              placeholder="Masukkan nama tag"
+              className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+          <div className="flex justify-end gap-2">
+            <button
+              type="button"
+              className="px-4 py-2 rounded text-zinc-700 bg-zinc-200 hover:bg-zinc-300"
+              onClick={() => {
+                setShowForm(false);
+                setEditData(null);
+                setTagName("");
+              }}
+            >
+              Batal
+            </button>
+            <button
+              type="submit"
+              className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+            >
+              {editData ? "Update" : "Tambah"}
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* TABLE */}
+      {error ? (
         <div className="text-red-500">{error}</div>
       ) : (
-        <div className="grid gap-2">
-          {tags.length === 0 && <div>Tidak ada tag.</div>}
-          {tags.map((tag) => (
-            <div
-              key={tag.id}
-              className="flex items-center justify-between p-3 bg-white rounded shadow"
-            >
-              <span>{tag.name}</span>
-              <div className="flex gap-2">
-                <button
-                  className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
-                  onClick={() => handleEdit(tag)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-600"
-                  onClick={() => handleDelete(tag.id)}
-                >
-                  Hapus
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <TableWithSkeleton
+          columns={columns}
+          data={paginatedData}
+          loading={loading}
+          skeletonRows={3}
+          renderRow={renderRow}
+          page={page}
+          totalPages={totalPages}
+          onPageChange={(p) => {
+            setPage(p);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        />
       )}
     </div>
   );
