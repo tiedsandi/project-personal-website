@@ -23,8 +23,8 @@ export default function SkillsDynamic() {
           getCollection("skillCategories"),
           getCollection("skills"),
         ]);
-        const activeCategories = catData.filter((c) => c.isActive);
-        setCategories(activeCategories);
+  const activeCategories = catData.filter((c) => c.isActive).sort((a, b) => (a.order ?? 9999) - (b.order ?? 9999));
+  setCategories(activeCategories);
         setSkills(skillData.filter((s) => s.isActive));
         if (activeCategories.length > 0) setTab(activeCategories[0].name);
       } catch (err) {

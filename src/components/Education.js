@@ -1,5 +1,6 @@
 "use client"
 
+import { formatPeriode } from "@/utils/dateFormat";
 import {
   Accordion,
   AccordionContent,
@@ -24,7 +25,14 @@ const Education = () => {
       try {
         const data = await getCollection("educations");
         setEducationList(
-          data.filter((edu) => edu.isActive).sort((a, b) => new Date(b.date) - new Date(a.date))
+          data
+            .filter((edu) => edu.isActive)
+            .sort((a, b) => {
+              // Sort by endDate (or startDate if isCurrent)
+              const endA = a.isCurrent ? new Date() : new Date(a.endDate || a.startDate);
+              const endB = b.isCurrent ? new Date() : new Date(b.endDate || b.startDate);
+              return endB - endA;
+            })
         );
       } catch (err) {
         setError("Gagal mengambil data education");
@@ -45,7 +53,7 @@ const Education = () => {
         </h3>
         <div className="flex flex-col gap-4">
           {[...Array(2)].map((_, idx) => (
-            <div key={idx} className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow">
+            <div key={idx} className="flex items-center gap-4 p-4 bg-white shadow rounded-2xl">
               <Skeleton className="w-16 h-16 rounded-full" />
               <div className="flex-1">
                 <Skeleton className="w-32 h-5 mb-2" />
@@ -87,7 +95,9 @@ const Education = () => {
                 />
                 <div>
                   <p className="text-sm font-bold md:text-base">{edu.title}</p>
-                  <p className="font-light md:text-sm text-[12px]">{edu.date}</p>
+                  <p className="font-light md:text-sm text-[12px]">
+                    {formatPeriode(edu.startDate, edu.endDate, edu.isCurrent)}
+                  </p>
                 </div>
               </div>
             </AccordionTrigger>

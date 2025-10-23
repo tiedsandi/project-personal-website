@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { formatPeriode } from "@/utils/dateFormat";
 import {
   getCollection,
   addToCollection,
@@ -29,6 +30,13 @@ function AdminEducationPage() {
     setLoading(true);
     try {
       const data = await getCollection("educations");
+      data.sort((a, b) => {
+        const dateA = Date.parse(a.date) || a.date;
+        const dateB = Date.parse(b.date) || b.date;
+        if (dateA > dateB) return -1;
+        if (dateA < dateB) return 1;
+        return 0;
+      });
       setEducations(data);
     } catch (err) {
       setError("Gagal mengambil data education");
@@ -124,8 +132,7 @@ function AdminEducationPage() {
               <tr className="bg-zinc-100">
                 <th className="p-2 text-left">Gambar</th>
                 <th className="p-2 text-left">Judul</th>
-                <th className="p-2 text-left">Tanggal</th>
-                {/* <th className="p-2 text-left">Deskripsi</th> */}
+                <th className="p-2 text-left">Periode</th>
                 <th className="p-2 text-left">Aktif</th>
                 <th className="p-2 text-left">Aksi</th>
               </tr>
@@ -136,7 +143,6 @@ function AdminEducationPage() {
                   <td className="p-2"><Skeleton className="w-16 h-10 rounded" /></td>
                   <td className="p-2"><Skeleton className="w-32 h-4" /></td>
                   <td className="p-2"><Skeleton className="w-24 h-4" /></td>
-                  {/* <td className="p-2"><Skeleton className="w-40 h-4" /></td> */}
                   <td className="p-2"><Skeleton className="w-10 h-6 rounded-full" /></td>
                   <td className="p-2"><Skeleton className="w-20 h-6 rounded" /></td>
                 </tr>
@@ -154,7 +160,6 @@ function AdminEducationPage() {
                 <th className="p-2 text-left">Gambar</th>
                 <th className="p-2 text-left">Judul</th>
                 <th className="p-2 text-left">Tanggal</th>
-                {/* <th className="p-2 text-left">Deskripsi</th> */}
                 <th className="p-2 text-left">Aktif</th>
                 <th className="p-2 text-left">Aksi</th>
               </tr>
@@ -174,8 +179,9 @@ function AdminEducationPage() {
                     />
                   </td>
                   <td className="p-2 font-semibold">{e.title}</td>
-                  <td className="p-2">{e.date}</td>
-                  {/* <td className="max-w-xs p-2 text-xs text-zinc-500 line-clamp-2">{e.description}</td> */}
+                  <td className="p-2">
+                    {formatPeriode(e.startDate, e.endDate, e.isCurrent)}
+                  </td>
                   <td className="p-2">
                     <Switch checked={e.isActive} onChange={() => handleToggleActive(e)} />
                   </td>

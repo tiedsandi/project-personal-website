@@ -1,5 +1,6 @@
-
 "use client";
+
+import { formatPeriode } from "@/utils/dateFormat";
 import { useEffect, useState } from "react";
 import {
   getCollection,
@@ -26,6 +27,14 @@ function AdminExperiencePage() {
     setLoading(true);
     try {
       const data = await getCollection("experiences");
+      // Sort descending by date (assume YYYY-MM-DD or ISO, fallback to string compare)
+      data.sort((a, b) => {
+        const dateA = Date.parse(a.date) || a.date;
+        const dateB = Date.parse(b.date) || b.date;
+        if (dateA > dateB) return -1;
+        if (dateA < dateB) return 1;
+        return 0;
+      });
       setExperiences(data);
     } catch (err) {
       setError("Gagal mengambil data experience");
@@ -115,14 +124,14 @@ function AdminExperiencePage() {
         />
       </Modal>
       {loading ? (
-        <div className="overflow-x-auto mt-6">
-          <table className="min-w-full border rounded-xl bg-white">
+        <div className="mt-6 overflow-x-auto">
+          <table className="min-w-full bg-white border rounded-xl">
             <thead>
               <tr className="bg-zinc-100">
                 <th className="p-2 text-left">Gambar</th>
                 <th className="p-2 text-left">Judul</th>
                 <th className="p-2 text-left">Perusahaan</th>
-                <th className="p-2 text-left">Tanggal</th>
+                <th className="p-2 text-left">Periode</th>
                 <th className="p-2 text-left">Aktif</th>
                 <th className="p-2 text-left">Aksi</th>
               </tr>
@@ -144,8 +153,8 @@ function AdminExperiencePage() {
       ) : error ? (
         <div className="text-red-500">{error}</div>
       ) : (
-        <div className="overflow-x-auto mt-6">
-          <table className="min-w-full border rounded-xl bg-white">
+        <div className="mt-6 overflow-x-auto">
+          <table className="min-w-full bg-white border rounded-xl">
             <thead>
               <tr className="bg-zinc-100">
                 <th className="p-2 text-left">Gambar</th>
@@ -172,11 +181,13 @@ function AdminExperiencePage() {
                   </td>
                   <td className="p-2 font-semibold">{e.title}</td>
                   <td className="p-2">{e.company}</td>
-                  <td className="p-2">{e.date}</td>
+                  <td className="p-2">
+                    {formatPeriode(e.startDate, e.endDate, e.isCurrent)}
+                  </td>
                   <td className="p-2">
                     <Switch checked={e.isActive} onChange={() => handleToggleActive(e)} />
                   </td>
-                  <td className="p-2 flex gap-2">
+                  <td className="flex gap-2 p-2">
                     <button
                       className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
                       onClick={() => {

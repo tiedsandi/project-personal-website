@@ -6,7 +6,9 @@ export default function ExperienceForm({ onSubmit, initialData }) {
   const [data, setData] = useState({
     title: initialData?.title || "",
     company: initialData?.company || "",
-    date: initialData?.date || "",
+    startDate: initialData?.startDate || initialData?.date || "",
+    endDate: initialData?.endDate || "",
+    isCurrent: initialData?.isCurrent || false,
     description: initialData?.description || "",
     imageUrl: initialData?.imageUrl || "",
     isActive: initialData?.isActive ?? true,
@@ -27,7 +29,7 @@ export default function ExperienceForm({ onSubmit, initialData }) {
     setLoading(true);
     setError("");
     try {
-      if (!data.title || !data.company || !data.date || !data.description || !data.imageUrl) {
+      if (!data.title || !data.company || !data.startDate || (!data.isCurrent && !data.endDate) || !data.description || !data.imageUrl) {
         setError("Semua field wajib diisi!");
         setLoading(false);
         return;
@@ -36,7 +38,9 @@ export default function ExperienceForm({ onSubmit, initialData }) {
       setData({
         title: "",
         company: "",
-        date: "",
+        startDate: "",
+        endDate: "",
+        isCurrent: false,
         description: "",
         imageUrl: "",
         isActive: true,
@@ -72,16 +76,42 @@ export default function ExperienceForm({ onSubmit, initialData }) {
           required
         />
       </div>
-      <div>
-        <label className="block mb-1 font-medium">Tanggal *</label>
-        <input
-          type="text"
-          name="date"
-          className="w-full px-3 py-2 border rounded"
-          value={data.date}
-          onChange={handleChange}
-          required
-        />
+      <div className="flex gap-4">
+        <div className="flex-1">
+          <label className="block mb-1 font-medium">Tanggal Mulai *</label>
+          <input
+            type="date"
+            name="startDate"
+            className="w-full px-3 py-2 border rounded"
+            value={data.startDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="flex-1">
+          <label className="block mb-1 font-medium">Tanggal Selesai {" "}
+            <span className="text-xs font-normal text-zinc-500">{data.isCurrent ? '(Sekarang)' : '(kosongkan jika sudah selesai)'}</span>
+          </label>
+          <input
+            type="date"
+            name="endDate"
+            className={`w-full px-3 py-2 border rounded ${data.isCurrent ? 'bg-zinc-100 text-zinc-400 cursor-not-allowed' : ''}`}
+            value={data.isCurrent ? '' : data.endDate}
+            onChange={handleChange}
+            disabled={data.isCurrent}
+            placeholder={data.isCurrent ? 'Sekarang' : ''}
+          />
+          <div className="flex items-center mt-1 gap-2">
+            <input
+              type="checkbox"
+              id="isCurrent"
+              name="isCurrent"
+              checked={data.isCurrent}
+              onChange={handleChange}
+            />
+            <label htmlFor="isCurrent" className="text-sm">{data.isCurrent ? 'Masih bekerja di sini (aktif)' : 'Masih bekerja di sini'}</label>
+          </div>
+        </div>
       </div>
       <div>
         <label className="block mb-1 font-medium">Deskripsi *</label>

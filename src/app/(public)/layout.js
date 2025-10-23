@@ -17,7 +17,7 @@ const splineSansMono = Spline_Sans_Mono({
 export default function PublicLayout({ children }) {
   return (
     <div
-      className={`${RubikMonoOne.variable} ${splineSansMono.variable} antialiased bg-background text-foreground dark:bg-[#111827] dark:text-white`}
+      className={`${RubikMonoOne.variable} ${splineSansMono.variable} font-body antialiased bg-background text-foreground dark:bg-[#111827] dark:text-white`}
     >
       <div className="flex flex-col min-h-screen max-w-[1380px] m-auto xl:my-4 lg:gap-4 2xl:shadow-lg 2xl:border-[#e9e9e9] 2xl:border-2">
         <Header />

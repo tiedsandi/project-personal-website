@@ -13,6 +13,7 @@
   --border-color: #201e1f1e;
 
   --font-body: "Spline Sans Mono", sans-serif;
+  --font-logo: "Rubik Mono One", monospace;
   --radius: 0.5rem;
 }
 
@@ -28,10 +29,15 @@
   }
 } */
 
+
 body {
   color: var(--text-color);
   background: var(--background-color);
   font-family: var(--font-body);
+}
+
+.font-logo {
+  font-family: var(--font-logo);
 }
 
 @layer base {

@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
 
 
         // TODO: harus duluan
-        // [ ]  Form Education & Experience: kurang ditambahkan review url seperti di skills page
+        // [x]  Form Education & Experience: kurang ditambahkan review url seperti di skills page
         // [ ] sorting urutan education & experience dari tanggal terbaru ke terlama
         // [ ] Education dan experience ganti field formnya, date picker untuk tanggal, tambahin juga button sampai sekarang
         // [ ] ganti nama education dan experience, dengan title lihat contoh di tempat lain seperti resume.
