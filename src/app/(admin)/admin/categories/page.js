@@ -8,6 +8,7 @@ import {
 } from "@/services/firebaseService";
 import Modal from "@/components/ui/Modal";
 import Skeleton from "@/components/ui/Skeleton";
+import Switch from "@/components/ui/Switch";
 import { toast } from "react-hot-toast";
 import CategoryForm from "./CategoryForm";
 
@@ -59,6 +60,16 @@ export default function AdminSkillCategoriesPage() {
       fetchCategories();
     } catch (err) {
       toast.error("Gagal mengedit kategori");
+    }
+  };
+
+  const handleToggleActive = async (cat) => {
+    try {
+      await updateDocument("skillCategories", cat.id, { ...cat, isActive: !cat.isActive });
+      toast.success("Status aktif berhasil diubah");
+      fetchCategories();
+    } catch (err) {
+      toast.error("Gagal mengubah status aktif");
     }
   };
 
@@ -142,7 +153,9 @@ export default function AdminSkillCategoriesPage() {
               {categories.map((c) => (
                 <tr key={c.id} className="border-b last:border-b-0">
                   <td className="p-2 font-semibold">{c.name}</td>
-                  <td className="p-2">{c.isActive ? "Aktif" : "Nonaktif"}</td>
+                  <td className="p-2">
+                    <Switch checked={c.isActive} onChange={() => handleToggleActive(c)} />
+                  </td>
                   <td className="flex gap-2 p-2">
                     <button
                       className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"

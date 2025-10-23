@@ -20,7 +20,7 @@ export default function SidebarLayout({ children }) {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <header className="flex items-center justify-between w-full p-4 text-xl font-bold text-white bg-blue-700 shadow">
-        <span>Admin Panel</span>
+        <Link href="/">Admin Panel</Link>
         {/* Hamburger menu mobile */}
         <button
           className="p-2 text-white rounded lg:hidden hover:bg-blue-800"

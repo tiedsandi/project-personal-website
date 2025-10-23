@@ -80,3 +80,12 @@ export default function RootLayout({ children }) {
         // [ ]  Admin Profile/Settings
         // [ ]  Dashboard Admin
         // [ ]  Implementation Project (deployment, CI/CD, dsb)
+
+
+        // TODO: harus duluan
+        // [ ]  Form Education & Experience: kurang ditambahkan review url seperti di skills page
+        // [ ] sorting urutan education & experience dari tanggal terbaru ke terlama
+        // [ ] Education dan experience ganti field formnya, date picker untuk tanggal, tambahin juga button sampai sekarang
+        // [ ] ganti nama education dan experience, dengan title lihat contoh di tempat lain seperti resume.
+        // [ ] sorting bahasa dengan menambahkan urutan di form skills
+        // [ ] penambahan project, sekalian date picker untuk tanggal projectnya, text rich text editor untuk deskripsi projectnya, penambahan tags juga
