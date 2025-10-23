@@ -103,6 +103,9 @@ export default function ExperienceForm({ onSubmit, initialData }) {
           onChange={handleChange}
           required
         />
+          {data.imageUrl && (
+            <img src={data.imageUrl} alt="Preview" className="h-10 mt-2" />
+          )}
       </div>
       <div className="flex items-center gap-2">
         <input
