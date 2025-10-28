@@ -7,7 +7,7 @@ import {
   deleteDocument,
 } from "@/services/firebaseService";
 import Modal from "@/components/ui/Modal";
-import Skeleton from "@/components/ui/Skeleton";
+import TableWithSkeleton from "@/components/ui/TableWithSkeleton";
 import Switch from "@/components/ui/Switch";
 import { toast } from "react-hot-toast";
 import CategoryForm from "./CategoryForm";
@@ -19,6 +19,11 @@ export default function AdminSkillCategoriesPage() {
   const [showForm, setShowForm] = useState(false);
   const [editData, setEditData] = useState(null);
   const [error, setError] = useState("");
+
+  const [page, setPage] = useState(1);
+  const pageSize = 10;
+  const totalPages = Math.ceil(categories.length / pageSize);
+  const pagedCategories = categories.slice((page - 1) * pageSize, page * pageSize);
 
   const fetchCategories = async () => {
     setLoading(true);
@@ -116,74 +121,49 @@ export default function AdminSkillCategoriesPage() {
           categories={categories}
         />
       </Modal>
-      {loading ? (
-        <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full bg-white border rounded-xl">
-            <thead>
-              <tr className="bg-zinc-100">
-                <th className="p-2 text-left">No</th>
-                <th className="p-2 text-left">Nama</th>
-                <th className="p-2 text-left">Aktif</th>
-                <th className="p-2 text-left">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[...Array(3)].map((_, i) => (
-                <tr key={i}>
-                  <td className="p-2"><Skeleton className="w-32 h-4" /></td>
-                  <td className="p-2"><Skeleton className="w-16 h-4" /></td>
-                  <td className="p-2"><Skeleton className="w-20 h-6 rounded" /></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : error ? (
+      {error ? (
         <div className="text-red-500">{error}</div>
       ) : (
-        <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full bg-white border rounded-xl">
-            <thead>
-              <tr className="bg-zinc-100">
-                <th className="p-2 text-left">No</th>
-                <th className="p-2 text-left">Nama</th>
-                <th className="p-2 text-left">Aktif</th>
-                <th className="p-2 text-left">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {categories.length === 0 && (
-                <tr><td colSpan={3} className="p-4 text-center">Tidak ada kategori.</td></tr>
-              )}
-              {categories.map((c) => (
-                <tr key={c.id} className="border-b last:border-b-0">
-                  <td className="p-2 font-semibold">{c.order ?? '-'}</td>
-                  <td className="p-2 font-semibold">{c.name}</td>
-                  <td className="p-2">
-                    <Switch checked={c.isActive} onChange={() => handleToggleActive(c)} />
-                  </td>
-                  <td className="flex gap-2 p-2">
-                    <button
-                      className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
-                      onClick={() => {
-                        setEditData(c);
-                        setShowForm(true);
-                      }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-600"
-                      onClick={() => handleDelete(c.id)}
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <TableWithSkeleton
+          columns={[
+            { key: "order", label: "No" },
+            { key: "name", label: "Nama" },
+            { key: "isActive", label: "Aktif" },
+            { key: "aksi", label: "Aksi" },
+          ]}
+          data={pagedCategories}
+          loading={loading}
+          skeletonRows={pageSize}
+          renderRow={(c, idx) => (
+            <tr key={c.id} className="border-b last:border-b-0">
+              <td className="p-2 font-semibold">{c.order ?? '-'}</td>
+              <td className="p-2 font-semibold">{c.name}</td>
+              <td className="p-2">
+                <Switch checked={c.isActive} onChange={() => handleToggleActive(c)} />
+              </td>
+              <td className="flex gap-2 p-2">
+                <button
+                  className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
+                  onClick={() => {
+                    setEditData(c);
+                    setShowForm(true);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="px-3 py-1 text-white bg-red-500 rounded hover:bg-red-600"
+                  onClick={() => handleDelete(c.id)}
+                >
+                  Hapus
+                </button>
+              </td>
+            </tr>
+          )}
+          page={page}
+          totalPages={totalPages}
+          onPageChange={setPage}
+        />
       )}
     </div>
   );
