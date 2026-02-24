@@ -3,12 +3,14 @@ import { NextResponse } from "next/server";
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get("admin_token")?.value;
-  const adminPassword = process.env.ADMIN_PASSWORD?.trim();
+  // const adminPassword = process.env.ADMIN_PASSWORD?.trim();
+  const adminPassword = "admin123";
 
   // Allow login page freely
   if (pathname === "/admin/login") {
     // If already logged in, redirect to dashboard
-    if (token && adminPassword && token === adminPassword) {
+    // if (token && adminPassword && token === adminPassword) {
+    if (token && token === adminPassword) {
       return NextResponse.redirect(new URL("/admin/dashboard", request.url));
     }
     return NextResponse.next();
@@ -16,7 +18,8 @@ export function middleware(request) {
 
   // Protect all /admin/* except /admin/login
   if (pathname.startsWith("/admin")) {
-    if (!token || !adminPassword || token !== adminPassword) {
+    // if (!token || !adminPassword || token !== adminPassword) {
+    if (!token || token !== adminPassword) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
     }
   }
