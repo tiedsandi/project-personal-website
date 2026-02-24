@@ -1,0 +1,21 @@
+{
+  "greeting": "Halo! Saya",
+  "name": "Fachran Sandi",
+  "title": "Fullstack Developer",
+  "description": "Saya seorang developer yang antusias memecahkan masalah dengan teknologi modern. Berpengalaman dalam membangun aplikasi web yang scalable dan responsif.",
+  "stats": [
+    {
+      "value": "16",
+      "label": "Proyek Personal"
+    },
+    {
+      "value": "1+",
+      "label": "Tahun Pengalaman"
+    },
+    {
+      "value": "Fullstack",
+      "label": "Fokus Utama"
+    }
+  ],
+  "photo": "/profile.jpg?t=1771918292983"
+}

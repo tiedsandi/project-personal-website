@@ -1,13 +1,7 @@
 "use client";
 
-const techStack = [
-  "JavaScript", "TypeScript", "React", "Next.js",
-  "Node.js", "Laravel", "Golang", "MySQL", "MongoDB", "PostgreSQL",
-  "Redux", "PHP", "REST API", "Git", "Firebase",
-];
-
-export default function TechMarquee() {
-  const items = [...techStack, ...techStack]; // duplicate for seamless loop
+export default function TechMarquee({ skills = [] }) {
+  const items = [...skills, ...skills]; // duplicate for seamless loop
 
   return (
     <section className="w-full py-5 bg-gray-50 overflow-hidden relative">

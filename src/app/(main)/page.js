@@ -3,15 +3,24 @@ import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
+import MarqueeData from "@/data/marquee-skills.json";
+import HeroData from "@/data/hero.json";
 
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-16 pb-16">
       <FadeIn delay={0.1}>
-        <Hero />
+        <Hero
+          greeting={HeroData.greeting}
+          name={HeroData.name}
+          title={HeroData.title}
+          description={HeroData.description}
+          stats={HeroData.stats}
+          photo={HeroData.photo}
+        />
       </FadeIn>
 
-      <TechMarquee />
+      <TechMarquee skills={MarqueeData.skills} />
 
       <FadeIn delay={0.25}>
         <FeaturedProject />
@@ -29,7 +38,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <a
-                href="mailto:fachransandi@gmail.com"
+                href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
                 className="px-8 py-3.5 text-gray-900 font-medium bg-white rounded-full hover:bg-gray-100 transition-colors"
               >
                 Hubungi Saya
