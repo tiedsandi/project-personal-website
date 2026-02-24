@@ -9,15 +9,17 @@ const Button = ({
   children,
   variant = "base",
   download = false,
+  className,
   ...otherProps
 }) => {
   const styles = clsx(
-    "px-5 py-2 rounded-xl transition duration-150 text-sm font-medium",
+    "inline-flex items-center justify-center px-8 py-3.5 rounded-full transition-all duration-300 font-medium text-sm",
     {
-      base: "text-white bg-black hover:bg-gray-800",
-      inverted: "text-gray-800 border border-gray-700 hover:bg-gray-100",
-      ghost: "text-secondary bg-transparent hover:underline",
-    }[variant]
+      base: "text-white bg-blue-600 hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5",
+      inverted: "text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300",
+      ghost: "text-gray-600 bg-transparent hover:text-blue-600 hover:bg-blue-50",
+    }[variant],
+    className
   );
 
   return (

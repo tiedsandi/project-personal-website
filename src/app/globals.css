@@ -9,39 +9,39 @@
   --background-color: #f8f7f9;
   --background-color-secondary: #ffbf76;
 
-  --text-color: #333;
+  --text-color: #111827;
   --border-color: #201e1f1e;
 
-  --font-body: "Spline Sans Mono", sans-serif;
   --radius: 0.5rem;
 }
-
-/* Dark Mode Support */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #e5e5e5;
-    --secondary-color: #121212;
-    --background-color: #0a0a0a;
-    --background-color-secondary: #222;
-    --text-color: #ededed;
-    --border-color: #ffffff1e;
-  }
-} */
 
 body {
   color: var(--text-color);
   background: var(--background-color);
-  font-family: var(--font-body);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
+}
 
-  body {
-    @apply text-base antialiased;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
   }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+body {
+  @apply text-base antialiased;
 }
 
 @layer utilities {
@@ -58,6 +58,7 @@ body {
       opacity: 0;
       transform: translateY(20px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0);

@@ -1,73 +1,116 @@
 "use client";
 
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
-
+import { motion } from "framer-motion";
 import Button from "./Button";
 import Image from "next/image";
 import Link from "next/link";
 import ProfileImage from "@/assets/foto-fachran.jpg";
 
 const Hero = () => {
-  const handleDownloadCV = () => {
-    const link = document.createElement("a");
-    link.href = "/cv.pdf";
-    link.setAttribute("download", "cv.pdf");
-    link.click();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] },
+    },
   };
 
   return (
     <section
-      className="grid items-center grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2"
+      className="grid items-center w-full grid-cols-1 gap-12 px-6 py-20 mx-auto md:grid-cols-2 max-w-7xl"
       aria-label="Intro section"
     >
       {/* Konten Teks */}
-      <div className="space-y-6 text-center md:text-left">
-        <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl text-primary">
-          Halo! Saya Fachran Sandi 👋
-        </h1>
-        <p className="text-lg text-gray-700">
-          Fullstack Developer • Laravel • React.js • Next.js • Node.js • REST
-          API
-        </p>
-        <p className="max-w-xl mx-auto text-base text-gray-600 md:mx-0">
-          Saya seorang developer yang antusias memecahkan masalah dengan
-          teknologi modern.
-        </p>
+      <motion.div 
+        className="space-y-8 text-center md:text-left"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1 
+          variants={itemVariants}
+          className="text-5xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-6xl"
+        >
+          Halo! Saya <br className="hidden md:block" />
+          <span className="text-gray-900">Fachran Sandi</span> 👋
+        </motion.h1>
+        
+        <motion.div variants={itemVariants} className="space-y-4">
+          <p className="text-xl font-medium text-gray-800">
+            Fullstack Developer
+          </p>
+          <p className="max-w-xl mx-auto text-lg leading-relaxed text-gray-500 md:mx-0">
+            Saya seorang developer yang antusias memecahkan masalah dengan
+            teknologi modern. Berpengalaman dalam membangun aplikasi web yang scalable dan responsif.
+          </p>
+        </motion.div>
+
+        {/* Stat chips */}
+        <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 md:justify-start">
+          {[
+            { value: "16", label: "Proyek Personal" },
+            { value: "1+", label: "Tahun Pengalaman" },
+            { value: "Fullstack", label: "Fokus Utama" },
+          ].map((s) => (
+            <div key={s.label} className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm">
+              <span className="text-sm font-bold text-gray-900">{s.value}</span>
+              <span className="text-sm text-gray-500">{s.label}</span>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Tombol */}
-        <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-          {/* <button
-            onClick={handleDownloadCV}
-            className="px-5 py-2 text-white transition bg-black rounded-xl hover:bg-gray-800"
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-wrap justify-center gap-4 pt-2 md:justify-start"
+        >
+          <Link 
+            href="/project" 
+            className="px-8 py-3.5 text-white font-medium transition-all bg-gray-900 rounded-full hover:bg-gray-700 hover:shadow-lg hover:-translate-y-0.5"
           >
-            Download CV (PDF)
-          </button> */}
-
-          <Button href="#projects" variant="inverted">
             Lihat Proyek
-          </Button>
-        </div>
-      </div>
+          </Link>
+
+        </motion.div>
+      </motion.div>
 
       {/* Foto & Social */}
-      <div className="flex flex-col items-center gap-4">
-        <div className="relative overflow-hidden rounded-full shadow-md w-44 h-44">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="flex flex-col items-center gap-6"
+      >
+        <div className="relative w-64 h-64 overflow-hidden border-4 border-white rounded-full shadow-2xl">
           <Image
             src={ProfileImage}
             alt="Foto Fachran Sandi"
             fill
             style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 100vw, 176px"
+            sizes="(max-width: 768px) 100vw, 256px"
             priority
           />
         </div>
 
         {/* Icon Sosmed */}
-        <div className="flex gap-4 text-2xl text-gray-700">
+        <div className="flex gap-6 text-2xl text-gray-400">
           <Link
-            href="mailto:fachran.sandi@example.com"
+            href="mailto:fachransandi@gmail.com"
             aria-label="Email"
-            className="transition hover:text-black"
+            className="transition-colors hover:text-gray-900"
           >
             <FaEnvelope />
           </Link>
@@ -75,7 +118,7 @@ const Hero = () => {
             href="https://github.com/tiedsandi"
             target="_blank"
             aria-label="GitHub"
-            className="transition hover:text-black"
+            className="transition-colors hover:text-gray-900"
           >
             <FaGithub />
           </Link>
@@ -83,12 +126,12 @@ const Hero = () => {
             href="https://linkedin.com/in/fachransandi"
             target="_blank"
             aria-label="LinkedIn"
-            className="transition hover:text-black"
+            className="transition-colors hover:text-gray-900"
           >
             <FaLinkedin />
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

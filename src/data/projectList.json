@@ -8,9 +8,16 @@
       "date": "03 April 2024",
       "linkGithub": "https://github.com/tiedsandi/foodie-app",
       "description": "NextLevel Food adalah platform digital yang menyediakan berbagai resep yang mudah diakses. Nikmati pengalaman memasak dan berbagi resep di NetLevel Food!",
-      "tags": ["Next.js"],
+      "tags": [
+        "Next.js"
+      ],
       "type": "frontend",
-      "fitur": ["List resep", "Detail resep", "Search", "Routing"]
+      "fitur": [
+        "List resep",
+        "Detail resep",
+        "Search",
+        "Routing"
+      ]
     },
     {
       "id": 2,
@@ -20,9 +27,16 @@
       "date": "18 Maret 2024",
       "linkGithub": "https://github.com/tiedsandi/landing-page-bromo.git",
       "description": "Landing page tentang Gunung Bromo dirancang khusus untuk memperkenalkan keindahan dan daya tarik Gunung Bromo di Indonesia.",
-      "tags": ["React.Js", "SASS"],
+      "tags": [
+        "React.Js",
+        "SASS"
+      ],
       "type": "frontend",
-      "fitur": ["Responsive UI", "Scroll section", "Gallery"]
+      "fitur": [
+        "Responsive UI",
+        "Scroll section",
+        "Gallery"
+      ]
     },
     {
       "id": 3,
@@ -32,9 +46,16 @@
       "date": "10 Juli 2024",
       "linkGithub": "https://github.com/tiedsandi/simple-todo",
       "description": "Dengan desain sederhana dan intuitif, aplikasi ini membantu pengguna tetap terorganisir tanpa gangguan.",
-      "tags": ["React.Js", "Redux"],
+      "tags": [
+        "React.Js",
+        "Redux"
+      ],
       "type": "frontend",
-      "fitur": ["CRUD Todo", "Filter", "Persist state"]
+      "fitur": [
+        "CRUD Todo",
+        "Filter",
+        "Persist state"
+      ]
     },
     {
       "id": 4,
@@ -44,9 +65,20 @@
       "date": "20 Juli 2024",
       "linkGithub": "https://github.com/tiedsandi/project-secondhandBinar",
       "description": "Secondhand adalah aplikasi marketplace untuk jual beli barang bekas dalam kondisi baik.",
-      "tags": ["React.Js", "Redux", "SASS", "MUI", "RestAPI"],
+      "tags": [
+        "React.Js",
+        "Redux",
+        "SASS",
+        "MUI",
+        "RestAPI"
+      ],
       "type": "fullstack",
-      "fitur": ["Login/Register", "CRUD Product", "Bid", "API Integration"]
+      "fitur": [
+        "Login/Register",
+        "CRUD Product",
+        "Bid",
+        "API Integration"
+      ]
     },
     {
       "id": 5,
@@ -56,9 +88,15 @@
       "date": "10 Mei 2024",
       "linkGithub": "https://github.com/tiedsandi/summary-card-Fe_challange",
       "description": "Frontend Mentor challenges - Summary Component",
-      "tags": ["React.Js", "Tailwind"],
+      "tags": [
+        "React.Js",
+        "Tailwind"
+      ],
       "type": "frontend",
-      "fitur": ["Responsive Card", "Component Styling"]
+      "fitur": [
+        "Responsive Card",
+        "Component Styling"
+      ]
     },
     {
       "id": 6,
@@ -68,9 +106,14 @@
       "date": "15 Mei 2024",
       "linkGithub": "https://github.com/tiedsandi/QR-code-component-Fe_challange",
       "description": "Frontend Mentor challenges - QR Component",
-      "tags": ["Next.js"],
+      "tags": [
+        "Next.js"
+      ],
       "type": "frontend",
-      "fitur": ["Minimal design", "Static content"]
+      "fitur": [
+        "Minimal design",
+        "Static content"
+      ]
     },
     {
       "id": 7,
@@ -80,9 +123,14 @@
       "date": "23 Mei 2024",
       "linkGithub": "https://github.com/tiedsandi/Blog-preview-card-Fe_challange",
       "description": "Frontend Mentor challenges - Blog Card",
-      "tags": ["Next.js"],
+      "tags": [
+        "Next.js"
+      ],
       "type": "frontend",
-      "fitur": ["Card Layout", "Blog Preview"]
+      "fitur": [
+        "Card Layout",
+        "Blog Preview"
+      ]
     },
     {
       "id": 8,
@@ -92,9 +140,18 @@
       "date": "15 November 2024",
       "linkGithub": "https://github.com/tiedsandi/project_next_movie_db",
       "description": "Web berbasis Next.JS, API fetching data dari MovieDB",
-      "tags": ["Next.js", "Tailwind", "RestAPI"],
+      "tags": [
+        "Next.js",
+        "Tailwind",
+        "RestAPI"
+      ],
       "type": "frontend",
-      "fitur": ["Movie List", "Search", "Detail Page", "Fetch API"]
+      "fitur": [
+        "Movie List",
+        "Search",
+        "Detail Page",
+        "Fetch API"
+      ]
     },
     {
       "id": 9,
@@ -104,9 +161,18 @@
       "date": "10 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_pos-api",
       "description": "Backend API untuk aplikasi Point of Sales (POS), termasuk AUTH, user, category, product.",
-      "tags": ["Laravel", "JWT", "MySQL", "Swagger"],
+      "tags": [
+        "Laravel",
+        "JWT",
+        "MySQL",
+        "Swagger"
+      ],
       "type": "backend",
-      "fitur": ["JWT Auth", "CRUD", "Swagger Docs"]
+      "fitur": [
+        "JWT Auth",
+        "CRUD",
+        "Swagger Docs"
+      ]
     },
     {
       "id": 10,
@@ -117,9 +183,17 @@
       "date": "15 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_point-of-sales",
       "description": "Aplikasi transaksi yang dirancang khusus untuk memenuhi kebutuhan warung makan.",
-      "tags": ["Laravel", "Tailwind", "Mysql"],
+      "tags": [
+        "Laravel",
+        "Tailwind",
+        "Mysql"
+      ],
       "type": "fullstack",
-      "fitur": ["Transaksi", "Laporan", "Kategori & Produk"]
+      "fitur": [
+        "Transaksi",
+        "Laporan",
+        "Kategori & Produk"
+      ]
     },
     {
       "id": 11,
@@ -130,7 +204,13 @@
       "date": "18 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_event-management-backend",
       "description": "Backend API untuk aplikasi Event Management (EMENT), User Authentication (JWT), Role-Based Event Management, Event Registration, Cloudinary Uploads.",
-      "tags": ["Node.Js", "JWT", "MongoDB", "Swagger", "Cloudinary"],
+      "tags": [
+        "Node.Js",
+        "JWT",
+        "MongoDB",
+        "Swagger",
+        "Cloudinary"
+      ],
       "type": "backend",
       "fitur": [
         "Auth JWT",
@@ -148,7 +228,11 @@
       "date": "20 Mei 2025",
       "linkGithub": "https://github.com/tiedsandi/project_event-management-frontend",
       "description": "Ement adalah aplikasi manajemen event berbasis web yang memungkinkan pengguna untuk membuat, melihat, dan mendaftar ke berbagai event. Aplikasi ini dirancang untuk digunakan oleh publik secara umum.",
-      "tags": ["React.Js", "Tailwind", "Restful API"],
+      "tags": [
+        "React.Js",
+        "Tailwind",
+        "Restful API"
+      ],
       "type": "frontend",
       "fitur": [
         "Event List",
@@ -160,13 +244,18 @@
     {
       "id": 13,
       "selected": true,
+      "gifProject": "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
       "name": "Crwn Shop",
       "company": "",
       "imgName": "crwn-shop.png",
       "date": "20 Juni 2025",
       "linkGithub": "https://github.com/tiedsandi/project_crwn-store/",
       "description": "CRWN SHOP adalah aplikasi online shop pakaian yang dibangun untuk showcase portofolio dan pembelajaran fullstack menggunakan Firebase.",
-      "tags": ["React.Js", "Firebase", "Redux"],
+      "tags": [
+        "React.Js",
+        "Firebase",
+        "Redux"
+      ],
       "type": "fullstack",
       "fitur": [
         "Login / Authentication",
@@ -179,13 +268,20 @@
     {
       "id": 14,
       "selected": false,
+      "gifProject": "https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif",
       "name": "Contact Management API",
       "company": "",
       "imgName": "go-lang.png",
       "date": "28 Juni 2025",
       "linkGithub": "https://github.com/tiedsandi/project_contact-management-go",
       "description": "Contact Management API adalah backend service untuk mengelola data Users, Contacts, dan Addresses. Dibangun dengan arsitektur clean-layered menggunakan Golang dan Gin Framework, serta PostgreSQL sebagai database. Cocok untuk pembelajaran REST API dan JWT Authentication.",
-      "tags": ["Golang", "Gin", "PostgreSQL", "GORM", "JWT"],
+      "tags": [
+        "Golang",
+        "Gin",
+        "PostgreSQL",
+        "GORM",
+        "JWT"
+      ],
       "type": "backend",
       "fitur": [
         "User Authentication (JWT)",
@@ -200,13 +296,19 @@
     {
       "id": 15,
       "selected": true,
+      "gifProject": "https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",
       "name": "Contact Management APP",
       "company": "",
       "imgName": "contact-management.png",
       "date": "28 Juni 2025",
       "linkGithub": "https://github.com/tiedsandi/project_typescript-contact-management",
       "description": "Inspirasi project ini datang dari tutorial Programmer Zaman Now, namun seluruh implementasi backend dan integrasi dibuat dari nol.",
-      "tags": ["React", "Typescript", "RestAPI", "Tailwind"],
+      "tags": [
+        "React",
+        "Typescript",
+        "RestAPI",
+        "Tailwind"
+      ],
       "type": "frontend",
       "fitur": [
         "Form Validation Real-time dengan Hook Form + Zod",
@@ -219,6 +321,7 @@
     {
       "id": 16,
       "selected": true,
+      "gifProject": "https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif",
       "name": "Roadmind AI",
       "company": "",
       "imgName": "roadmind-ai.png",
