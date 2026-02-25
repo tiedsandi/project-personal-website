@@ -297,7 +297,7 @@
     {
       "id": 15,
       "selected": true,
-      "gifProject": "https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif",
+      "gifProject": "1771984035658-c4zr2cd9p1e.gif",
       "name": "Contact Management APP",
       "company": "",
       "imgName": "contact-management.png",
@@ -313,9 +313,18 @@
       "type": "frontend",
       "fitur": [
         "Form Validation Real-time dengan Hook Form + Zod",
-        "Tambah, edit, hapus, dan lihat daftar kontak",
-        "Tambah, edit, hapus, dan lihat daftar address per kontak",
-        "Validasi password kuat (uppercase, lowercase, simbol, minimal 6 karakter)",
+        "Tambah",
+        "edit",
+        "hapus",
+        "dan lihat daftar kontak",
+        "Tambah",
+        "edit",
+        "hapus",
+        "dan lihat daftar address per kontak",
+        "Validasi password kuat (uppercase",
+        "lowercase",
+        "simbol",
+        "minimal 6 karakter)",
         "Backend API dengan Golang untuk manajemen kontak"
       ]
     },

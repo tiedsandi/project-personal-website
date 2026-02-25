@@ -6,7 +6,7 @@ import { Plus, Pencil, Trash2, X, Check, Star, Upload, ImageIcon } from "lucide-
 const EMPTY = {
   name: "", company: "", imgName: "", date: "", linkGithub: "",
   linkDemo: "", description: "", tags: "", fitur: "",
-  type: "frontend", selected: false, gifProject: "",
+  type: "frontend", selected: false, gifProject: "", isShowGif: false,
 };
 
 export default function AdminProjectsPage() {
@@ -74,7 +74,7 @@ export default function AdminProjectsPage() {
     setForm({
       ...project,
       tags: Array.isArray(project.tags) ? project.tags.join(", ") : project.tags,
-      fitur: Array.isArray(project.fitur) ? project.fitur.join(", ") : project.fitur,
+      fitur: Array.isArray(project.fitur) ? project.fitur.join("; ") : project.fitur,
     });
   }
 
@@ -85,7 +85,7 @@ export default function AdminProjectsPage() {
     const payload = {
       ...form,
       tags: form.tags.split(",").map((s) => s.trim()).filter(Boolean),
-      fitur: form.fitur.split(",").map((s) => s.trim()).filter(Boolean),
+      fitur: form.fitur.split(";").map((s) => s.trim()).filter(Boolean),
     };
 
     if (editId) {
@@ -332,7 +332,7 @@ export default function AdminProjectsPage() {
 
               <div>
                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide block mb-1">
-                  Fitur <span className="text-gray-400 font-normal normal-case">(pisah koma)</span>
+                  Fitur <span className="text-gray-400 font-normal normal-case">(pisah titik koma)</span>
                 </label>
                 <input
                   type="text"
@@ -367,6 +367,18 @@ export default function AdminProjectsPage() {
                 </div>
                 <span className="text-sm font-medium text-gray-700">Tampilkan di Home (Featured)</span>
               </label>
+
+              {form.gifProject && (
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <div
+                    onClick={() => setForm({ ...form, isShowGif: !form.isShowGif })}
+                    className={`w-10 h-6 rounded-full transition-colors flex items-center ${form.isShowGif ? "bg-blue-500" : "bg-gray-200"}`}
+                  >
+                    <span className={`w-4 h-4 bg-white rounded-full shadow transition-transform mx-1 ${form.isShowGif ? "translate-x-4" : "translate-x-0"}`} />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Tampilkan GIF di Modal (bukan gambar)</span>
+                </label>
+              )}
             </div>
 
             <div className="flex gap-3 px-6 py-4 border-t border-gray-100 sticky bottom-0 bg-white rounded-b-2xl">

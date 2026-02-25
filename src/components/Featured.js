@@ -1,12 +1,17 @@
 import Card from "./Card";
-import DataList from "@/data/projectList.json";
 import Link from "next/link";
 import React from "react";
+import supabase from "@/lib/supabase";
 
-const FeaturedProject = () => {
-  const selectedProjects = DataList.projects.filter(
-    (project) => project.selected
-  ).slice(0, 3); // Ensure we only show top 3
+const FeaturedProject = async () => {
+  const { data } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("selected", true)
+    .order("id", { ascending: false })
+    .limit(3);
+
+  const selectedProjects = data || [];
 
   return (
     <section

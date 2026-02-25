@@ -1,14 +1,19 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Card from "@/components/Card";
-import projectList from "@/data/projectList.json";
 
 const Page = () => {
-  const projects = projectList.projects;
+  const [projects, setProjects] = useState([]);
   const [filterType, setFilterType] = useState("semua");
+
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((r) => r.json())
+      .then((d) => setProjects(d.projects || []));
+  }, []);
 
   const sortProject = [...projects].sort((a, b) => b.id - a.id);
 

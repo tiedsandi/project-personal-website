@@ -1,29 +1,15 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-
-const DATA_PATH = path.join(process.cwd(), "src/data/projectList.json");
-
-function readData() {
-  return JSON.parse(fs.readFileSync(DATA_PATH, "utf-8"));
-}
-
-function writeData(data) {
-  fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), "utf-8");
-}
+import supabase from "@/lib/supabase";
 
 export async function GET() {
-  const data = readData();
-  return NextResponse.json(data);
+  const { data, error } = await supabase.from("projects").select("*").order("id", { ascending: true });
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ projects: data });
 }
 
 export async function POST(request) {
   const body = await request.json();
-  const data = readData();
-
-  const maxId = data.projects.reduce((max, p) => Math.max(max, p.id || 0), 0);
   const newProject = {
-    id: maxId + 1,
     name: body.name || "",
     company: body.company || "",
     imgName: body.imgName || "",
@@ -38,7 +24,7 @@ export async function POST(request) {
     gifProject: body.gifProject || "",
   };
 
-  data.projects.push(newProject);
-  writeData(data);
-  return NextResponse.json(newProject, { status: 201 });
+  const { data, error } = await supabase.from("projects").insert(newProject).select().single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data, { status: 201 });
 }

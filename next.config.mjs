@@ -27,6 +27,11 @@ const nextConfig = {
         hostname: "media3.giphy.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "qxdximguwxxasjjnzxge.supabase.co",
+        pathname: "/**",
+      },
     ],
   },
 };

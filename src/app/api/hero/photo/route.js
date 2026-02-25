@@ -1,9 +1,20 @@
 import { NextResponse } from "next/server";
-import { writeFile } from "fs/promises";
-import fs from "fs";
-import path from "path";
+import supabase from "@/lib/supabase";
+import sharp from "sharp";
 
-const DATA_PATH = path.join(process.cwd(), "src/data/hero.json");
+const TARGET_SIZE = 3 * 1024 * 1024; // 3MB
+
+async function compressPhoto(buffer) {
+  let quality = 80;
+  let result = await sharp(buffer).webp({ quality }).toBuffer();
+
+  while (result.length > TARGET_SIZE && quality > 20) {
+    quality -= 10;
+    result = await sharp(buffer).webp({ quality }).toBuffer();
+  }
+
+  return result;
+}
 
 export async function POST(request) {
   const formData = await request.formData();
@@ -16,18 +27,24 @@ export async function POST(request) {
     return NextResponse.json({ error: "Format harus JPG, PNG, atau WebP" }, { status: 400 });
   }
 
-  if (file.size > 5 * 1024 * 1024) {
-    return NextResponse.json({ error: "Maksimal 5MB" }, { status: 400 });
+  if (file.size > 15 * 1024 * 1024) {
+    return NextResponse.json({ error: "Maksimal 15MB" }, { status: 400 });
   }
 
   const bytes = await file.arrayBuffer();
-  const dest = path.join(process.cwd(), "public/profile.jpg");
-  await writeFile(dest, Buffer.from(bytes));
+  const compressed = await compressPhoto(Buffer.from(bytes));
 
-  // Update hero.json photo path
-  const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf-8"));
-  data.photo = `/profile.jpg?t=${Date.now()}`;
-  fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), "utf-8");
+  const { error: uploadError } = await supabase.storage
+    .from("images")
+    .upload("profile.webp", compressed, { contentType: "image/webp", upsert: true });
 
-  return NextResponse.json({ ok: true, photo: data.photo });
+  if (uploadError) return NextResponse.json({ error: uploadError.message }, { status: 500 });
+
+  const { data: urlData } = supabase.storage.from("images").getPublicUrl("profile.webp");
+  const photoUrl = `${urlData.publicUrl}?t=${Date.now()}`;
+
+  const { error: updateError } = await supabase.from("hero").update({ photo: photoUrl }).eq("id", 1);
+  if (updateError) return NextResponse.json({ error: updateError.message }, { status: 500 });
+
+  return NextResponse.json({ ok: true, photo: photoUrl });
 }

@@ -3,10 +3,16 @@ import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
-import MarqueeData from "@/data/marquee-skills.json";
-import HeroData from "@/data/hero.json";
+import supabase from "@/lib/supabase";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [{ data: heroData }, { data: marqueeData }] = await Promise.all([
+    supabase.from("hero").select("*").eq("id", 1).single(),
+    supabase.from("skills_marquee").select("skills").eq("id", 1).single(),
+  ]);
+
+  const HeroData = heroData || {};
+  const skills = marqueeData?.skills || [];
   return (
     <div className="flex flex-col gap-16 pb-16">
       <FadeIn delay={0.1}>
@@ -20,7 +26,7 @@ export default function HomePage() {
         />
       </FadeIn>
 
-      <TechMarquee skills={MarqueeData.skills} />
+      <TechMarquee skills={skills} />
 
       <FadeIn delay={0.25}>
         <FeaturedProject />

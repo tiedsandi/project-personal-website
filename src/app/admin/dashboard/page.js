@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { FolderKanban, FileText, Wrench, ArrowRight } from "lucide-react";
-import DataList from "@/data/projectList.json";
-import MarqueeSkills from "@/data/marquee-skills.json";
+import supabase from "@/lib/supabase";
 
-export default function DashboardPage() {
-  const total = DataList.projects.length;
-  const featured = DataList.projects.filter((p) => p.selected).length;
-  const skillsCount = MarqueeSkills.skills.length;
+export default async function DashboardPage() {
+  const [{ data: projects }, { data: marqueeData }] = await Promise.all([
+    supabase.from("projects").select("id, selected"),
+    supabase.from("skills_marquee").select("skills").eq("id", 1).single(),
+  ]);
+
+  const total = projects?.length || 0;
+  const featured = projects?.filter((p) => p.selected).length || 0;
+  const skillsCount = marqueeData?.skills?.length || 0;
 
   const cards = [
     {

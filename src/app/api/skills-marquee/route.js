@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-
-const DATA_PATH = path.join(process.cwd(), "src/data/marquee-skills.json");
+import supabase from "@/lib/supabase";
 
 export async function GET() {
-  const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf-8"));
-  return NextResponse.json(data);
+  const { data, error } = await supabase.from("skills_marquee").select("skills").eq("id", 1).single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ skills: data.skills });
 }
 
 export async function PUT(request) {
@@ -14,6 +12,7 @@ export async function PUT(request) {
   if (!Array.isArray(body.skills)) {
     return NextResponse.json({ error: "Format tidak valid" }, { status: 400 });
   }
-  fs.writeFileSync(DATA_PATH, JSON.stringify({ skills: body.skills }, null, 2), "utf-8");
-  return NextResponse.json({ skills: body.skills });
+  const { data, error } = await supabase.from("skills_marquee").update({ skills: body.skills }).eq("id", 1).select().single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ skills: data.skills });
 }
