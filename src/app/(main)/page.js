@@ -5,6 +5,8 @@ import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import supabase from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [{ data: heroData }, { data: marqueeData }] = await Promise.all([
     supabase.from("hero").select("*").eq("id", 1).single(),

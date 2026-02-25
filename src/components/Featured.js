@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 import supabase from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 const FeaturedProject = async () => {
   const { data } = await supabase
     .from("projects")
