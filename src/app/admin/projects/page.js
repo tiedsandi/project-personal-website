@@ -6,6 +6,19 @@ import AdminTable from "@/components/admin/AdminTable";
 import AdminModal from "@/components/admin/AdminModal";
 import Field from "@/components/admin/Field";
 
+const PRESET_COLORS = [
+  { label: "Navy", value: "#0f1729" },
+  { label: "Forest", value: "#0d1f1a" },
+  { label: "Plum", value: "#1a0f29" },
+  { label: "Rust", value: "#1f1208" },
+  { label: "Teal", value: "#071f1f" },
+  { label: "Slate", value: "#111827" },
+  { label: "Rose", value: "#1f0d14" },
+  { label: "Amber", value: "#1a1400" },
+  { label: "Indigo", value: "#10102a" },
+  { label: "Stone", value: "#161412" },
+];
+
 const EMPTY_FORM = {
   name: "",
   company: "",
@@ -20,6 +33,8 @@ const EMPTY_FORM = {
   gif_url: "",
   is_show_gif: false,
   is_highlight: false,
+  card_color: "#0f1729",
+  is_show_image: false,
 };
 
 const TYPES = ["web app", "landing page", "mobile app"];
@@ -96,6 +111,8 @@ export default function AdminProjectsPage() {
       gif_url: p.gif_url || "",
       is_show_gif: p.is_show_gif || false,
       is_highlight: p.is_highlight || false,
+      card_color: p.card_color || "#0f1729",
+      is_show_image: p.is_show_image || false,
     });
     setEditId(p.id);
     setError("");
@@ -528,6 +545,58 @@ export default function AdminProjectsPage() {
               </span>
             </label>
           </div>
+
+          {/* Card Color */}
+          <Field label="Warna Card (tampil saat gambar dimatikan)">
+            <div className="flex flex-wrap gap-2 mb-2">
+              {PRESET_COLORS.map((c) => (
+                <button
+                  key={c.value}
+                  type="button"
+                  onClick={() => setForm({ ...form, card_color: c.value })}
+                  title={c.label}
+                  className="w-8 h-8 border-2 transition-all cursor-pointer"
+                  style={{
+                    background: c.value,
+                    borderColor:
+                      form.card_color === c.value ? "#e8ff47" : "transparent",
+                    outline:
+                      form.card_color === c.value
+                        ? "1px solid #e8ff47"
+                        : "none",
+                  }}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-2">
+              <div
+                className="w-7 h-7 border border-border flex-shrink-0"
+                style={{ background: form.card_color }}
+              />
+              <input
+                value={form.card_color}
+                onChange={(e) =>
+                  setForm({ ...form, card_color: e.target.value })
+                }
+                className="input-admin flex-1"
+                placeholder="#0f1729"
+              />
+            </div>
+          </Field>
+
+          <label className="flex items-center gap-2.5 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={form.is_show_image}
+              onChange={(e) =>
+                setForm({ ...form, is_show_image: e.target.checked })
+              }
+              className="accent-[#e8ff47] w-4 h-4"
+            />
+            <span className="text-[12px] text-muted">
+              Pakai gambar di card (override warna)
+            </span>
+          </label>
 
           {error && (
             <div className="text-[12px] text-red-400 bg-red-400/10 border border-red-400/20 px-4 py-2.5">

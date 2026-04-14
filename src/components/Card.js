@@ -21,6 +21,8 @@ const Card = ({ data }) => {
     gif_url,
     isShowGif,
     is_show_gif,
+    is_show_image,
+    card_color,
     date,
     linkGithub,
     link_github,
@@ -36,8 +38,10 @@ const Card = ({ data }) => {
   const resolvedImg = img_url || imgName || "";
   const resolvedGif = gif_url || gifProject || "";
   const resolvedIsShowGif = is_show_gif ?? isShowGif ?? false;
+  const resolvedIsShowImage = is_show_image ?? true;
   const resolvedLinkGithub = link_github || linkGithub || "";
   const resolvedLinkDemo = link_demo || linkDemo || "";
+  const resolvedCardColor = card_color || "#1a1a2e";
 
   const imgSrc = resolvedImg.startsWith("http")
     ? resolvedImg
@@ -68,26 +72,54 @@ const Card = ({ data }) => {
     <Dialog>
       {/* ── Trigger Card ─────────────────────────────────── */}
       <DialogTrigger className="w-full text-left outline-none group">
-        <div className="flex flex-col gap-0 border border-transparent hover:bg-gray transition-colors bg-black p-0 overflow-hidden relative">
-          {/* Image / GIF wrapper */}
+        <div className="relative flex flex-col gap-0 p-0 overflow-hidden transition-colors bg-black border border-transparent hover:bg-gray">
+          {/* Image / Color wrapper */}
           <div
-            className="relative w-full overflow-hidden bg-black cursor-pointer aspect-[16/10]"
+            className="relative w-full overflow-hidden cursor-pointer aspect-[16/10]"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            style={
+              !resolvedIsShowImage
+                ? { background: resolvedCardColor }
+                : { background: "#000" }
+            }
           >
-            {/* Static image */}
-            <Image
-              priority
-              src={imgSrc}
-              alt={name}
-              width={600}
-              height={400}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover w-full h-full opacity-45 mix-blend-normal transition-all duration-400 group-hover:scale-[1.04] group-hover:brightness-40 group-hover:opacity-100 filter grayscale group-hover:grayscale-0"
-            />
+            {/* Noise texture overlay for color mode */}
+            {!resolvedIsShowImage && (
+              <div
+                className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                  backgroundRepeat: "repeat",
+                  backgroundSize: "128px",
+                }}
+              />
+            )}
 
-            {/* GIF overlay — fades in on hover */}
-            {gifSrc && (
+            {/* Project name centered — color mode only */}
+            {!resolvedIsShowImage && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="font-logo text-[clamp(20px,3vw,36px)] tracking-[4px] uppercase text-white/15 text-center px-6 leading-tight opacity-30">
+                  {name}
+                </span>
+              </div>
+            )}
+
+            {/* Static image — only when is_show_image = true */}
+            {resolvedIsShowImage && (
+              <Image
+                priority
+                src={imgSrc}
+                alt={name}
+                width={600}
+                height={400}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover w-full h-full opacity-45 mix-blend-normal transition-all duration-400 group-hover:scale-[1.04] group-hover:brightness-40 group-hover:opacity-100 filter grayscale group-hover:grayscale-0"
+              />
+            )}
+
+            {/* GIF overlay — only when showing image and gifSrc exists */}
+            {resolvedIsShowImage && gifSrc && (
               <div
                 className="absolute inset-0 transition-opacity duration-500"
                 style={{ opacity: isHovered ? 1 : 0 }}
@@ -103,8 +135,8 @@ const Card = ({ data }) => {
             )}
 
             {/* GIF play icon / View project icon */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white bg-black/30 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              <div className="flex items-center justify-center w-12 h-12 text-white transition-transform duration-300 border border-white rounded-full bg-black/30 backdrop-blur-sm group-hover:scale-110">
                 <svg
                   width="24"
                   height="24"
@@ -119,14 +151,14 @@ const Card = ({ data }) => {
             </div>
 
             {/* Content overlay inside image (matching proj-info in HTML) */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col bg-gradient-to-t from-black/95 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col p-6 bg-gradient-to-t from-black/95 to-transparent">
               <div className="text-[9px] tracking-[2px] uppercase text-accent mb-1">
                 {typeLabelMap[type] || type}
               </div>
               <div className="font-logo text-[22px] tracking-[0.5px] mb-2">
                 {name}
               </div>
-              <div className="flex gap-1 flex-wrap">
+              <div className="flex flex-wrap gap-1">
                 {tags.map((tag) => (
                   <span
                     key={tag}
@@ -160,7 +192,7 @@ const Card = ({ data }) => {
                 <img
                   src={modalImgSrc}
                   alt={name}
-                  className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity filter blur-sm"
+                  className="absolute inset-0 object-cover w-full h-full opacity-30 mix-blend-luminosity filter blur-sm"
                 />
               ) : (
                 <Image
@@ -176,8 +208,8 @@ const Card = ({ data }) => {
             </div>
 
             {/* Modal Body */}
-            <div className="p-9 overflow-y-auto">
-              <div className="flex items-start justify-between gap-5 mb-7 border-b border-border pb-6">
+            <div className="overflow-y-auto p-9">
+              <div className="flex items-start justify-between gap-5 pb-6 border-b mb-7 border-border">
                 <div>
                   <DialogTitle className="font-logo text-[42px] tracking-[1px] leading-[0.95]">
                     {name}
