@@ -2,32 +2,17 @@ import { NextResponse } from "next/server";
 import supabase from "@/lib/supabase";
 
 function isAuthorized(request) {
-  const cookie = request.cookies.get("admin_token")?.value;
-  return cookie === "authenticated";
+  return request.cookies.get("admin_token")?.value === "authenticated";
 }
 
-// GET single project
-export async function GET(request, { params }) {
-  const { data, error } = await supabase
-    .from("pf_projects")
-    .select("*")
-    .eq("id", params.id)
-    .single();
-
-  if (error)
-    return NextResponse.json({ error: error.message }, { status: 404 });
-  return NextResponse.json(data);
-}
-
-// UPDATE project
+// UPDATE skill
 export async function PUT(request, { params }) {
-  if (!isAuthorized(request)) {
+  if (!isAuthorized(request))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
 
   const body = await request.json();
   const { data, error } = await supabase
-    .from("pf_projects")
+    .from("pf_skills")
     .update(body)
     .eq("id", params.id)
     .select()
@@ -38,14 +23,13 @@ export async function PUT(request, { params }) {
   return NextResponse.json(data);
 }
 
-// DELETE project
+// DELETE skill
 export async function DELETE(request, { params }) {
-  if (!isAuthorized(request)) {
+  if (!isAuthorized(request))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
 
   const { error } = await supabase
-    .from("pf_projects")
+    .from("pf_skills")
     .delete()
     .eq("id", params.id);
 

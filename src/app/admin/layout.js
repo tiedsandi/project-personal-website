@@ -1,67 +1,83 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { FolderKanban, FileText, Wrench, LayoutDashboard, LogOut, UserCircle } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 
 const navItems = [
-  { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/hero", label: "Hero", icon: UserCircle },
-  { href: "/admin/projects", label: "Proyek", icon: FolderKanban },
-  { href: "/admin/cv", label: "CV", icon: FileText },
-  { href: "/admin/skills", label: "Skills Marquee", icon: Wrench },
+  { href: "/admin/dashboard", label: "Dashboard", icon: "⊞" },
+  { href: "/admin/hero", label: "Hero", icon: "✦" },
+  { href: "/admin/about", label: "About", icon: "◎" },
+  { href: "/admin/journey", label: "Journey", icon: "↝" },
+  { href: "/admin/projects", label: "Projects", icon: "◫" },
+  { href: "/admin/skills", label: "Skills", icon: "⬡" },
+  { href: "/admin/cv", label: "CV", icon: "↓" },
 ];
 
 export default function AdminLayout({ children }) {
-  const pathname = usePathname();
   const router = useRouter();
+  const pathname = usePathname();
 
-  if (pathname === "/admin/login") return <>{children}</>;
-
-  async function handleLogout() {
+  const handleLogout = async () => {
     await fetch("/api/admin/logout", { method: "POST" });
     router.push("/admin/login");
-  }
+  };
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
-      {/* Sidebar */}
-      <aside className="w-60 shrink-0 bg-gray-900 text-white flex flex-col">
-        <div className="px-6 py-5 border-b border-white/10">
-          <span className="text-lg font-bold tracking-tight">Admin Panel</span>
-          <p className="text-xs text-gray-400 mt-0.5">Sandi Portfolio</p>
+    <div className="flex min-h-screen font-sans text-white bg-black">
+      {/* SIDEBAR */}
+      <aside className="fixed top-0 left-0 h-full w-[220px] border-r border-border bg-black flex flex-col z-50">
+        <div className="px-6 py-6 border-b border-border">
+          <div className="font-logo text-[22px] tracking-[2px]">
+            SANDI<span className="text-accent">.</span>
+          </div>
+          <div className="text-[10px] tracking-[1.5px] uppercase text-muted mt-0.5">
+            Admin Panel
+          </div>
         </div>
 
-        <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
-          {navItems.map(({ href, label, icon: Icon }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                pathname === href
-                  ? "bg-white/10 text-white"
-                  : "text-gray-400 hover:bg-white/5 hover:text-white"
-              }`}
-            >
-              <Icon className="w-4 h-4 shrink-0" />
-              {label}
-            </Link>
-          ))}
+        <nav className="flex-1 px-3 py-4 flex flex-col gap-0.5">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`flex items-center gap-3 px-3 py-2.5 text-[13px] tracking-[0.3px] transition-colors ${
+                  isActive
+                    ? "bg-accent/10 text-accent border-l-2 border-accent pl-[10px]"
+                    : "text-muted hover:text-white hover:bg-[#111]"
+                }`}
+              >
+                <span className="text-[16px] leading-none">{item.icon}</span>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="px-3 py-4 border-t border-white/10">
+        <div className="px-3 pb-6">
+          <Link
+            href="/"
+            target="_blank"
+            className="flex items-center gap-3 px-3 py-2.5 text-[12px] text-muted hover:text-white transition-colors tracking-[0.3px] w-full"
+          >
+            <span className="text-[14px]">↗</span>
+            Lihat Website
+          </Link>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-sm font-medium text-gray-400 hover:bg-white/5 hover:text-white transition-colors"
+            className="flex items-center gap-3 px-3 py-2.5 text-[12px] text-muted hover:text-red-400 transition-colors tracking-[0.3px] w-full cursor-pointer bg-transparent border-none text-left"
           >
-            <LogOut className="w-4 h-4" />
+            <span className="text-[14px]">⎋</span>
             Logout
           </button>
         </div>
       </aside>
 
-      {/* Main */}
-      <main className="flex-1 overflow-auto p-8">{children}</main>
+      {/* MAIN CONTENT */}
+      <main className="ml-[220px] flex-1 min-h-screen bg-black">
+        {children}
+      </main>
     </div>
   );
 }

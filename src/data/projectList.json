@@ -1,357 +1,349 @@
-{
-  "projects": [
-    {
-      "id": 1,
-      "name": "NextLevel Food",
-      "company": "",
-      "imgName": "foodie-app.png",
-      "date": "03 April 2024",
-      "linkGithub": "https://github.com/tiedsandi/foodie-app",
-      "description": "NextLevel Food adalah platform digital yang menyediakan berbagai resep yang mudah diakses. Nikmati pengalaman memasak dan berbagi resep di NetLevel Food!",
-      "tags": [
-        "Next.js"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "List resep",
-        "Detail resep",
-        "Search",
-        "Routing"
-      ],
-      "gifProject": "1771917715606-1ikx76bua4l.gif"
-    },
-    {
-      "id": 2,
-      "name": "Landing Page Bromo",
-      "company": "",
-      "imgName": "bromo.png",
-      "date": "18 Maret 2024",
-      "linkGithub": "https://github.com/tiedsandi/landing-page-bromo.git",
-      "description": "Landing page tentang Gunung Bromo dirancang khusus untuk memperkenalkan keindahan dan daya tarik Gunung Bromo di Indonesia.",
-      "tags": [
-        "React.Js",
-        "SASS"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "Responsive UI",
-        "Scroll section",
-        "Gallery"
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Simple Todo",
-      "company": "",
-      "imgName": "todo.png",
-      "date": "10 Juli 2024",
-      "linkGithub": "https://github.com/tiedsandi/simple-todo",
-      "description": "Dengan desain sederhana dan intuitif, aplikasi ini membantu pengguna tetap terorganisir tanpa gangguan.",
-      "tags": [
-        "React.Js",
-        "Redux"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "CRUD Todo",
-        "Filter",
-        "Persist state"
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Second Hand",
-      "company": "Final Project Binar",
-      "imgName": "secondhand.png",
-      "date": "20 Juli 2024",
-      "linkGithub": "https://github.com/tiedsandi/project-secondhandBinar",
-      "description": "Secondhand adalah aplikasi marketplace untuk jual beli barang bekas dalam kondisi baik.",
-      "tags": [
-        "React.Js",
-        "Redux",
-        "SASS",
-        "MUI",
-        "RestAPI"
-      ],
-      "type": "fullstack",
-      "fitur": [
-        "Login/Register",
-        "CRUD Product",
-        "Bid",
-        "API Integration"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Summary Component",
-      "company": "Frontend Mentor",
-      "imgName": "summary-card.png",
-      "date": "10 Mei 2024",
-      "linkGithub": "https://github.com/tiedsandi/summary-card-Fe_challange",
-      "description": "Frontend Mentor challenges - Summary Component",
-      "tags": [
-        "React.Js",
-        "Tailwind"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "Responsive Card",
-        "Component Styling"
-      ]
-    },
-    {
-      "id": 6,
-      "name": "QR Component",
-      "company": "Frontend Mentor",
-      "imgName": "qr-code.png",
-      "date": "15 Mei 2024",
-      "linkGithub": "https://github.com/tiedsandi/QR-code-component-Fe_challange",
-      "description": "Frontend Mentor challenges - QR Component",
-      "tags": [
-        "Next.js"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "Minimal design",
-        "Static content"
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Blog Card",
-      "company": "Frontend Mentor",
-      "imgName": "blog-preview.png",
-      "date": "23 Mei 2024",
-      "linkGithub": "https://github.com/tiedsandi/Blog-preview-card-Fe_challange",
-      "description": "Frontend Mentor challenges - Blog Card",
-      "tags": [
-        "Next.js"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "Card Layout",
-        "Blog Preview"
-      ]
-    },
-    {
-      "id": 8,
-      "name": "MovieDb",
-      "company": "",
-      "imgName": "movie-db.png",
-      "date": "15 November 2024",
-      "linkGithub": "https://github.com/tiedsandi/project_next_movie_db",
-      "description": "Web berbasis Next.JS, API fetching data dari MovieDB",
-      "tags": [
-        "Next.js",
-        "Tailwind",
-        "RestAPI"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "Movie List",
-        "Search",
-        "Detail Page",
-        "Fetch API"
-      ]
-    },
-    {
-      "id": 9,
-      "name": "POS API",
-      "company": "",
-      "imgName": "pos-api.png",
-      "date": "10 Mei 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_pos-api",
-      "description": "Backend API untuk aplikasi Point of Sales (POS), termasuk AUTH, user, category, product.",
-      "tags": [
-        "Laravel",
-        "JWT",
-        "MySQL",
-        "Swagger"
-      ],
-      "type": "backend",
-      "fitur": [
-        "JWT Auth",
-        "CRUD",
-        "Swagger Docs"
-      ]
-    },
-    {
-      "id": 10,
-      "selected": false,
-      "name": "Point Of Sales",
-      "company": "PPKD BNSP",
-      "imgName": "pos.png",
-      "date": "15 Mei 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_point-of-sales",
-      "description": "Aplikasi transaksi yang dirancang khusus untuk memenuhi kebutuhan warung makan.",
-      "tags": [
-        "Laravel",
-        "Tailwind",
-        "Mysql"
-      ],
-      "type": "fullstack",
-      "fitur": [
-        "Transaksi",
-        "Laporan",
-        "Kategori & Produk"
-      ]
-    },
-    {
-      "id": 11,
-      "selected": false,
-      "name": "Ement Backend",
-      "company": "",
-      "imgName": "Ement-be.png",
-      "date": "18 Mei 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_event-management-backend",
-      "description": "Backend API untuk aplikasi Event Management (EMENT), User Authentication (JWT), Role-Based Event Management, Event Registration, Cloudinary Uploads.",
-      "tags": [
-        "Node.Js",
-        "JWT",
-        "MongoDB",
-        "Swagger",
-        "Cloudinary"
-      ],
-      "type": "backend",
-      "fitur": [
-        "Auth JWT",
-        "Event Register",
-        "Cloudinary Upload",
-        "Role-Based Access"
-      ]
-    },
-    {
-      "id": 12,
-      "selected": false,
-      "name": "Event Mangement (EMENT)",
-      "company": "",
-      "imgName": "Ement-fe.png",
-      "date": "20 Mei 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_event-management-frontend",
-      "description": "Ement adalah aplikasi manajemen event berbasis web yang memungkinkan pengguna untuk membuat, melihat, dan mendaftar ke berbagai event. Aplikasi ini dirancang untuk digunakan oleh publik secara umum.",
-      "tags": [
-        "React.Js",
-        "Tailwind",
-        "Restful API"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "Event List",
-        "Daftar Event",
-        "Login/Register",
-        "API Integration"
-      ]
-    },
-    {
-      "id": 13,
-      "selected": true,
-      "gifProject": "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
-      "name": "Crwn Shop",
-      "company": "",
-      "imgName": "crwn-shop.png",
-      "date": "20 Juni 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_crwn-store/",
-      "description": "CRWN SHOP adalah aplikasi online shop pakaian yang dibangun untuk showcase portofolio dan pembelajaran fullstack menggunakan Firebase.",
-      "tags": [
-        "React.Js",
-        "Firebase",
-        "Redux"
-      ],
-      "type": "fullstack",
-      "fitur": [
-        "Login / Authentication",
-        "Product CRUD",
-        "Shopping Cart & Checkout",
-        "Dashboard Chart",
-        "Export Excel"
-      ]
-    },
-    {
-      "id": 14,
-      "selected": false,
-      "gifProject": "https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif",
-      "name": "Contact Management API",
-      "company": "",
-      "imgName": "go-lang.png",
-      "date": "28 Juni 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_contact-management-go",
-      "description": "Contact Management API adalah backend service untuk mengelola data Users, Contacts, dan Addresses. Dibangun dengan arsitektur clean-layered menggunakan Golang dan Gin Framework, serta PostgreSQL sebagai database. Cocok untuk pembelajaran REST API dan JWT Authentication.",
-      "tags": [
-        "Golang",
-        "Gin",
-        "PostgreSQL",
-        "GORM",
-        "JWT"
-      ],
-      "type": "backend",
-      "fitur": [
-        "User Authentication (JWT)",
-        "CRUD Users",
-        "CRUD Contacts dengan Pagination dan Filtering",
-        "CRUD Address per Contact",
-        "Layered Architecture (Controller, Service, Repository)",
-        "Password Hashing & Validation",
-        "Custom Middleware (Auth)"
-      ]
-    },
-    {
-      "id": 15,
-      "selected": true,
-      "gifProject": "1771984035658-c4zr2cd9p1e.gif",
-      "name": "Contact Management APP",
-      "company": "",
-      "imgName": "contact-management.png",
-      "date": "28 Juni 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_typescript-contact-management",
-      "description": "Inspirasi project ini datang dari tutorial Programmer Zaman Now, namun seluruh implementasi backend dan integrasi dibuat dari nol.",
-      "tags": [
-        "React",
-        "Typescript",
-        "RestAPI",
-        "Tailwind"
-      ],
-      "type": "frontend",
-      "fitur": [
-        "Form Validation Real-time dengan Hook Form + Zod",
-        "Tambah",
-        "edit",
-        "hapus",
-        "dan lihat daftar kontak",
-        "Tambah",
-        "edit",
-        "hapus",
-        "dan lihat daftar address per kontak",
-        "Validasi password kuat (uppercase",
-        "lowercase",
-        "simbol",
-        "minimal 6 karakter)",
-        "Backend API dengan Golang untuk manajemen kontak"
-      ]
-    },
-    {
-      "id": 16,
-      "selected": true,
-      "gifProject": "https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif",
-      "name": "Roadmind AI",
-      "company": "",
-      "imgName": "roadmind-ai.png",
-      "date": "8 September 2025",
-      "linkGithub": "https://github.com/tiedsandi/project_roadmind-ai",
-      "description": "Roadmind adalah aplikasi AI Blog Planner yang membantu menyusun konten atau roadmap harian sesuai kebutuhan. Cukup masukkan topik dan durasi (jumlah hari), lalu AI akan menghasilkan rencana harian lengkap",
-      "tags": [
-        "Next.js",
-        "Typescript",
-        "Firebase",
-        "Tailwind",
-        "AI-Integration"
-      ],
-      "type": "fullstack",
-      "fitur": [
-        "Login dengan Google via Firebase Authentication",
-        "AI Content Planner: user input topik + durasi → AI generate roadmap harian.",
-        "Format Blog: hasil tersimpan dan ditampilkan seperti artikel/blog",
-        "Realtime Storage: data disimpan dengan Firebase"
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Roadmind AI",
+    "company": "Personal Project",
+    "type": "web app",
+    "date": "Sep 2025",
+    "description": "Aplikasi berbasis AI untuk merekomendasikan roadmap belajar berdasarkan minat dan tujuan karir pengguna.",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Gemini AI"
+    ],
+    "fitur": [
+      "AI Roadmap Generation",
+      "User Authentication",
+      "Progress Tracking"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": true,
+    "imgName": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "https://media.giphy.com/media/l41YiA3XEYLnsnIQo/giphy.gif",
+    "isShowGif": true
+  },
+  {
+    "id": 2,
+    "name": "Crwn Shop",
+    "company": "Personal Project",
+    "type": "web app",
+    "date": "Okt 2024",
+    "description": "E-commerce platform dengan fitur lengkap mulai dari keranjang belanja hingga proses checkout.",
+    "tags": [
+      "React.js",
+      "Firebase",
+      "Redux"
+    ],
+    "fitur": [
+      "State Management",
+      "Payment Gateway",
+      "Realtime Database"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": true,
+    "imgName": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif",
+    "isShowGif": true
+  },
+  {
+    "id": 3,
+    "name": "POS Mobile",
+    "company": "PKID BNSP",
+    "type": "mobile app",
+    "date": "Agt 2024",
+    "description": "Aplikasi Point of Sales untuk restoran dan kasir keliling dengan sinkronisasi realtime.",
+    "tags": [
+      "React Native",
+      "Expo",
+      "Redux"
+    ],
+    "fitur": [
+      "Bluetooth Printing",
+      "Offline Sync",
+      "Sales Graph"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": true,
+    "imgName": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    "isShowGif": true
+  },
+  {
+    "id": 4,
+    "name": "Bromo Expedition",
+    "company": "Freelance",
+    "type": "landing page",
+    "date": "Jun 2024",
+    "description": "Website landing page promosi dan reservasi wisata gunung bromo yang responsif dan interaktif.",
+    "tags": [
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "fitur": [
+      "Responsive Design",
+      "Scroll Animations",
+      "SEO Friendly"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": true,
+    "imgName": "https://images.unsplash.com/photo-1506744626753-1436e4b85c1b?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 5,
+    "name": "Crypto Tracker",
+    "company": "Personal Project",
+    "type": "web app",
+    "date": "Mei 2024",
+    "description": "Dashboard pemantauan harga cryptocurrency secara realtime menggunakan websocket.",
+    "tags": [
+      "Vue.js",
+      "Socket.io",
+      "Tailwind"
+    ],
+    "fitur": [
+      "Realtime Charts",
+      "Watchlist",
+      "Price Alerts"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": true,
+    "imgName": "https://images.unsplash.com/photo-1621504450181-5d356f61d307?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "https://media.giphy.com/media/XU0p8JABZ1o4mriP2Q/giphy.gif",
+    "isShowGif": true
+  },
+  {
+    "id": 6,
+    "name": "Workout Routine",
+    "company": "Personal Project",
+    "type": "mobile app",
+    "date": "Mar 2024",
+    "description": "Aplikasi seluler pemantau latihan kebugaran dan kalori setiap harinya.",
+    "tags": [
+      "Flutter",
+      "Firebase",
+      "Zustand"
+    ],
+    "fitur": [
+      "Calendar Stats",
+      "Workout Presets"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 7,
+    "name": "Portfolio Template 1",
+    "company": "Envato",
+    "type": "landing page",
+    "date": "Feb 2024",
+    "description": "Template web portfolio untuk desainer grafis dengan desain minimalis.",
+    "tags": [
+      "HTML",
+      "SASS",
+      "JS"
+    ],
+    "fitur": [
+      "Dark Mode",
+      "Fluid Typography"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 8,
+    "name": "Restaurant Finder",
+    "company": "Dicoding",
+    "type": "web app",
+    "date": "Jan 2024",
+    "description": "Progressive Web App pencari restoran terdekat berdasarkan lokasi pengguna.",
+    "tags": [
+      "Vanilla JS",
+      "PWA",
+      "Webpack"
+    ],
+    "fitur": [
+      "Offline First",
+      "Service Worker"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 9,
+    "name": "Fintech Onboarding",
+    "company": "Freelance",
+    "type": "mobile app",
+    "date": "Des 2023",
+    "description": "Flow onboarding aplikasi fintech dengan UX yang mulus dan modern.",
+    "tags": [
+      "Kotlin",
+      "Android Studio"
+    ],
+    "fitur": [
+      "Lottie Animations",
+      "Biometric Auth"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 10,
+    "name": "SaaS Start",
+    "company": "Freelance",
+    "type": "landing page",
+    "date": "Nov 2023",
+    "description": "Halaman konversi pendaftaran untuk platform Software as a Service B2B.",
+    "tags": [
+      "React",
+      "Bootstrap 5"
+    ],
+    "fitur": [
+      "Pricing Tables",
+      "FAQ Accordion"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 11,
+    "name": "Dashboard Analytics",
+    "company": "Personal Project",
+    "type": "web app",
+    "date": "Okt 2023",
+    "description": "Sistem dashboard CMS internal perusahaan untuk administrasi dan pelaporan.",
+    "tags": [
+      "Angular",
+      "Tailwind",
+      "Chart.js"
+    ],
+    "fitur": [
+      "Data Export",
+      "Data Grid",
+      "Authentication"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 12,
+    "name": "Ticketing App",
+    "company": "Personal Project",
+    "type": "mobile app",
+    "date": "Sep 2023",
+    "description": "Aplikasi pemutar dan pemensanan tiket bioskop.",
+    "tags": [
+      "Swift",
+      "Firebase"
+    ],
+    "fitur": [
+      "Seat Selection",
+      "QR Generator"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 13,
+    "name": "Agency Landing",
+    "company": "Frontend Mentor",
+    "type": "landing page",
+    "date": "Agt 2023",
+    "description": "Desain layout kreatif untuk perusahaan agensi digital masa kini.",
+    "tags": [
+      "HTML",
+      "CSS",
+      "GSAP"
+    ],
+    "fitur": [
+      "Smooth Scrolling",
+      "Parallax"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 14,
+    "name": "Weather PWA",
+    "company": "Personal Project",
+    "type": "web app",
+    "date": "Jul 2023",
+    "description": "Perkiraan cuaca waktu nyata menggunakan Geolocation API.",
+    "tags": [
+      "React",
+      "CSS Modules"
+    ],
+    "fitur": [
+      "Location based",
+      "Forecast API"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  },
+  {
+    "id": 15,
+    "name": "Event App",
+    "company": "Personal Project",
+    "type": "mobile app",
+    "date": "Jun 2023",
+    "description": "Jelajahi event dan webinar sekitarmu dengan integrasi map.",
+    "tags": [
+      "React Native",
+      "Google Maps API"
+    ],
+    "fitur": [
+      "Event Tracking",
+      "Route Finder"
+    ],
+    "linkDemo": "#",
+    "linkGithub": "#",
+    "isHighlight": false,
+    "imgName": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
+    "gifProject": "",
+    "isShowGif": false
+  }
+]

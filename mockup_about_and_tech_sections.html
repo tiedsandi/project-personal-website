@@ -1,0 +1,641 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .wrap {
+    background: #0a0a0a;
+    color: #f5f2ec;
+    font-family: "DM Sans", system-ui, sans-serif;
+    padding: 0;
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap");
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+  .display {
+    font-family: "Bebas Neue", sans-serif;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e8ff47;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: "";
+    flex: 0 0 32px;
+    height: 1px;
+    background: #e8ff47;
+  }
+  .section-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    margin-bottom: 48px;
+  }
+  .outline {
+    -webkit-text-stroke: 1px #f5f2ec;
+    color: transparent;
+  }
+  .accent {
+    color: #e8ff47;
+  }
+  .muted {
+    color: #888;
+  }
+  .border-line {
+    border-top: 1px solid #2a2a2a;
+    margin: 0;
+  }
+  .px {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  /* ── ABOUT SECTION ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #2a2a2a;
+  }
+  .about-cell {
+    background: #0a0a0a;
+    padding: 40px 36px;
+  }
+  .about-cell.dark {
+    background: #111;
+  }
+  .about-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid #2a2a2a;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  .about-tag.me {
+    border-color: rgba(232, 255, 71, 0.3);
+    color: #e8ff47;
+  }
+  .about-name {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .about-bio {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .about-bio strong {
+    color: #f5f2ec;
+    font-weight: 400;
+  }
+  .kv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .kv-row {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #1e1e1e;
+    padding-bottom: 12px;
+  }
+  .kv-key {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 120px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .kv-val {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+  .kv-val .hi {
+    color: #f5f2ec;
+  }
+  .kv-val .acc {
+    color: #e8ff47;
+  }
+  .now-learning {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .now-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .now-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+  .now-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .now-pill {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    border: 1px solid rgba(232, 255, 71, 0.2);
+    color: rgba(232, 255, 71, 0.7);
+  }
+  .now-pill.active {
+    border-color: rgba(232, 255, 71, 0.5);
+    color: #e8ff47;
+  }
+
+  /* ── TECH / GITHUB SECTION ── */
+  .gh-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .gh-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .gh-card {
+    background: #0d0d0d;
+    border: 1px solid #1e1e1e;
+  }
+  .gh-hd {
+    padding: 10px 16px;
+    border-bottom: 1px solid #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .gh-hd-title {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.5px;
+  }
+  .gh-hd-title .dot {
+    color: #e8ff47;
+    margin-right: 5px;
+  }
+  .gh-hd-badge {
+    font-size: 9px;
+    color: #444;
+  }
+  .gh-body {
+    padding: 16px;
+  }
+  .lang-bar {
+    display: flex;
+    height: 8px;
+    gap: 2px;
+    margin-bottom: 14px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .lang-seg {
+    height: 100%;
+    transition: filter 0.2s;
+  }
+  .lang-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: #777;
+  }
+  .lang-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .lang-pct {
+    color: #444;
+  }
+  .contrib-months {
+    display: flex;
+    padding-left: 28px;
+    margin-bottom: 4px;
+  }
+  .contrib-month {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    color: #444;
+    flex: 1;
+  }
+  .contrib-body {
+    display: flex;
+    gap: 3px;
+  }
+  .contrib-days {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .contrib-day-lbl {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    color: #444;
+    height: 10px;
+    line-height: 10px;
+    text-align: right;
+    width: 22px;
+  }
+  .contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(52, 1fr);
+    grid-template-rows: repeat(7, 10px);
+    gap: 3px;
+    flex: 1;
+  }
+  .cc {
+    border-radius: 2px;
+  }
+  .c0 {
+    background: #161b22;
+  }
+  .c1 {
+    background: #0e4429;
+  }
+  .c2 {
+    background: #006d32;
+  }
+  .c3 {
+    background: #26a641;
+  }
+  .c4 {
+    background: #39d353;
+  }
+  .contrib-footer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-end;
+    margin-top: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    color: #444;
+  }
+  .cl-cell {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .skill-top {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+  }
+  .skill-name {
+    color: #999;
+  }
+  .skill-pct {
+    color: #444;
+  }
+  .skill-track {
+    height: 3px;
+    background: #1e1e1e;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    border-radius: 2px;
+  }
+  .pinned-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .pr-card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .pr-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pr-name {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: #4d9fff;
+    font-weight: 500;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pr-pub {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    color: #444;
+    border: 1px solid #2a2a2a;
+    padding: 1px 6px;
+    border-radius: 20px;
+  }
+  .pr-desc {
+    font-size: 11px;
+    color: #555;
+    line-height: 1.5;
+  }
+  .pr-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: #555;
+  }
+  .pr-lang-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+  .badge-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+</style>
+
+<div class="wrap">
+  <hr class="border-line" />
+
+  <!-- ── SECTION 2: GITHUB RETRO TECH ── -->
+  <section style="padding: 80px 48px">
+    <div class="section-label">Teknologi</div>
+    <div class="section-title">
+      APA YANG SAYA <span class="outline">KUASAI & PELAJARI</span>
+    </div>
+
+    <div class="gh-layout">
+      <div class="gh-col">
+        <div class="gh-card">
+          <div class="gh-hd">
+            <span class="gh-hd-title"
+              ><span class="dot">◉</span>languages_used</span
+            >
+            <span class="gh-hd-badge">16 repos</span>
+          </div>
+          <div class="gh-body">
+            <div class="lang-bar" id="lb"></div>
+            <div class="lang-legend" id="ll"></div>
+          </div>
+        </div>
+
+        <div class="gh-card">
+          <div class="gh-hd">
+            <span class="gh-hd-title"
+              ><span class="dot">◉</span>pinned_repositories</span
+            >
+          </div>
+          <div class="gh-body" style="padding: 12px">
+            <div class="pinned-grid">
+              <div class="pr-card">
+                <div class="pr-top">
+                  <span style="font-size: 11px; color: #555">⊟</span
+                  ><span class="pr-name">roadmind-ai</span
+                  ><span class="pr-pub">public</span>
+                </div>
+                <div class="pr-desc">
+                  AI Blog Planner — topik → roadmap harian
+                </div>
+                <div class="pr-meta">
+                  <div class="pr-lang-dot" style="background: #3178c6"></div>
+                  <span>TypeScript</span><span>★ 4</span>
+                </div>
+              </div>
+              <div class="pr-card">
+                <div class="pr-top">
+                  <span style="font-size: 11px; color: #555">⊟</span
+                  ><span class="pr-name">contact-mgmt-api</span
+                  ><span class="pr-pub">public</span>
+                </div>
+                <div class="pr-desc">REST API Golang + Gin + PostgreSQL</div>
+                <div class="pr-meta">
+                  <div class="pr-lang-dot" style="background: #00add8"></div>
+                  <span>Go</span><span>★ 2</span>
+                </div>
+              </div>
+              <div class="pr-card">
+                <div class="pr-top">
+                  <span style="font-size: 11px; color: #555">⊟</span
+                  ><span class="pr-name">crwn-shop</span
+                  ><span class="pr-pub">public</span>
+                </div>
+                <div class="pr-desc">E-commerce React + Redux + Firebase</div>
+                <div class="pr-meta">
+                  <div class="pr-lang-dot" style="background: #f1e05a"></div>
+                  <span>JavaScript</span><span>★ 3</span>
+                </div>
+              </div>
+              <div class="pr-card">
+                <div class="pr-top">
+                  <span style="font-size: 11px; color: #555">⊟</span
+                  ><span class="pr-name">point-of-sales</span
+                  ><span class="pr-pub">public</span>
+                </div>
+                <div class="pr-desc">
+                  Aplikasi POS Laravel untuk warung makan
+                </div>
+                <div class="pr-meta">
+                  <div class="pr-lang-dot" style="background: #4f5d95"></div>
+                  <span>PHP</span><span>★ 2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gh-col">
+        <div class="gh-card">
+          <div class="gh-hd">
+            <span class="gh-hd-title"
+              ><span class="dot">◉</span>contributions</span
+            >
+            <span class="gh-hd-badge">last 12 months</span>
+          </div>
+          <div class="gh-body" style="overflow-x: auto">
+            <div class="contrib-months" id="cm"></div>
+            <div class="contrib-body">
+              <div class="contrib-days">
+                <div class="contrib-day-lbl"></div>
+                <div class="contrib-day-lbl">Sen</div>
+                <div class="contrib-day-lbl"></div>
+                <div class="contrib-day-lbl">Rab</div>
+                <div class="contrib-day-lbl"></div>
+                <div class="contrib-day-lbl">Jum</div>
+                <div class="contrib-day-lbl"></div>
+              </div>
+              <div class="contrib-grid" id="cg"></div>
+            </div>
+            <div class="contrib-footer">
+              <span>Sedikit</span>
+              <div style="display: flex; gap: 2px">
+                <div class="cl-cell c0"></div>
+                <div class="cl-cell c1"></div>
+                <div class="cl-cell c2"></div>
+                <div class="cl-cell c3"></div>
+                <div class="cl-cell c4"></div>
+              </div>
+              <span>Banyak</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gh-card">
+          <div class="gh-hd">
+            <span class="gh-hd-title"
+              ><span class="dot">◉</span>skill_proficiency.json</span
+            >
+          </div>
+          <div class="gh-body">
+            <div class="skill-list" id="sl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  const langs = [
+    { n: "TypeScript", p: 32, c: "#3178c6" },
+    { n: "JavaScript", p: 18, c: "#f1e05a" },
+    { n: "PHP/Laravel", p: 16, c: "#4f5d95" },
+    { n: "Go", p: 12, c: "#00add8" },
+    { n: "Python", p: 10, c: "#3572A5" },
+    { n: "CSS/SASS", p: 8, c: "#563d7c" },
+    { n: "Other", p: 4, c: "#333" },
+  ];
+  const lb = document.getElementById("lb");
+  const ll = document.getElementById("ll");
+  langs.forEach((l) => {
+    const s = document.createElement("div");
+    s.className = "lang-seg";
+    s.style.cssText = `background:${l.c};width:${l.p}%;`;
+    lb.appendChild(s);
+    const i = document.createElement("div");
+    i.className = "lang-item";
+    i.innerHTML = `<div class="lang-dot" style="background:${l.c}"></div><span>${l.n}</span><span class="lang-pct">${l.p}%</span>`;
+    ll.appendChild(i);
+  });
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "Mei",
+    "Jun",
+    "Jul",
+    "Agu",
+    "Sep",
+    "Okt",
+    "Nov",
+    "Des",
+  ];
+  const cm = document.getElementById("cm");
+  months.forEach((m) => {
+    const d = document.createElement("div");
+    d.className = "contrib-month";
+    d.textContent = m;
+    cm.appendChild(d);
+  });
+  const cg = document.getElementById("cg");
+  function sr(s) {
+    let x = Math.sin(s + 37) * 9999;
+    return x - Math.floor(x);
+  }
+  for (let col = 0; col < 52; col++) {
+    for (let row = 0; row < 7; row++) {
+      const r = sr(col * 7 + row);
+      const recent = col > 44;
+      let lv = r < 0.38 ? 0 : r < 0.58 ? 1 : r < 0.74 ? 2 : r < 0.88 ? 3 : 4;
+      if (recent && r > 0.3) lv = Math.min(4, lv + 1);
+      const c = document.createElement("div");
+      c.className = `cc c${lv}`;
+      cg.appendChild(c);
+    }
+  }
+
+  const skills = [
+    { n: "React / Next.js", p: 85, c: "#61dafb" },
+    { n: "TypeScript", p: 80, c: "#3178c6" },
+    { n: "Laravel (PHP)", p: 75, c: "#ef3b2d" },
+    { n: "Go / Gin", p: 65, c: "#00add8" },
+    { n: "Django", p: 58, c: "#3572A5" },
+    { n: "Database (PG/MySQL/Mongo)", p: 70, c: "#336791" },
+    { n: "Three.js / GSAP", p: 20, c: "#e8ff47" },
+  ];
+  const sl = document.getElementById("sl");
+  sl.innerHTML = skills
+    .map(
+      (s) => `
+  <div class="skill-row">
+    <div class="skill-top"><span class="skill-name">${s.n}</span><span class="skill-pct">${s.p}%</span></div>
+    <div class="skill-track"><div class="skill-fill" style="background:${s.c};width:${s.p}%;"></div></div>
+  </div>`,
+    )
+    .join("");
+</script>

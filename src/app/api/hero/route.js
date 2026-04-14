@@ -1,15 +1,19 @@
 import { NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
 import supabase from "@/lib/supabase";
 
 export async function GET() {
-  const { data, error } = await supabase.from("hero").select("*").eq("id", 1).single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(data);
-}
+  const [heroRes, countRes] = await Promise.all([
+    supabase.from("pf_hero").select("*").limit(1).single(),
+    supabase.from("pf_projects").select("id", { count: "exact", head: true }),
+  ]);
 
-export async function PUT(request) {
-  const body = await request.json();
-  const { data, error } = await supabase.from("hero").update(body).eq("id", 1).select().single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(data);
+  if (heroRes.error)
+    return NextResponse.json({ error: heroRes.error.message }, { status: 500 });
+
+  return NextResponse.json({
+    ...heroRes.data,
+    stat_projects: countRes.count ?? heroRes.data.stat_projects ?? 0,
+  });
 }

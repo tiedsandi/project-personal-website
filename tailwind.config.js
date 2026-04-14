@@ -9,43 +9,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background-color)",
-        surface: "var(--background-color-secondary)",
-        primary: "var(--primary-color)",
-        secondary: "var(--secondary-color)",
-        foreground: "var(--text-color)",
-        border: "var(--border-color)",
+        black: "var(--black)",
+        white: "var(--white)",
+        accent: "var(--accent)",
+        gray: "var(--gray)",
+        muted: "var(--muted)",
+        border: "var(--border)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
       },
       fontFamily: {
-        logo: ["var(--font-logo)", "monospace"],
-        body: ["var(--font-body)", "sans-serif"],
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      boxShadow: {
-        soft: "0 4px 12px rgba(0, 0, 0, 0.08)",
+        logo: ["'Bebas Neue'", "sans-serif"],
+        sans: ["'DM Sans'", "sans-serif"],
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.2" },
+        },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        marquee: "marquee 25s linear infinite",
+        marquee: "marquee 22s linear infinite",
+        blink: "blink 2s infinite",
       },
     },
   },

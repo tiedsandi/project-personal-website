@@ -1,18 +1,32 @@
 import { NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
 import supabase from "@/lib/supabase";
 
-export async function GET() {
-  const { data, error } = await supabase.from("skills_marquee").select("skills").eq("id", 1).single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ skills: data.skills });
-}
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const marquee = searchParams.get("marquee");
+  const proficiency = searchParams.get("proficiency");
 
-export async function PUT(request) {
-  const body = await request.json();
-  if (!Array.isArray(body.skills)) {
-    return NextResponse.json({ error: "Format tidak valid" }, { status: 400 });
+  let query = supabase
+    .from("pf_skills")
+    .select("*")
+    .order("name", { ascending: true });
+
+  if (marquee === "true") {
+    query = query.eq("is_marquee", true);
   }
-  const { data, error } = await supabase.from("skills_marquee").update({ skills: body.skills }).eq("id", 1).select().single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ skills: data.skills });
+
+  if (proficiency === "true") {
+    query = supabase
+      .from("pf_skills")
+      .select("id, name, proficiency, lang_color")
+      .gt("proficiency", 0)
+      .order("proficiency", { ascending: false });
+  }
+
+  const { data, error } = await query;
+  if (error)
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data);
 }
