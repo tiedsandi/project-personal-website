@@ -39,8 +39,16 @@ const Card = ({ data }) => {
   const resolvedGif = gif_url || gifProject || "";
   const resolvedIsShowGif = is_show_gif ?? isShowGif ?? false;
   const resolvedIsShowImage = is_show_image ?? true;
-  const resolvedLinkGithub = link_github || linkGithub || "";
-  const resolvedLinkDemo = link_demo || linkDemo || "";
+  const rawLinkGithub = link_github || linkGithub || "";
+  const rawLinkDemo = link_demo || linkDemo || "";
+  const resolvedLinkGithub =
+    rawLinkGithub && !/^https?:\/\//i.test(rawLinkGithub)
+      ? `https://${rawLinkGithub}`
+      : rawLinkGithub;
+  const resolvedLinkDemo =
+    rawLinkDemo && !/^https?:\/\//i.test(rawLinkDemo)
+      ? `https://${rawLinkDemo}`
+      : rawLinkDemo;
   const resolvedCardColor = card_color || "#1a1a2e";
 
   const imgSrc = resolvedImg.startsWith("http")
