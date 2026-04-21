@@ -94,7 +94,7 @@ export async function GET() {
     if (token) {
       const pinnedNodes = await fetchPinnedRepos(token);
       if (pinnedNodes?.length) {
-        pinned = pinnedNodes.slice(0, 4).map((r) => ({
+        pinned = pinnedNodes.slice(0, 6).map((r) => ({
           name: r.name,
           description: r.description || "",
           language: r.primaryLanguage?.name || "",
@@ -113,7 +113,7 @@ export async function GET() {
       pinned = (Array.isArray(repos) ? repos : [])
         .filter((r) => !r.fork)
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
-        .slice(0, 4)
+        .slice(0, 6)
         .map((r) => ({
           name: r.name,
           description: r.description || "",

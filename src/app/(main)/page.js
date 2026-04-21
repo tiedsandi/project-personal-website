@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Card from "@/components/Card";
 import GithubSection from "@/components/GithubSection";
+import PageLoader from "@/components/PageLoader";
 
 const BADGE_DISPLAY = {
   open_to_work: "Open to Work",
@@ -20,6 +21,7 @@ export default function HomePage() {
   const [about, setAbout] = useState(null);
   const [allSkills, setAllSkills] = useState([]);
   const [ghData, setGhData] = useState(null);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     fetch("/api/projects?highlight=true")
@@ -27,26 +29,30 @@ export default function HomePage() {
       .then((data) =>
         setHighlights(Array.isArray(data) ? data.slice(0, 4) : []),
       )
-      .catch(() => setHighlights([]));
+      .catch(() => setHighlights([]))
+      .finally(() => setProgress((p) => p + 20));
 
     fetch("/api/skills-marquee?marquee=true")
       .then((r) => r.json())
       .then((data) => setMarqueeSkills(Array.isArray(data) ? data : []))
-      .catch(() => setMarqueeSkills([]));
+      .catch(() => setMarqueeSkills([]))
+      .finally(() => setProgress((p) => p + 10));
 
     fetch("/api/hero")
       .then((r) => r.json())
       .then((d) => {
         if (d && !d.error) setHero(d);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setProgress((p) => p + 15));
 
     fetch("/api/cv")
       .then((r) => r.json())
       .then((d) => {
         if (d?.file_url) setCvUrl(d.file_url);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setProgress((p) => p + 10));
 
     fetch("/api/about")
       .then((r) => r.json())
@@ -56,19 +62,22 @@ export default function HomePage() {
           setAbout(d);
         }
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setProgress((p) => p + 20));
 
     fetch("/api/skills-marquee")
       .then((r) => r.json())
       .then((d) => setAllSkills(Array.isArray(d) ? d : []))
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setProgress((p) => p + 10));
 
     fetch("/api/github")
       .then((r) => r.json())
       .then((d) => {
         if (d && !d.error) setGhData(d);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setProgress((p) => p + 15));
   }, []);
 
   useEffect(() => {
@@ -86,6 +95,7 @@ export default function HomePage() {
 
   return (
     <>
+      <PageLoader progress={progress} />
       <section className="relative flex flex-col justify-end min-h-screen px-12 pb-16 overflow-hidden">
         <div className="absolute top-1/2 -left-2 -translate-y-[60%] font-logo text-[clamp(120px,20vw,220px)] text-[rgba(255,255,255,0.03)] pointer-events-none whitespace-nowrap leading-none select-none -z-10">
           FULLSTACK

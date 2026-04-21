@@ -60,21 +60,24 @@ export default function GithubSection({ allSkills = [] }) {
       .finally(() => setLoading(false));
   }, []);
 
-  // Build 52-week grid from contributions array
+  // Build 52-week grid from contributions array, properly aligned by day-of-week
   const weeks = (() => {
     if (!gh?.contributions?.length) return [];
-    // contributions: [{ date, count, level }] sorted asc
-    const all = gh.contributions;
-    const grid = []; // array of 52 weeks, each = 7 days
-    for (let w = 0; w < 52; w++) {
-      const week = [];
-      for (let d = 0; d < 7; d++) {
-        const idx = w * 7 + d;
-        week.push(all[idx] ?? { count: 0 });
-      }
+    const all = gh.contributions; // sorted asc [{ date, count, level }]
+
+    // Pad the start so index 0 lands on Sunday (dow=0)
+    const firstDow = new Date(all[0].date).getDay(); // 0=Sun..6=Sat
+    const padded = [...Array(firstDow).fill({ count: 0, date: null }), ...all];
+
+    const grid = [];
+    for (let i = 0; i < padded.length; i += 7) {
+      const week = padded.slice(i, i + 7);
+      while (week.length < 7) week.push({ count: 0, date: null });
       grid.push(week);
     }
-    return grid;
+
+    // Keep last 53 weeks (matches GitHub's ~52-week display)
+    return grid.slice(-53);
   })();
 
   const monthLabels = (() => {

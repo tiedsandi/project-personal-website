@@ -98,7 +98,7 @@ export default function MainLayout({ children }) {
             <a
               href="https://wa.me/62895376240128?text=Halo%20Sandi%2C%20saya%20ingin%20ngobrol%20sebentar!"
               target="_blank"
-              className="flex items-center gap-4 p-4.5 border border-border bg-black text-white decoration-none transition-colors hover:border-accent hover:bg-accent/5 group"
+              className="flex items-center gap-4 p-4 text-white transition-colors bg-black border border-border decoration-none hover:border-accent hover:bg-accent/5 group"
             >
               <div className="w-10 h-10 flex items-center justify-center border border-[#25d36666] flex-shrink-0 text-lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366">
@@ -117,9 +117,9 @@ export default function MainLayout({ children }) {
             </a>
             <a
               href="mailto:fachransandi@gmail.com?subject=Halo%20Sandi&body=Halo%20Sandi%2C%0A%0A"
-              className="flex items-center gap-4 p-4.5 border border-border bg-black text-white decoration-none transition-colors hover:border-accent hover:bg-accent/5 group"
+              className="flex items-center gap-4 p-4 text-white transition-colors bg-black border border-border decoration-none hover:border-accent hover:bg-accent/5 group"
             >
-              <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-lg border border-accent/30">
+              <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-lg border border-accent">
                 <svg
                   width="18"
                   height="18"
